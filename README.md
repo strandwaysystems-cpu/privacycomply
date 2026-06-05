@@ -1,88 +1,82 @@
 # PrivacyComply.io
 
-Static affiliate review site for data privacy & cookie consent compliance tools. Part of the **Strandway Ventures** affiliate marketing portfolio (Pillar 1).
+Affiliate review site for cookie consent management platforms and GDPR/CCPA compliance tools, targeting SMB website owners, marketers, and bootstrapped SaaS founders.
 
-## Niche
+## Stack
 
-Data privacy & cookie consent compliance tools — high-ticket B2B SaaS affiliate marketing. Selected for 25% CAGR, GDPR/CCPA enforcement tailwind, and strong AI Overview citation potential.
+- **Framework:** [Astro](https://astro.build) v4 (static output, MDX-ready)
+- **Sitemap:** `@astrojs/sitemap` (auto-generated)
+- **Hosting:** Hostinger (auto-deploy from GitHub `master`)
+- **Domain:** privacycomply.io (registered on Hostinger)
 
-## Affiliate stack
-
-| Partner | Model | Status |
-|---|---|---|
-| CookieYes | Recurring 30% for 3 years | Placeholder — sign up at cookieyes.com/affiliate |
-| iubenda | Revenue share 40% | Placeholder — sign up at iubenda.com/affiliate-program |
-| Termly | Revenue share 35% | Placeholder — sign up at termly.io/affiliate-program |
-| NordLayer | $400–$1,000 per sale | Placeholder — sign up at nordlayer.com/partners |
-| Osano | Referral partner (enterprise) | Pending |
-
-**Before deploying live:** Replace every instance of `?ref=YOUR_AFFILIATE_ID` across the HTML files with the real affiliate ID from each partner's dashboard.
+## Local Development
 
 ```bash
-# Find every placeholder
-grep -rn "YOUR_AFFILIATE_ID" .
+npm install
+npm run dev        # local dev server at http://localhost:4321
+npm run build      # production build to ./dist
+npm run preview    # preview the production build locally
 ```
 
-## File structure
+## Project Structure
 
 ```
 privacycomply/
-├── index.html                          ← Homepage
-├── best-cookie-consent-tools-2026.html ← Money page #1 (comparison)
-├── cookieyes-review.html               ← Money page #2 (single review)
-├── what-is-gdpr.html                   ← Trust / AI-citation page
-├── gdpr-vs-ccpa.html                   ← Comparison / AI-citation page
-├── about.html                          ← Editorial + disclosure + privacy policy
-├── style.css                           ← Shared styles
-├── script.js                           ← Shared JS (mobile nav)
-├── robots.txt
-├── sitemap.xml
-└── README.md
+├── astro.config.mjs          # site config (format: 'file' → /page.html URLs)
+├── public/                   # static assets copied as-is
+│   ├── robots.txt
+│   └── script.js             # mobile nav toggle
+├── src/
+│   ├── layouts/
+│   │   └── BaseLayout.astro  # HTML shell, head, header, footer, schema slot
+│   ├── components/
+│   │   ├── Header.astro
+│   │   └── Footer.astro
+│   ├── pages/                # one file per route
+│   │   ├── index.astro
+│   │   ├── best-cookie-consent-tools-2026.astro
+│   │   ├── cookieyes-review.astro
+│   │   ├── what-is-gdpr.astro
+│   │   ├── gdpr-vs-ccpa.astro
+│   │   └── about.astro
+│   └── styles/
+│       └── global.css        # design system tokens + page styles
+└── dist/                     # build output (gitignored)
 ```
 
-## Tech stack
+## Pages
 
-- Static HTML/CSS — no framework, fast Lighthouse scores
-- Hosted on Cloudflare Pages (GitHub auto-deploy)
-- Domain: privacycomply.io (Cloudflare DNS)
-- Analytics: Google Analytics 4 + Google Search Console (to wire post-deploy)
-- Cookie banner: CookieYes (we recommend it, we use it)
+| Route | Purpose |
+|---|---|
+| `/` | Hub — TOFU homepage |
+| `/best-cookie-consent-tools-2026.html` | MOFU comparison cornerstone |
+| `/cookieyes-review.html` | BOFU vendor review |
+| `/what-is-gdpr.html` | TOFU educational |
+| `/gdpr-vs-ccpa.html` | TOFU educational |
+| `/about.html` | Trust + affiliate disclosure |
 
-## Deployment
+## Affiliate Programs
 
-1. Push to GitHub master
-2. Cloudflare Pages auto-deploys
-3. Custom domain set to `privacycomply.io` in Pages settings
+All affiliate links use `target="_blank" rel="noopener sponsored"` and `data-partner` attributes. Replace `YOUR_AFFILIATE_ID` with real IDs once approved:
 
-## What's live vs what's queued
+- **CookieYes** — recurring 30% × 3 yr
+- **iubenda** — 40% revenue share
+- **Termly** — 35% revenue share
+- **NordLayer** — $400–$1000/sale high-ticket
 
-**Live cornerstone (this commit):**
-- Homepage with 4-tool review grid + 3 guide cards
-- Best Cookie Consent Tools 2026 comparison (Article + ItemList + FAQPage schema)
-- CookieYes hands-on review (Review schema, 4.8/5)
-- What is GDPR? plain-English guide (Article + FAQPage schema)
-- GDPR vs CCPA comparison (Article + FAQPage schema)
-- About + affiliate disclosure + basic privacy policy
+## Hostinger Auto-Deploy
 
-**Queued (next batches per v2 execution plan):**
-- Cookie banner WordPress install how-to
-- Termly review
-- iubenda review
-- NordLayer review (high-ticket priority)
-- CookieYes vs Termly head-to-head
-- GDPR compliance for remote teams
-- Google Consent Mode v2 explained
-- Best privacy policy generators 2026
+In hPanel → Websites → privacycomply.io → Manage → Auto Deploy from GitHub:
 
-## Editorial integrity rules
+- **Repo:** `strandwaysystems-cpu/privacycomply`
+- **Branch:** `master`
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Node version:** 20+
 
-- Commission size never influences ranking
-- Affiliate disclosure at the top of every monetized page (not buried in footer)
-- We re-test every recommendation quarterly
-- We will downgrade ratings if a tool degrades, even at commission cost
+## SEO
 
-## Why this site exists
-
-Per the Strandway Ventures v2 execution plan: data privacy compliance is structurally underserved by major publishers, has genuine regulatory tailwind, and is disproportionately cited in AI Overviews. Realistic revenue target: $5,000/month at month 10-11 with 30+ pages + 10-20 referring domains.
-
-See: `strandway-ventures/registry/property-index.md` for portfolio status.
+- All pages emit JSON-LD structured data (Article, FAQPage, BreadcrumbList, ItemList, Review, AboutPage, Organization, WebSite)
+- Canonical URLs are explicit and use `.html` extension
+- `@astrojs/sitemap` outputs `sitemap-index.xml` (referenced from `robots.txt`)
+- Open Graph + Twitter card meta on every page

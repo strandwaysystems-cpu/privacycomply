@@ -1,0 +1,54 @@
+---
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import '@styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;       // e.g. "/best-cookie-consent-tools-2026.html"
+  ogType?: 'website' | 'article';
+  robots?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  robots = 'index,follow,max-image-preview:large',
+} = Astro.props;
+
+const site = 'https://privacycomply.io';
+const canonicalUrl = `${site}${canonical}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content={robots} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Per-page structured data slot -->
+  <slot name="schema" />
+</head>
+<body>
+  <Header />
+  <slot />
+  <Footer />
+  <script src="/script.js" is:inline></script>
+</body>
+</html>
