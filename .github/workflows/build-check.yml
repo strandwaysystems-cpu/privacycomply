@@ -1,6 +1,7 @@
 # Runs the site build to catch breakage before deploy.
 # Only add to repos with a build step (Astro, Vite, etc.).
-# Skip for plain static-HTML repos with no package.json.
+# Package-manager-aware: uses pnpm when pnpm-lock.yaml is present,
+# otherwise npm. Skip for plain static-HTML repos with no package.json.
 
 name: build-check
 
@@ -17,35 +18,44 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Detect npm lockfile
-        id: lockfile
+      - name: Detect package manager
+        id: pm
         run: |
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
-            echo "has_lock=true" >> "$GITHUB_OUTPUT"
+          if [ -f pnpm-lock.yaml ]; then
+            echo "manager=pnpm" >> "$GITHUB_OUTPUT"
+            echo "cache=pnpm" >> "$GITHUB_OUTPUT"
+          elif [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+            echo "manager=npm" >> "$GITHUB_OUTPUT"
+            echo "cache=npm" >> "$GITHUB_OUTPUT"
           else
-            echo "has_lock=false" >> "$GITHUB_OUTPUT"
+            echo "manager=npm" >> "$GITHUB_OUTPUT"
+            echo "cache=" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Use Node.js (with cache)
-        if: steps.lockfile.outputs.has_lock == 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+      - name: Setup pnpm
+        if: steps.pm.outputs.manager == 'pnpm'
+        uses: pnpm/action-setup@v4
 
-      - name: Use Node.js (no cache)
-        if: steps.lockfile.outputs.has_lock == 'false'
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: ${{ steps.pm.outputs.cache }}
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+          if [ "${{ steps.pm.outputs.manager }}" = "pnpm" ]; then
+            pnpm install --frozen-lockfile
+          elif [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
             npm ci
           else
             npm install
           fi
 
       - name: Build
-        run: npm run build
+        run: |
+          if [ "${{ steps.pm.outputs.manager }}" = "pnpm" ]; then
+            pnpm run build
+          else
+            npm run build
+          fi
