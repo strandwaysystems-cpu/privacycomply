@@ -1,0 +1,30 @@
+# Runs the site build to catch breakage before deploy.
+# Only add to repos with a build step (Astro, Vite, etc.).
+# Skip for plain static-HTML repos with no package.json.
+
+name: build-check
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build
+        run: npm run build
