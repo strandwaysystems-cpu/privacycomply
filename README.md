@@ -57,7 +57,10 @@ privacycomply/
 
 ## Affiliate Programs
 
-All affiliate links use `target="_blank" rel="noopener sponsored"` and `data-partner` attributes. Replace `YOUR_AFFILIATE_ID` with real IDs once approved:
+All affiliate links use `target="_blank" rel="noopener sponsored"` and `data-partner` attributes. Once approved by each network, append the affiliate-ID query parameter to the appropriate URLs and `data-partner` will help identify which links to update.
+
+The CI workflow `.github/workflows/affiliate-id-guard.yml` scans for unfilled placeholder tokens (`YOUR<AFF>_ID` style strings) and fails the build if any are committed — keep all links clean (no query params) until you have real IDs.
+
 
 - **CookieYes** — recurring 30% × 3 yr
 - **iubenda** — 40% revenue share
