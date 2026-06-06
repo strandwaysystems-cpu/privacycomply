@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Cookie Policy — PrivacyComply",
+  "url": "https://privacycomply.io/cookie-policy.html",
+  "publisher": {"@type": "Organization", "name": "PrivacyComply", "url": "https://privacycomply.io/"}
+};
+---
+
+<BaseLayout
+  title="Cookie Policy — PrivacyComply"
+  description="What cookies PrivacyComply uses, what each one does, and how to opt out. Generated and maintained with iubenda."
+  canonical="/cookie-policy.html"
+  ogType="website"
+  robots="index,follow"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <article class="article">
+    <header class="article-head">
+      <h1>Cookie Policy</h1>
+      <p class="article-lead">A full inventory of the cookies PrivacyComply uses, what each one does, how long it lasts, and how to disable any of them. Maintained with iubenda so it stays current with GDPR, CCPA, and ePrivacy.</p>
+    </header>
+
+    <p>Our authoritative, always-current cookie policy is hosted by iubenda. Open it below to see the full list of cookies and trackers, classified by purpose, with one-click opt-out where applicable.</p>
+
+    <p style="margin: 2rem 0;">
+      <a href="https://www.iubenda.com/privacy-policy/54102151/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed btn btn-primary" title="Cookie Policy">View our full Cookie Policy</a>
+    </p>
+    <script is:inline type="text/javascript">
+      (function (w,d) {
+        var loader = function () {
+          var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+          s.src = "https://cdn.iubenda.com/iubenda.js";
+          tag.parentNode.insertBefore(s, tag);
+        };
+        if (w.addEventListener) { w.addEventListener("load", loader, false); }
+        else if (w.attachEvent) { w.attachEvent("onload", loader); }
+        else { w.onload = loader; }
+      })(window, document);
+    </script>
+
+    <h2>Quick summary</h2>
+    <p>The authoritative version is the iubenda-hosted policy linked above. Short version:</p>
+    <ul>
+      <li><strong>Strictly necessary cookies:</strong> Required for the site to work — for example, the cookie banner remembering your consent choice. Cannot be disabled without breaking site functionality.</li>
+      <li><strong>Analytics cookies (Google Analytics 4):</strong> Anonymised aggregate data about which articles readers find useful. You can opt out via the cookie banner.</li>
+      <li><strong>Affiliate tracking cookies:</strong> Set by third-party vendors (CookieYes, iubenda, Termly, NordLayer) when you click an affiliate link. Governed by each vendor's own cookie policy.</li>
+      <li><strong>No advertising cookies:</strong> We do not run display ads. We do not set retargeting or behavioural advertising cookies.</li>
+    </ul>
+
+    <h2>How to change your consent</h2>
+    <p>You can change or withdraw your consent at any time by clicking the privacy preferences icon in the bottom corner of any page, or by clearing cookies for <code>privacycomply.io</code> in your browser settings.</p>
+
+    <h2>Related</h2>
+    <p>See also our <a href="/privacy-policy.html">Privacy Policy</a> for how we handle data beyond cookies, and our <a href="/about.html#disclosure">Affiliate Disclosure</a> for how we make money.</p>
+
+    <p style="margin-top: 3rem; font-size: 0.9rem; color: var(--c-muted, #666);">Last reviewed: {new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long' })}. The iubenda-hosted policy linked above is updated automatically when our cookie inventory or relevant law changes.</p>
+  </article>
+</BaseLayout>
