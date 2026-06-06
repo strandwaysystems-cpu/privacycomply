@@ -45,6 +45,9 @@ const canonicalUrl = `${site}${canonical}`;
   <!-- Per-page structured data slot -->
   <slot name="schema" />
 
+  <!-- iubenda Privacy Controls and Cookie Solution (must load before GA / other tracking) -->
+  <script is:inline type="text/javascript" src="https://embeds.iubenda.com/widgets/4e43075e-5ed0-480a-8e2e-2b5b044cf3d9.js"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGJTYFDLF5"></script>
   <script is:inline>
