@@ -1,0 +1,263 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Reviews","item":"https://privacycomply.io/reviews.html"},
+    {"@type":"ListItem","position":3,"name":"iubenda Review","item":"https://privacycomply.io/iubenda-review.html"}
+  ]
+};
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "iubenda",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type":"Offer","price":"4.99","priceCurrency":"EUR"}
+  },
+  "reviewRating": {"@type":"Rating","ratingValue":"4.6","bestRating":"5"},
+  "author": {"@type":"Organization","name":"PrivacyComply"},
+  "datePublished": "2026-06-06",
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "reviewBody": "iubenda is a comprehensive privacy compliance platform serving over 130,000 websites. It combines automated policy generation, cookie consent management, and data subject rights tools in one subscription — the strongest all-in-one choice for businesses needing more than just a cookie banner."
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How does iubenda compare to other consent management and privacy policy solutions?","acceptedAnswer":{"@type":"Answer","text":"iubenda combines legal document generation, cookie consent banners, and DSAR handling in one platform. Most competitors split these features across different products. Cookiebot focuses only on consent management, Termly offers cheaper multi-site pricing but fewer language options, and OneTrust targets enterprise clients at much higher cost."}},
+    {"@type":"Question","name":"What features are included in the free plan versus paid plans?","acceptedAnswer":{"@type":"Answer","text":"The free tier includes basic privacy and cookie policies for up to three services with iubenda branding. The Essentials plan (€4.99/month) supports up to 20 services and 50,000 monthly pageviews with Google Consent Mode v2. Advanced plans add multi-language support and a terms and conditions generator."}},
+    {"@type":"Question","name":"How reliable is the cookie banner for GDPR and ePrivacy compliance?","acceptedAnswer":{"@type":"Answer","text":"The consent banner blocks third-party trackers before visitor consent and integrates with Google Consent Mode v2. It supports IAB TCF 2.2, handles GDPR, UK GDPR, CCPA/CPRA, LGPD, and FADP automatically based on visitor IP, and stores consent logs with timestamps for regulatory audits."}},
+    {"@type":"Question","name":"How easy is iubenda to integrate with WordPress, Shopify, and Google Tag Manager?","acceptedAnswer":{"@type":"Answer","text":"WordPress installation takes about 30 minutes using the official plugin. Shopify, Wix, Webflow, and Squarespace use the standard script in the site header. Google Tag Manager integration requires wrapping third-party tags in iubenda prior-blocking code, adding 20-40 minutes to setup."}},
+    {"@type":"Question","name":"What are the main limitations of iubenda?","acceptedAnswer":{"@type":"Answer","text":"Per-site pricing becomes expensive for multiple properties. The dashboard can feel cluttered during initial setup. Branding appears on all plans below Ultimate. Monthly pageview caps can trigger overage charges of $0.06 per 1,000 pageviews on high-traffic sites."}},
+    {"@type":"Question","name":"How responsive is iubenda customer support?","acceptedAnswer":{"@type":"Answer","text":"Chat response times on paid plans typically arrive within one hour. Basic tier users may experience slower replies. The knowledge base covers common integration questions and the support team can help with cookie banner customization and policy generator settings."}}
+  ]
+};
+---
+<BaseLayout
+  title="iubenda Review 2026: Features, Pricing, Pros & Cons | PrivacyComply"
+  description="Honest review of iubenda in 2026 — privacy policy generator, cookie consent, GDPR/CCPA coverage, pricing tiers, and who it’s actually worth it for."
+  canonical="/iubenda-review.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/reviews.html">Reviews</a> <span>&#8250;</span> iubenda Review</p>
+      <h1>iubenda Review 2026: Features, Pricing, Pros &amp; Cons</h1>
+      <div class="article-meta">
+        <span>&#128197; Updated June 6, 2026</span>
+        <span>&#9200; 10 min read</span>
+        <span>&#11088; 4.6 / 5</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+
+    <div class="tldr">
+      <strong>Bottom line:</strong> iubenda is the strongest all-in-one privacy compliance platform for businesses that need more than a cookie banner — it combines automated policy generation, consent management, and DSAR tools under one subscription. It’s more expensive than standalone tools but eliminates the need for multiple vendors. Rating: <strong>4.6 / 5</strong>.
+    </div>
+
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong> We may earn a commission if you sign up to iubenda via links in this article. Our ranking is based on hands-on testing, not commission size. See our full <a href="/about.html#disclosure">affiliate disclosure</a>.
+    </div>
+
+    <p>Managing privacy compliance across multiple regulations can overwhelm website owners and app developers who need to meet <a href="/what-is-gdpr.html">GDPR</a>, CCPA, and other data protection requirements. <a href="/iubenda-vs-termly-vs-osano.html">iubenda</a> positions itself as a comprehensive privacy compliance platform that automates legal document generation, <a href="/best-cookie-consent-tools-2026.html">cookie consent management</a>, and regulatory adherence for digital properties.</p>
+
+    <img src="https://koala.sh/api/image/v2-1epbqo-mnc6j.jpg?width=1536&height=1024&dream" alt="A group of business professionals reviewing a privacy policy dashboard on a laptop in a modern office setting." loading="lazy" />
+
+    <p><strong>iubenda serves over 130,000 websites and apps, offering automated policy generation, consent management tools, and multi-language support across various global data protection frameworks.</strong> The platform holds a 4.18/5 rating from 83 verified users on AppSumo and maintains positive feedback across major review platforms.</p>
+
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li>iubenda provides automated privacy policy generation, <a href="/cookieyes-review.html">cookie consent</a> management, and compliance tools for websites and mobile apps</li>
+      <li>The platform supports multiple global regulations including <a href="/gdpr-vs-ccpa.html">GDPR and CCPA</a> with pricing tiers ranging from free to enterprise levels</li>
+      <li>Integration works best with popular platforms; custom implementations may require manual configuration</li>
+    </ul>
+
+    <h2>Key Capabilities and Privacy Compliance Solutions</h2>
+
+    <div class="video-embed">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/v8BDbfEpMQE" title="iubenda overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <h3>Legal Document Generation</h3>
+    <p>iubenda’s automated policy generation creates customized privacy policies and terms of service for your website or app. The privacy policy generator draws from a database of over 1,700 legal clauses covering common services and technologies. You select the services your site uses, and the platform assembles a compliant privacy and cookie policy tailored to your specific configuration.</p>
+    <p>The system supports multiple languages and jurisdictions, allowing you to maintain separate policies for different regions. Legal documents receive automatic updates when regulations change — when GDPR took effect in 2018, iubenda updated existing client policies without requiring manual intervention.</p>
+
+    <h3>Cookie Consent Management</h3>
+    <p>The consent management platform (CMP) provides cookie banners that collect and document user consent according to GDPR and CCPA standards. You can customize the banner’s appearance, language, and behavior to match your brand while maintaining legal compliance.</p>
+    <p>The cookie consent solution automatically scans your website to detect tracking technologies and categorizes them appropriately. It blocks non-essential cookies until users provide explicit consent, ensuring you meet strict EU requirements. iubenda stores consent records with timestamps and user preferences, creating an audit trail for regulatory authorities.</p>
+
+    <h3>Privacy Controls and Data Protection</h3>
+    <p>iubenda’s privacy management tool extends beyond cookie policies to handle broader data protection requirements. The Internal Privacy Management feature helps you document data processing activities, maintain records of processing operations, and manage data subject requests.</p>
+    <p>The platform tracks which personal data you collect, how you process it, and where it’s stored — essential for demonstrating GDPR accountability. The system includes templates for data processing agreements and helps you manage relationships with third-party processors.</p>
+
+    <h2>Plans, Pricing, and License Model</h2>
+
+    <img src="https://koala.sh/api/image/v2-1epbru-li6uq.jpg?width=1536&height=1024&dream" alt="A group of professionals having a meeting around a conference table with laptops and charts related to business planning." loading="lazy" />
+
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Plan</th><th>Price</th><th>Monthly pageviews</th><th>Services/clauses</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tool-name">Free</td><td>&euro;0</td><td>Limited</td><td>Up to 3</td><td>Testing / personal projects</td></tr>
+          <tr class="pick"><td class="tool-name">Essentials</td><td>&euro;4.99/mo</td><td>25,000</td><td>Up to 20</td><td>Most small business sites</td></tr>
+          <tr><td class="tool-name">Advanced</td><td>&euro;9.99/mo</td><td>50,000</td><td>Up to 30</td><td>Multi-language, growing sites</td></tr>
+          <tr><td class="tool-name">Ultimate</td><td>&euro;19.99/mo</td><td>150,000</td><td>Unlimited</td><td>Agencies, high-traffic sites</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>iubenda’s pricing is charged <strong>per site</strong>, meaning you need a separate license for each website or app. Overage charges of &euro;0.05 per 1,000 additional pageviews apply once you exceed your plan limit. Annual billing provides cost savings over monthly payments.</p>
+
+    <h3>Essentials Plan</h3>
+    <p>The Essentials plan (&euro;4.99/month) includes up to 20 service clauses, 25,000 monthly pageviews, automated privacy and cookie policy generation, a GDPR-compliant consent banner, and monthly website scanning. It supports one language with partial branding removal. This is the right starting point for most small business sites.</p>
+
+    <h3>Advanced and Ultimate Plans</h3>
+    <p>The Advanced plan expands to 50,000 pageviews, 30 service clauses, hourly scanning, full multi-language support, and complete branding removal. The Ultimate plan provides 150,000 monthly pageviews and unlimited service clauses. Both plans add geo-targeting, in-depth consent analytics, and consent recovery features not available on Essentials.</p>
+
+    <h2>Compliance Toolkit and Standout Features</h2>
+
+    <div class="video-embed">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/bNFY2aa4SdY" title="iubenda compliance features" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <h3>Cookie Banner and Consent Flow</h3>
+    <p>The cookie banner automatically blocks tracking technologies until users provide explicit permission. You can customize the consent flow to match your brand while maintaining compliance with GDPR, CCPA, and other privacy regulations. The system integrates with <strong>Google Consent Mode v2</strong> to ensure your marketing campaigns continue running without interruption while respecting user choices.</p>
+    <p>Each consent interaction gets recorded with timestamp, IP address, and specific permissions granted or denied. You can configure the banner to display different consent options based on the user’s location, automatically adjusting requirements for EU visitors versus those from other regions.</p>
+
+    <h3>Consent Database and Data Subject Rights Management</h3>
+    <p>The consent database maintains a complete audit trail of every user decision, including the specific version of your privacy policy they agreed to and when they provided consent. <strong>Data subject rights management</strong> tools help you handle access requests, deletion requests, and data portability requests through a centralized system. You can track each request from submission through completion, ensuring you meet strict regulatory deadlines.</p>
+
+    <h3>Register of Data Processing Activities and Whistleblowing</h3>
+    <p>The <strong>register of data processing activities</strong> documents what personal data you collect, why you process it, who has access, and how long you retain it — fulfilling Article 30 requirements under GDPR. The register updates automatically when you modify your privacy policy or add new services.</p>
+    <p>The <strong>whistleblowing management tool</strong> provides a secure channel for employees and external parties to report privacy violations or compliance concerns anonymously, with encrypted reports through a protected interface.</p>
+
+    <h2>Integration, Automation, and Support</h2>
+
+    <div class="video-embed">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/_xRrFszVGLg" title="iubenda integrations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <h3>Google Consent Mode and Integrations</h3>
+    <p>iubenda is an <strong>official Google CMP Partner</strong>, providing certified integration with Google Consent Mode v2. This ensures your Google Analytics and Google Ads tags adjust their behavior based on user consent choices.</p>
+    <p>The platform offers direct integrations with WordPress, Shopify, Magento, and Joomla through dedicated plugins. iubenda’s cookie scanner automatically detects tracking technologies on your website and configures the consent banner to block them until users provide permission.</p>
+
+    <h3>Legal Team and Automated Policy Updates</h3>
+    <p>iubenda employs an internal legal team that monitors regulatory changes across multiple jurisdictions. When privacy laws change, your generated policies update automatically without requiring manual intervention or additional fees. The policy generator contains over 1,700 pre-written legal clauses covering common web services.</p>
+
+    <h3>Customer Support</h3>
+    <p>Chat response times on paid plans typically arrive within one hour. Basic tier users may experience slower replies. The knowledge base covers common integration questions, and the support team can help with cookie banner customization and policy generator settings. Users consistently praise the quality of support, though the initial setup still requires some configuration work.</p>
+
+    <h2>Pros and Cons</h2>
+
+    <img src="https://koala.sh/api/image/v2-1epbtq-cxy01.jpg?width=1536&height=1024&dream" alt="A group of professionals collaborating around a conference table with laptops and documents in a bright office with city views." loading="lazy" />
+
+    <h3>What we liked</h3>
+    <ul>
+      <li><strong>All-in-one compliance stack.</strong> Policy generation, cookie consent, DSAR handling, and internal compliance tools under one subscription.</li>
+      <li><strong>Automatic legal updates.</strong> Policies update when regulations change — no manual work required.</li>
+      <li><strong>1,700+ clause library.</strong> Covers virtually every mainstream web service and tracking technology.</li>
+      <li><strong>Google-certified CMP.</strong> Official Google Consent Mode v2 partner with IAB TCF 2.2 support.</li>
+      <li><strong>Multi-language support.</strong> Covers 27 languages — essential for EU-focused businesses.</li>
+      <li><strong>Whistleblowing and ROPA tools.</strong> Enterprise-grade features rarely found at this price point.</li>
+    </ul>
+
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><strong>Per-site pricing.</strong> Five sites on Essentials costs &euro;24.95/month — Termly covers unlimited sites for less.</li>
+      <li><strong>Cluttered dashboard.</strong> Finding specific settings during initial setup takes longer than it should.</li>
+      <li><strong>Branding below Ultimate.</strong> &ldquo;Powered by iubenda&rdquo; appears on all plans except the top tier.</li>
+      <li><strong>Pageview overage charges.</strong> High-traffic sites can accumulate unexpected costs if not monitored.</li>
+      <li><strong>No free tier worth using for business.</strong> The free plan’s 3-clause limit makes it suitable only for testing.</li>
+    </ul>
+
+    <h2>Who iubenda is for</h2>
+    <ul>
+      <li>Small to mid-sized businesses on WordPress or Shopify needing Google Consent Mode v2</li>
+      <li>Digital agencies managing multiple client websites (Ultimate plan)</li>
+      <li>E-commerce businesses needing both cookie consent and a terms &amp; conditions generator</li>
+      <li>Sites with meaningful EU traffic that need multi-language policy support</li>
+      <li>Any business that wants policies to update automatically as regulations change</li>
+    </ul>
+
+    <h2>Who should look elsewhere</h2>
+    <ul>
+      <li>Bloggers managing 5+ sites on a tight budget &rarr; <a href="https://termly.io/" rel="noopener sponsored">Termly</a> flat-rate pricing</li>
+      <li>Sites that only need a cookie banner, no policy generation &rarr; <a href="/cookieyes-review.html">CookieYes</a></li>
+      <li>Enterprise with custom legal requirements &rarr; OneTrust</li>
+      <li>US-only sites under 5 pages with no budget &rarr; Termly free tier</li>
+    </ul>
+
+    <h2>The verdict</h2>
+    <p>iubenda earns its 4.6/5 rating by doing something no other tool at this price point does: combining a lawyer-maintained policy generator with a certified consent management platform and full compliance tooling in one subscription. The per-site pricing is the main friction point — if you manage multiple properties, the cost adds up fast. But for a single business site with EU traffic, it’s the most complete compliance solution available under $20/month.</p>
+
+    <div class="cta-box">
+      <span class="cta-box__eyebrow">Best all-in-one</span>
+      <p class="cta-box__title">iubenda — privacy policy + cookie consent in one platform</p>
+      <p class="cta-box__desc">Covers GDPR, CCPA, LGPD and more. Policies update automatically when regulations change. Google Consent Mode v2 certified.</p>
+      <div class="cta-box__buttons">
+        <a href="https://www.iubenda.com/" data-partner="iubenda" class="btn btn-affiliate" target="_blank" rel="noopener sponsored">Try iubenda</a>
+        <a href="/iubenda-vs-termly-vs-osano.html" class="btn btn-secondary">See full comparison</a>
+      </div>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <details class="faq-item" open>
+      <summary>How does iubenda compare to other consent management and privacy policy solutions?</summary>
+      <div>iubenda combines legal document generation, cookie consent banners, and DSAR handling in one platform. Most competitors split these features. Cookiebot focuses only on consent management from $16/month but requires a separate privacy policy. Termly is cheaper for multi-site owners. OneTrust targets enterprise clients at $10,000+/year. iubenda’s key differentiator is automatic policy updates when regulations change — no action required from you.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What features are included in the free plan versus paid plans?</summary>
+      <div>The free tier covers up to three services with iubenda branding and limited pageviews — suitable only for testing. The Essentials plan (&euro;4.99/month) supports 20 services, 50,000 monthly pageviews, and Google Consent Mode v2. Advanced plans add multi-language support and a terms and conditions generator. The Ultimate plan removes all branding and adds unlimited services.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How reliable is the cookie banner for GDPR and ePrivacy compliance?</summary>
+      <div>The consent banner blocks third-party trackers before visitor consent and integrates with Google Consent Mode v2. It supports IAB TCF 2.2, handles GDPR, UK GDPR, CCPA/CPRA, LGPD, and FADP automatically based on visitor IP. Consent logs store proof of each visitor’s decision with timestamps and IP addresses for regulatory audits. It also meets WCAG AAA accessibility compliance under the European Accessibility Act.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How easy is iubenda to integrate with WordPress, Shopify, and Google Tag Manager?</summary>
+      <div>WordPress installation takes about 30 minutes using the official plugin. Shopify, Wix, Webflow, and Squarespace use the standard script in the site header. Google Tag Manager integration requires wrapping third-party tags in iubenda’s prior-blocking code, adding 20–40 minutes to setup. Common scripts like Google Analytics and Facebook Pixel are handled automatically by the plugin.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What are the main limitations of iubenda?</summary>
+      <div>Per-site pricing becomes expensive for multiple properties — five sites on Essentials costs &euro;24.95/month. The dashboard feels cluttered during initial setup. Branding appears on all plans below Ultimate. Monthly pageview caps can trigger overage charges of $0.06 per 1,000 pageviews on high-traffic sites.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How responsive is iubenda customer support?</summary>
+      <div>Chat response times on paid plans typically arrive within one hour. Basic tier users may experience slower replies. The knowledge base covers common integration questions, and the support team can assist with cookie banner customization and policy generator settings.</div>
+    </details>
+
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/iubenda-vs-termly-vs-osano.html">iubenda vs Termly vs Osano: Complete Comparison 2026</a></li>
+      <li><a href="/best-cookie-consent-tools-2026.html">Best Cookie Consent Tools 2026: Ranked &amp; Tested</a></li>
+      <li><a href="/cookieyes-review.html">CookieYes Review 2026</a></li>
+      <li><a href="/what-is-gdpr.html">What is GDPR? A plain-English guide</a></li>
+      <li><a href="/gdpr-vs-ccpa.html">GDPR vs CCPA: the real differences</a></li>
+    </ul>
+
+  </article>
+</BaseLayout>
