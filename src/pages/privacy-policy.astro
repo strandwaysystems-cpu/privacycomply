@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy — PrivacyComply",
+  "url": "https://privacycomply.io/privacy-policy.html",
+  "publisher": {"@type": "Organization", "name": "PrivacyComply", "url": "https://privacycomply.io/"}
+};
+---
+
+<BaseLayout
+  title="Privacy Policy — PrivacyComply"
+  description="How PrivacyComply collects, uses, and protects your information. Generated and maintained with iubenda."
+  canonical="/privacy-policy.html"
+  ogType="website"
+  robots="index,follow"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <article class="article">
+    <header class="article-head">
+      <h1>Privacy Policy</h1>
+      <p class="article-lead">How PrivacyComply collects, uses, and protects information from visitors and readers. Maintained with iubenda so it stays current with GDPR, CCPA, and applicable Canadian privacy law.</p>
+    </header>
+
+    <p>Our full, current privacy policy is hosted by iubenda. Click the link below to read the latest version — it covers what data we collect, why we collect it, your rights under GDPR/CCPA/PIPEDA, and how to contact us with privacy requests.</p>
+
+    <p style="margin: 2rem 0;">
+      <a href="https://www.iubenda.com/privacy-policy/54102151" class="iubenda-white iubenda-noiframe iubenda-embed btn btn-primary" title="Privacy Policy">View our full Privacy Policy</a>
+    </p>
+    <script is:inline type="text/javascript">
+      (function (w,d) {
+        var loader = function () {
+          var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+          s.src = "https://cdn.iubenda.com/iubenda.js";
+          tag.parentNode.insertBefore(s, tag);
+        };
+        if (w.addEventListener) { w.addEventListener("load", loader, false); }
+        else if (w.attachEvent) { w.attachEvent("onload", loader); }
+        else { w.onload = loader; }
+      })(window, document);
+    </script>
+
+    <h2>Quick summary</h2>
+    <p>Even though the full policy is the authoritative version, here is the short, plain-English version:</p>
+    <ul>
+      <li><strong>Analytics:</strong> We use Google Analytics 4 (with IP anonymisation) to understand which articles readers find useful.</li>
+      <li><strong>Affiliate tracking:</strong> When you click an affiliate link to CookieYes, iubenda, Termly, NordLayer, or any other partner, that vendor may set their own cookies. Their privacy policies govern that data.</li>
+      <li><strong>Cookies:</strong> Our cookie banner (CookieYes) lets you opt in or out of non-essential cookies at any time.</li>
+      <li><strong>No selling data:</strong> We do not sell, rent, or share visitor data with third parties for marketing purposes.</li>
+      <li><strong>Your rights:</strong> You can request a copy of any data we hold on you, or ask us to delete it, by emailing <code>privacy@privacycomply.io</code>.</li>
+    </ul>
+
+    <h2>Operator</h2>
+    <p>PrivacyComply is operated by <strong>Strandway Ventures</strong>, Dartmouth, Nova Scotia, Canada. For privacy-related requests email <code>privacy@privacycomply.io</code>. For factual corrections to any review or guide, email <code>corrections@privacycomply.io</code>.</p>
+
+    <p style="margin-top: 3rem; font-size: 0.9rem; color: var(--c-muted, #666);">Last reviewed: {new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long' })}. The iubenda-hosted policy linked above is updated automatically when relevant law changes.</p>
+  </article>
+</BaseLayout>
