@@ -5,40 +5,62 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <div class="footer-brand">PrivacyComply</div>
-        <p class="footer-brand-desc">Independent reviews of cookie consent banners, GDPR compliance tools, and privacy policy generators. Reader-supported, no vendor sponsorships.</p>
+      <div class="footer-col footer-col--brand">
+        <a href="/" class="footer-brand-mark" aria-label="PrivacyComply home">
+          <span class="footer-brand-badge">P</span>
+          <span class="footer-brand-name">PrivacyComply</span>
+        </a>
+        <p class="footer-brand-desc">Independent reviews of cookie consent banners, GDPR compliance tools, and privacy policy generators.</p>
+        <p class="footer-brand-tag">Reader-supported · No vendor sponsorships · Updated quarterly</p>
       </div>
+
       <div class="footer-col">
         <h4>Reviews</h4>
         <ul>
+          <li><a href="/reviews.html">All reviews</a></li>
           <li><a href="/cookieyes-review.html">CookieYes</a></li>
-          <li><a href="/best-cookie-consent-tools-2026.html">Best Cookie Tools 2026</a></li>
+          <li><a href="/iubenda-review.html">iubenda</a></li>
+          <li><a href="/iubenda-vs-termly-vs-osano.html">iubenda vs Termly vs Osano</a></li>
+          <li><a href="/best-cookie-consent-tools-2026.html">Best of 2026</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Guides</h4>
         <ul>
           <li><a href="/what-is-gdpr.html">What is GDPR?</a></li>
           <li><a href="/gdpr-vs-ccpa.html">GDPR vs CCPA</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Site</h4>
+        <h4 style="margin-top:28px;">Trust</h4>
         <ul>
-          <li><a href="/about.html">About</a></li>
           <li><a href="/methodology.html">Methodology</a></li>
-          <li><a href="/about.html#disclosure">Affiliate Disclosure</a></li>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-          <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#disclosure">Affiliate disclosure</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy policy</a></li>
+          <li><a href="/cookie-policy.html">Cookie policy</a></li>
+          <li><a href="/terms.html">Terms &amp; conditions</a></li>
+        </ul>
+        <h4 style="margin-top:28px;">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@privacycomply.io">hello@privacycomply.io</a></li>
+          <li><a href="mailto:corrections@privacycomply.io">corrections@privacycomply.io</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span>© {year} PrivacyComply. All rights reserved.</span>
-      <span>PrivacyComply is reader-supported. We earn affiliate commissions on some links.</span>
-      <span>Cookie banner, privacy policy, cookie policy, and terms on this site are powered by <a href="https://www.iubenda.com/" rel="noopener sponsored" style="color: inherit;">iubenda</a> — a tool we use and cover.</span>
+      <div class="footer-bottom__left">
+        <span>© {year} PrivacyComply. All rights reserved.</span>
+      </div>
+      <div class="footer-bottom__right">
+        <span>Powered by <a href="https://www.iubenda.com/" rel="noopener sponsored">iubenda</a> — a tool we use and cover.</span>
+      </div>
     </div>
   </div>
 </footer>
