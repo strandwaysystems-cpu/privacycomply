@@ -11,7 +11,7 @@ const aboutSchema = {
 ---
 <BaseLayout
   title="About PrivacyComply — Editorial Standards & Affiliate Disclosure"
-  description="Who runs PrivacyComply, how we evaluate the tools we review, how we make money, and the editorial standards we hold ourselves to."
+  description="How PrivacyComply evaluates cookie consent banners, GDPR software, and privacy policy generators. Our methodology, what we use first-hand, and how affiliate relationships are disclosed."
   canonical="/about.html"
 >
   <Fragment slot="schema">
@@ -23,68 +23,69 @@ const aboutSchema = {
       <p class="breadcrumbs"><a href="/">Home</a><span>›</span> About</p>
       <h1>About PrivacyComply</h1>
       <div class="article-meta">
-        <span>📅 Updated June 5, 2026</span>
+        <span>📅 Updated June 2026</span>
       </div>
     </div>
   </section>
 
   <article class="article">
 
-    <h2>What we do</h2>
-    <p>PrivacyComply publishes independent reviews and plain-English guides for data privacy compliance tools — cookie consent banners, GDPR software, CCPA solutions, and privacy policy generators. We exist for the people who actually have to ship the website and need a clear answer faster than reading 99 articles of regulatory text.</p>
+    <h2>What this site is</h2>
+    <p>PrivacyComply is an independent editorial site covering data-privacy compliance tools — cookie consent banners, GDPR and CCPA software, and privacy policy generators. We publish in-depth comparisons and reviews for the people who actually have to ship a website and need a clear answer faster than reading 99 articles of regulatory text.</p>
+    <p>The site is reader-supported. We earn affiliate commissions on some outbound vendor links; we never accept paid placement, paid rankings, or sponsored reviews. See the <a href="#disclosure">affiliate disclosure</a> below for the full list of vendors and how rankings are kept independent of commission size.</p>
 
-    <h2>Who runs the site</h2>
-    <p>PrivacyComply is operated by <strong>Strandway Ventures</strong>, a digital holding company based in Dartmouth, Nova Scotia, Canada. Strandway Ventures runs a portfolio of internet properties across travel, niche affiliate, lead generation, and B2B SaaS review verticals. Contact the editorial team at <code>hello@privacycomply.io</code>.</p>
-
-    <h2>What we use ourselves</h2>
+    <h2>What we run first-hand</h2>
     <p>PrivacyComply practises what it covers. The compliance stack on this site is:</p>
     <ul>
-      <li><strong>Cookie banner &amp; consent database:</strong> <a href="https://www.iubenda.com/" rel="noopener sponsored">iubenda</a> Privacy Controls and Cookie Solution — the banner you see in the corner is iubenda's, and every consent event is logged in iubenda's Consent Database.</li>
+      <li><strong>Cookie banner &amp; consent database:</strong> <a href="https://www.iubenda.com/" rel="noopener sponsored">iubenda</a> Privacy Controls and Cookie Solution. The banner you see in the corner is iubenda's, and every consent event is logged to iubenda's Consent Database.</li>
       <li><strong>Privacy policy, cookie policy, terms &amp; conditions:</strong> Generated and hosted by iubenda. The authoritative versions live at <a href="/privacy-policy.html">privacy-policy.html</a>, <a href="/cookie-policy.html">cookie-policy.html</a>, and <a href="/terms.html">terms.html</a>.</li>
       <li><strong>Analytics:</strong> Google Analytics 4 with IP anonymisation, loaded only after consent.</li>
-      <li><strong>Hosting &amp; framework:</strong> Astro static site deployed via GitHub Actions to Hostinger.</li>
+      <li><strong>Hosting &amp; framework:</strong> Astro static site deployed via GitHub Actions.</li>
     </ul>
-    <p>That means when we review iubenda, we're reviewing a vendor we actually use — not one we read about. We disclose this in the iubenda comparison article and anywhere else it's relevant.</p>
+    <p>This means when we cover iubenda, we cover a vendor we actually use day-to-day — pricing, dashboard quirks, consent log behaviour, and policy-update propagation all reflect real operating experience. Where we don't run a tool ourselves, we say so on the relevant page.</p>
 
     <h2>How we evaluate tools</h2>
-    <p>We combine three signals when we assess a compliance vendor:</p>
+    <p>Every comparison and review on PrivacyComply is built from three signals, in order of weight:</p>
     <ol>
-      <li><strong>Hands-on use where we have it.</strong> iubenda is the clearest example — we run it on this site and on other Strandway Ventures properties, so the iubenda assessments reflect real operating experience.</li>
-      <li><strong>Vendor documentation, pricing pages, and changelogs.</strong> We read every tier carefully so the comparison reflects what's actually included, not what's marketed.</li>
-      <li><strong>Independent reporting and user discussion.</strong> G2, Capterra, Trustpilot, Reddit (r/SaaS, r/smallbusiness, r/gdpr), and product-hunt threads. We weight verified-user reviews higher than vendor case studies.</li>
+      <li><strong>Hands-on use where we have it.</strong> iubenda is the clearest example — it runs this site, so iubenda assessments reflect real operating experience rather than vendor copy.</li>
+      <li><strong>Vendor documentation, pricing pages, and changelogs.</strong> We read every tier carefully so the comparison reflects what's actually included, not what's marketed on the landing page.</li>
+      <li><strong>Independent reporting and verified-user reviews.</strong> G2, Capterra, Trustpilot, Reddit (r/SaaS, r/smallbusiness, r/gdpr), and Product Hunt threads. Verified-user reviews are weighted higher than vendor case studies.</li>
     </ol>
-    <p>Where we have not personally deployed a tool, we say so. Reviews are re-checked at least quarterly because compliance vendors change pricing and features often.</p>
+    <p>For the full evaluation framework — what we score, how we weight, when we update — see the <a href="/methodology.html">methodology page</a>.</p>
+    <p>Where we have not personally deployed a tool, the page says so in the opening note. Reviews are re-checked at least quarterly because compliance vendors change pricing and features often.</p>
 
     <h2 id="disclosure">Affiliate disclosure</h2>
-    <p>PrivacyComply is reader-supported. Some of the links on this site are <strong>affiliate links</strong>, which means if you click through and sign up for a paid plan, we may earn a commission at no additional cost to you.</p>
+    <p>PrivacyComply is reader-supported. Some of the links on this site are <strong>affiliate links</strong>: if you click through and sign up for a paid plan, we may earn a commission at no additional cost to you. This is how the site funds itself; we do not run on-page advertising and we do not accept sponsored content.</p>
     <p>We currently have or are pursuing affiliate relationships with:</p>
     <ul>
       <li><strong>CookieYes</strong> — recurring commission program</li>
       <li><strong>iubenda</strong> — referral commission program</li>
       <li><strong>Termly</strong> — referral commission program</li>
-      <li><strong>NordLayer</strong> — per-sale commission program</li>
       <li><strong>Osano</strong> — referral partner program (where available)</li>
     </ul>
     <p><strong>Our editorial integrity rules:</strong></p>
     <ul>
-      <li>Commission size never influences ranking. The ordering of "best tool" comparisons is based purely on the evaluation methodology above.</li>
-      <li>We will not recommend a product we wouldn't install on our own sites.</li>
+      <li>Commission size never influences ranking. The ordering of "best tool" comparisons is based purely on the methodology above.</li>
+      <li>We will not recommend a product we wouldn't deploy on a site we run.</li>
       <li>Every page that includes affiliate links carries a visible disclosure at the top of the page, not buried in a footer.</li>
       <li>If a tool changes for the worse — pricing hikes, feature removal, support degradation — we will say so even when it costs us commission.</li>
     </ul>
 
     <h2 id="privacy">Privacy policy</h2>
-    <p>Our full privacy policy is on a dedicated page: <a href="/privacy-policy.html">PrivacyComply Privacy Policy</a>. Short version: standard Google Analytics 4 (IP anonymisation on), CookieYes cookie banner, no selling visitor data. Privacy requests: <code>privacy@privacycomply.io</code>.</p>
+    <p>Our full privacy policy is on a dedicated page: <a href="/privacy-policy.html">PrivacyComply Privacy Policy</a>. Short version: standard Google Analytics 4 with IP anonymisation, iubenda cookie banner, no selling visitor data, no third-party advertising networks. Privacy requests: <code>privacy@privacycomply.io</code>.</p>
 
     <h2>Editorial corrections</h2>
     <p>If you find a factual error in any of our reviews or guides, email <code>corrections@privacycomply.io</code>. We re-publish with a date-stamped correction note at the top of the affected article, and we credit the reader who flagged it (unless they prefer to remain anonymous).</p>
 
     <h2>What we don't do</h2>
     <ul>
-      <li>We do not give legal advice. Our guides explain the law in plain language so you can make informed decisions, but for a compliance audit or a specific legal situation, hire a qualified data protection lawyer in your jurisdiction.</li>
+      <li>We do not give legal advice. Our guides explain the law in plain language so you can make informed decisions; for a compliance audit or a specific legal situation, hire a qualified data-protection lawyer in your jurisdiction.</li>
       <li>We do not accept paid placement in our "best of" rankings. The ordering reflects our evaluation, not vendor relationships.</li>
-      <li>We do not write fake reviews. Every product we cover is one we've either used ourselves or one whose coverage is based on vendor documentation and verified-user reviews — and we mark which is which.</li>
+      <li>We do not write fake reviews. Every product we cover is one we've either deployed ourselves or one whose coverage is based on vendor documentation and verified-user reviews — and the relevant page tells you which.</li>
     </ul>
+
+    <h2>Contact</h2>
+    <p>General editorial: <code>hello@privacycomply.io</code> · Corrections: <code>corrections@privacycomply.io</code> · Privacy requests: <code>privacy@privacycomply.io</code>.</p>
 
   </article>
 </BaseLayout>
