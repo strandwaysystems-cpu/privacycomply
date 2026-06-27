@@ -1,0 +1,319 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Reviews","item":"https://privacycomply.io/reviews.html"},
+    {"@type":"ListItem","position":3,"name":"Termly Review","item":"https://privacycomply.io/termly-review.html"}
+  ]
+};
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "Termly",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type":"Offer","price":"15","priceCurrency":"USD"}
+  },
+  "reviewRating": {"@type":"Rating","ratingValue":"4.0","bestRating":"5"},
+  "author": {"@type":"Organization","name":"PrivacyComply"},
+  "datePublished": "2026-06-27",
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "reviewBody": "Termly is a strong all-in-one compliance tool for US-focused small businesses that need legal documents fast, with a genuinely usable free tier and 10 attorney-drafted policy generators. However, setup demands more legal literacy than its competitors — it asks the user to make compliance decisions without explaining why those decisions matter. Best for solo operators and US-centric sites; less defensible for EU programmatic publishers and multi-domain operators."
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is Termly really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — Termly's free tier is genuinely usable. It includes one legal policy, the cookie banner with up to 10,000 banner views per month, quarterly cookie scans, and basic Google Consent Mode v2. A 'Powered by Termly' watermark link sits in the banner; removing it requires the Pro+ plan at $20/month (or ~$15/month billed annually)."}},
+    {"@type":"Question","name":"Does Termly cover GDPR?","acceptedAnswer":{"@type":"Answer","text":"Yes — Termly covers GDPR, UK GDPR, the EU ePrivacy Directive, and IAB TCF 2.3 (Pro+ only). Coverage is competent but more surface than iubenda's, which has a deeper EU legal pedigree and an in-house EU legal team. For EU programmatic publishers running Google Ad Manager, full IAB TCF on Pro+ is the minimum viable tier."}},
+    {"@type":"Question","name":"Does Termly support Google Consent Mode v2?","acceptedAnswer":{"@type":"Answer","text":"Yes — Termly is a Google CMP Partner with Gold status as of February 2026 (CMP ID 412). Basic GCM v2 is on the Free and Starter tiers; Advanced GCM v2 with full signal integration requires Pro+. The UI does not expose granular control over ads_data_redaction or url_passthrough — advanced users layer custom GTM code on top."}},
+    {"@type":"Question","name":"How much does Termly cost for a real business?","acceptedAnswer":{"@type":"Answer","text":"Free for one policy and a basic banner. Starter is $14/month (or ~$10/month annual) for two policies. Pro+ is $20/month (or ~$15/month annual) and unlocks all 10 generators, advanced GCM v2, IAB TCF 2.3, custom banner styles, and watermark removal. Pricing is per domain, so multi-site operators escalate quickly — six domains on Pro+ is ~$90/month annual."}},
+    {"@type":"Question","name":"Termly vs iubenda — which is better?","acceptedAnswer":{"@type":"Answer","text":"Termly wins on policy breadth (10 attorney-drafted generators vs 3), US state law coverage (CCPA, VCDPA, CPA, CTDPA), and phone support. iubenda wins on EU legal depth, multi-language support (27 languages vs banner-only on Pro+), and guided onboarding (personalized installation calls on every plan). For US-focused small businesses Termly is usually the better first pick; for EU publishers or multi-language sites iubenda is more defensible."}}
+  ]
+};
+---
+<BaseLayout
+  title="Termly Review 2026: Free Tier, Setup Friction & Real Cost | PrivacyComply"
+  description="An in-depth Termly review for 2026 — pricing, GDPR/CCPA coverage, free-tier limits, Google Consent Mode v2, and who should buy it. Includes first-hand notes from a live free-tier deployment on a real Webflow site."
+  canonical="/termly-review.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>›</span> <a href="/reviews.html">Reviews</a> <span>›</span> Termly Review</p>
+      <h1>Termly Review 2026: Free Tier, Setup Friction & Real Cost</h1>
+      <div class="article-meta">
+        <span>📅 Updated June 27, 2026</span>
+        <span>⏱ 11 min read</span>
+        <span>⭐ 4.0 / 5</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+
+    <div class="tldr">
+      <strong>Bottom line:</strong> Termly is the right first compliance tool for a US-focused small business that needs legal documents fast — privacy policy, cookie policy, T&amp;C, EULA, disclaimer all in one dashboard. The free tier is genuinely usable (not a trial teaser), and Google Consent Mode v2 works out of the box. The catch: Termly asks the user to make compliance decisions without explaining <em>why</em> those decisions matter. If you want a platform that walks you through the choices, <a href="/iubenda-review.html">iubenda</a> is better suited. Rating: <strong>4.0 / 5</strong>.
+    </div>
+
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong> We may earn a commission if you sign up to Termly via links in this article. Ordering is independent of commission size. See our full <a href="/about.html#disclosure">affiliate disclosure</a> and <a href="/methodology.html">scoring methodology</a>.
+    </div>
+
+    <div class="disclosure" style="background:#f0f7ff;border-left-color:#1e6bd6;">
+      <strong>How we assessed Termly:</strong> Unlike some tools we cover, Termly is deployed first-hand on a sister site — a Webflow-based travel guide running the Free tier with the cookie banner, privacy policy generator, and cookie policy generator. This review is based on (1) that live deployment, (2) vendor documentation and the current <a href="https://termly.io/pricing/" rel="noopener">pricing page</a>, and (3) verified-user reviews on <a href="https://www.g2.com/products/termly/reviews" rel="noopener">G2</a>, <a href="https://www.capterra.com/p/165919/Termly/reviews/" rel="noopener">Capterra</a>, <a href="https://www.trustpilot.com/review/termly.io" rel="noopener">Trustpilot</a>, and Reddit. Where a claim depends on first-hand deployment, we say so.
+    </div>
+
+    <h2>What is Termly?</h2>
+    <p>Termly is a US-based legal compliance SaaS founded in 2017 in Spokane, Washington, and <a href="https://www.group.one/news/group-one-extends-saas-offer-with-strategic-acquisition-of-termly-a-leading-compliance-and-consent-management-platform" rel="noopener">acquired by Swedish hosting group group.one in January 2024</a>. As of 2026, Termly serves over 2 million businesses across 150+ countries and processes around 1.7 billion banner views per month, per its own <a href="https://termly.io/pricing/" rel="noopener">pricing page</a>.</p>
+    <p>The product splits into two halves: a library of <strong>ten attorney-drafted policy generators</strong> (privacy policy, cookie policy, T&amp;C, EULA, disclaimer, return policy, shipping policy, acceptable use, impressum, accessibility statement) and a <strong>consent management platform</strong> (cookie banner, automated cookie scanner, script auto-blocker, consent preference center, Google Consent Mode v2 integration). For US-focused small businesses this is the broadest document suite at the price point — no direct competitor at the $0–$20/month tier offers ten generators.</p>
+
+    <h2>Pricing — the real numbers</h2>
+
+    <figure class="diagram" role="img" aria-label="Termly pricing ladder from free to agency tier.">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" style="max-width:800px;height:auto;background:#f7f9fc;border:1px solid #e3e8ef;border-radius:12px;padding:20px;display:block;margin:24px auto;" aria-hidden="true">
+        <text x="400" y="30" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-weight="700" font-size="18" fill="#1a2540">Termly pricing ladder (per site, annual billing)</text>
+        <g font-family="-apple-system,Segoe UI,sans-serif">
+          <rect x="40" y="60" width="160" height="110" rx="8" fill="#ffffff" stroke="#cdd5e0" stroke-width="2"/>
+          <text x="120" y="90" text-anchor="middle" font-weight="700" font-size="14" fill="#1a2540">Free</text>
+          <text x="120" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#28a463">$0</text>
+          <text x="120" y="148" text-anchor="middle" font-size="11" fill="#4a5670">1 policy · Watermarked</text>
+          <rect x="220" y="60" width="160" height="110" rx="8" fill="#ffffff" stroke="#cdd5e0" stroke-width="2"/>
+          <text x="300" y="90" text-anchor="middle" font-weight="700" font-size="14" fill="#1a2540">Starter</text>
+          <text x="300" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#1a2540">~$10/mo</text>
+          <text x="300" y="148" text-anchor="middle" font-size="11" fill="#4a5670">2 policies · 50k views</text>
+          <rect x="400" y="50" width="160" height="130" rx="8" fill="#eaf2ff" stroke="#1e6bd6" stroke-width="3"/>
+          <text x="480" y="75" text-anchor="middle" font-size="10" font-weight="700" fill="#1e6bd6">SWEET SPOT</text>
+          <text x="480" y="100" text-anchor="middle" font-weight="700" font-size="14" fill="#1a2540">Pro+</text>
+          <text x="480" y="128" text-anchor="middle" font-size="22" font-weight="700" fill="#1e6bd6">~$15/mo</text>
+          <text x="480" y="158" text-anchor="middle" font-size="11" fill="#4a5670">All 10 docs · No watermark</text>
+          <rect x="580" y="60" width="180" height="110" rx="8" fill="#ffffff" stroke="#cdd5e0" stroke-width="2"/>
+          <text x="670" y="90" text-anchor="middle" font-weight="700" font-size="14" fill="#1a2540">Agency</text>
+          <text x="670" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#1a2540">Custom</text>
+          <text x="670" y="148" text-anchor="middle" font-size="11" fill="#4a5670">10+ sites · Bulk discount</text>
+        </g>
+      </svg>
+      <figcaption>Annual billing saves roughly 25–29% vs. monthly. Pricing is per-domain at every tier except Agency.</figcaption>
+    </figure>
+
+    <p>Verified from <a href="https://termly.io/pricing/" rel="noopener sponsored">termly.io/pricing</a> as of June 2026:</p>
+    <ul>
+      <li><strong>Free — $0:</strong> 1 legal policy, 10,000 banner views/month, quarterly cookie scans, basic GCM v2. Visible "Powered by Termly" watermark on the banner.</li>
+      <li><strong>Starter — $14/month monthly, ~$10/month annual:</strong> 2 policies, 50,000 banner views, monthly scans, regulation monitoring, 5 user seats.</li>
+      <li><strong>Pro+ — $20/month monthly, ~$15/month annual:</strong> All 10 generators, unlimited edits, unlimited views, weekly scans, auto-updated policies, watermark removal, Advanced GCM v2, IAB TCF 2.3, custom banner styles, multi-language, regional consent rules, consent logs.</li>
+      <li><strong>Agency — custom pricing:</strong> 10+ sites, bulk discounts, training and onboarding, compliance support.</li>
+    </ul>
+    <p><strong>The multi-site math:</strong> Termly charges per domain. A six-site portfolio on Pro+ runs roughly $90/month annual — $1,080/year. Compare with <a href="https://complianz.io/" rel="noopener">Complianz Pro</a> at €99/year for unlimited WordPress sites, or with <a href="/iubenda-review.html">iubenda's</a> tier-based licensing. For multi-domain operators below the Agency tier, Termly is one of the more expensive options on the market, per <a href="https://consentmodehq.com/termly-review-2026/" rel="noopener">Consent Mode HQ's 2026 review</a>.</p>
+
+    <h2>What we actually deployed</h2>
+    <p>We run Termly's Free tier on a sister Webflow site — a travel guide with mixed US/EU traffic and Google Analytics 4 as the only paid tracker. The deployment uses:</p>
+    <ul>
+      <li><strong>Cookie consent banner</strong> via Termly's Resource Blocker script (<code>app.termly.io/resource-blocker/...?autoBlock=on</code>)</li>
+      <li><strong>Privacy policy</strong> generated by Termly's questionnaire, embedded on a hosted page</li>
+      <li><strong>Cookie policy</strong> populated by the automated cookie scanner</li>
+      <li>No T&amp;C, no disclaimer (Free tier limits you to one policy unless you upgrade)</li>
+    </ul>
+    <p>The banner appears as a fixed bottom bar with three buttons — <strong>Preferences</strong>, <strong>Decline</strong>, <strong>Accept</strong> — and a "Cookie Consent Manager by Termly" attribution in the top-left corner. Six cookie categories are exposed in the preferences modal (Essential, Performance &amp; Functionality, Analytics &amp; Customization, Advertising, Social networking, Unclassified), with categories the site has not configured greyed out.</p>
+
+    <div class="disclosure" style="background:#fff4e8;border-left-color:#d97706;">
+      <strong>First-hand observation:</strong> The banner works. The granular preferences modal works. The footer link to "Consent Preferences" correctly reopens the modal. The cookie policy is well-formatted, with proper heading hierarchy and readable body text. <em>None of that is the problem.</em> The problem is the path that got us there — see "Setup friction" below.
+    </div>
+
+    <h2>Regulatory coverage</h2>
+    <p>Termly claims support for 30+ regulations and 80+ regions, per its <a href="https://termly.io/resources/compare/termly-vs-iubenda/" rel="noopener">own comparison page</a>. Coverage is deep for US state laws and competent for GDPR/UK GDPR; thinner for non-Western jurisdictions:</p>
+    <ul>
+      <li><strong>Deep coverage:</strong> GDPR (EU), UK GDPR, ePrivacy Directive, CCPA/CPRA (California), CalOPPA, VCDPA (Virginia), CPA (Colorado), CTDPA (Connecticut), PIPEDA (Canada)</li>
+      <li><strong>Stated coverage:</strong> LGPD (Brazil), UCPA (Utah), COPPA (no dedicated tool)</li>
+      <li><strong>Gaps:</strong> POPIA (South Africa) and Australia Privacy Act are not explicitly listed on Termly's product pages as of June 2026</li>
+    </ul>
+    <p>For EU programmatic publishers, the practical reality is more nuanced than the marketing suggests. Without full IAB TCF 2.3 (Pro+ only), <a href="https://consentmodehq.com/termly-review-2026/" rel="noopener">Consent Mode HQ documented in May 2026</a> that Google Ad Manager withholds personalized ad serving for EU users when only Basic GCM is in place — collapsing CPMs in the process. If you monetize EU traffic with programmatic ads, Pro+ is the minimum viable tier, not a nice-to-have.</p>
+
+    <h2>Google Consent Mode v2</h2>
+    <p>Termly achieved <a href="https://termly.io/updates-press/termly-google-consent-mode-partner/" rel="noopener">Google CMP Partner Gold status in February 2026</a> (CMP ID 412 on <a href="https://support.google.com/admanager/answer/13554116?hl=en" rel="noopener">Google's CMP list</a>) — the top tier of Google's certification program. In practice:</p>
+    <ul>
+      <li><strong>Free and Starter:</strong> Basic GCM v2 — consent signals pass through, but with limited granularity</li>
+      <li><strong>Pro+:</strong> Advanced GCM v2 with full signal integration; configured from the Termly dashboard with an official GTM template</li>
+      <li><strong>Known limitation:</strong> <code>ads_data_redaction</code> and <code>url_passthrough</code> parameters are not exposed in the Termly UI. Advanced teams must layer custom GTM code on top — which, as Consent Mode HQ put it, "partially defeats the point of paying for a managed CMP"</li>
+    </ul>
+    <p>Microsoft UET Consent Mode was added in <a href="https://termly.io/updates-press/get-ready-for-uet-consent-mode/" rel="noopener">April 2025</a>, which is genuinely useful for B2B sites running Microsoft Ads.</p>
+
+    <h2>Integrations</h2>
+    <p>Termly is cloud-hosted and platform-agnostic. Quality varies:</p>
+    <ul>
+      <li><strong>WordPress:</strong> Dedicated 5-star plugin, mature and widely deployed</li>
+      <li><strong>Webflow:</strong> Universal script embed via Custom Code — confirmed working on our deployment</li>
+      <li><strong>Squarespace:</strong> Script injection via Code Injection — works for basic banner</li>
+      <li><strong>Wix:</strong> Script embed; no Wix App Market listing</li>
+      <li><strong>Duda:</strong> <a href="https://support.termly.io/hc/en-us/articles/30710486000529-Duda-Getting-Started-With-Termly" rel="noopener">Dedicated guide</a>, listed in Duda App Store</li>
+      <li><strong>Shopify:</strong> Custom HTML embed only — no native Shopify app and no API, a gap flagged by <a href="https://www.enzuzo.com/blog/termly-vs-cookieyes" rel="noopener">Enzuzo's 2026 comparison</a>. For Shopify merchants, <a href="/cookieyes-review.html">CookieYes</a> or Pandectes are stronger options.</li>
+      <li><strong>GTM and GA4:</strong> Supported via GCM v2 routing; works correctly on Pro+</li>
+    </ul>
+
+    <h2>Setup friction — where Termly actually loses points</h2>
+    <p>This is the central critique and the reason Termly does not score higher in this review.</p>
+    <p>Termly's marketing claims policies can be created in "as little as ten minutes." That's technically true for someone who already knows which regulations apply to their site, what cookie categories mean, and how to interpret a scanner result. For the average solo operator, it's not.</p>
+    <p>The setup wizard asks questions like jurisdiction and data types, but does not explain <em>why</em> a certain regulation applies or what the consequences of a wrong answer would be. As <a href="https://www.g2.com/products/termly/reviews" rel="noopener">G2 reviewer Trevor G. put it in September 2024</a>: <em>"Sometimes it would be good to know why you should select a certain policy requirement."</em></p>
+    <p>The automated cookie scanner frequently produces "Unclassified" cookies requiring manual review. <a href="https://www.capterra.com/p/165919/Termly/reviews/" rel="noopener">Capterra reviewer MA Moustafa A. (January 2025)</a>: <em>"Although the cookies scanner is effective overall, it occasionally misses certain cookies or categorizes them incorrectly, requiring manual adjustments."</em> For single-page applications built in React, Vue, or Next.js, <a href="https://consentmodehq.com/termly-review-2026/" rel="noopener">Consent Mode HQ confirmed in May 2026</a> that "Termly's crawler frequently misses late-firing tags."</p>
+    <p>Compare with <a href="/iubenda-review.html">iubenda</a>, which offers a personalized installation call available on request on every plan and describes its setup as a guided walkthrough. Termly's training and onboarding are reserved for the Agency plan. Below Agency, you get a help center, knowledge base articles, and live chat during business hours — and as of June 2026 the <a href="https://termly.io/pricing/" rel="noopener">pricing page</a> lists support hours as <strong>Mon–Fri, 9AM–1PM EST</strong>. That's four hours a day.</p>
+
+    <div class="disclosure" style="background:#fef2f2;border-left-color:#dc2626;">
+      <strong>First-hand observation:</strong> On our Webflow deployment, the friction wasn't installing the script — that took 5 minutes. It was the policy questionnaire. Termly asks about data collection practices, third-party processors, and child-data handling without context on what each answer means legally. We knew enough to answer correctly. A non-technical site owner without compliance background would not. This is the "less guidance than iubenda" gap.
+    </div>
+
+    <h2>What real users say</h2>
+    <p>Aggregate ratings as of June 2026:</p>
+    <ul>
+      <li><strong>Trustpilot:</strong> 4.7/5 across 547 reviews — "Excellent" category</li>
+      <li><strong>Capterra:</strong> 4.7/5 across 80 reviews</li>
+      <li><strong>G2:</strong> 4.3/5 across 45 reviews</li>
+      <li><strong>BBB:</strong> A+ accredited</li>
+    </ul>
+    <p><strong>What positive reviews consistently praise:</strong></p>
+    <ul>
+      <li>Speed of policy creation — most users complete a privacy policy in under 30 minutes</li>
+      <li>All-in-one value — ten generators plus the CMP in one dashboard</li>
+      <li>Auto-updating policies — Termly pushes regulatory updates automatically</li>
+    </ul>
+    <p><strong>What negative reviews consistently flag:</strong></p>
+    <ul>
+      <li><strong>Inconsistent customer support.</strong> The most repeated complaint across all platforms. From a 2025 <a href="https://www.trustpilot.com/review/termly.io" rel="noopener">Trustpilot review</a>: <em>"After hours of waiting, we only received one short reply asking for a few security details. We provided the information immediately — and then nothing. No answers, no solutions, no follow-up. Just silence."</em></li>
+      <li><strong>Downgrade data loss.</strong> <a href="https://www.g2.com/products/termly/reviews" rel="noopener">G2 reviewer Tomáš N. (May 2024)</a>: <em>"After switching to the free version, my entire banner was canceled... support has not been communicating for a week."</em></li>
+      <li><strong>Per-domain pricing compounds fast.</strong> <a href="https://www.capterra.com/p/165919/Termly/reviews/" rel="noopener">Capterra reviewer Marko S. (August 2025)</a>: <em>"If you run more platforms it will be hard to prove that you are building them. Could be a bit cheaper on professional plans."</em></li>
+      <li><strong>Autoblocker over-aggression.</strong> Termly's script auto-blocker can block essential first-party functionality including live chat widgets and reviews widgets. Capterra reviewer Dan S.: <em>"The autoblocker blocks some of our most popular apps on our website."</em></li>
+    </ul>
+
+    <h2>Trust signals</h2>
+    <ul>
+      <li><strong>Google CMP Partner Gold status</strong> (February 2026, CMP ID 412)</li>
+      <li><strong>IAB TCF 2.3 approved</strong> (available on Pro+ only)</li>
+      <li><strong>BBB A+ accredited</strong></li>
+      <li><strong>IAPP Silver Member</strong> (International Association of Privacy Professionals)</li>
+      <li><strong>EU data center available</strong> at <code>eu.consent.api.termly.io</code> — auto-assigned for EU signups, migration available on request for existing accounts</li>
+      <li><strong>SOC 2:</strong> Not publicly confirmed. No report listed on Termly's site as of June 2026.</li>
+      <li><strong>ISO 27001:</strong> Not publicly confirmed.</li>
+      <li><strong>DPA (Data Processing Agreement):</strong> Not publicly downloadable; must request via support</li>
+    </ul>
+    <p>The absence of public SOC 2 and ISO 27001 documentation is a real gap for enterprise buyers and for EU operators assessing Article 28 GDPR processor obligations. For a solopreneur on the Free tier this doesn't matter. For a SaaS handling sensitive data, it does.</p>
+
+    <h2>Termly vs the alternatives</h2>
+
+    <figure class="diagram" role="img" aria-label="Where Termly wins and loses vs key competitors.">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" style="max-width:800px;height:auto;background:#f7f9fc;border:1px solid #e3e8ef;border-radius:12px;padding:20px;display:block;margin:24px auto;" aria-hidden="true">
+        <text x="400" y="30" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-weight="700" font-size="18" fill="#1a2540">Where Termly fits in the 2026 landscape</text>
+        <g font-family="-apple-system,Segoe UI,sans-serif">
+          <rect x="40" y="60" width="340" height="120" rx="10" fill="#eaf7ee" stroke="#28a463" stroke-width="2"/>
+          <text x="210" y="88" text-anchor="middle" font-weight="700" font-size="15" fill="#28a463">Termly wins on</text>
+          <text x="60" y="112" font-size="12" fill="#1a2540">10 attorney-drafted policy generators</text>
+          <text x="60" y="130" font-size="12" fill="#1a2540">US state law coverage (CCPA, VCDPA, CPA, CTDPA)</text>
+          <text x="60" y="148" font-size="12" fill="#1a2540">Phone support (iubenda has none)</text>
+          <text x="60" y="166" font-size="12" fill="#1a2540">Free tier value · 35% affiliate revenue share</text>
+          <rect x="420" y="60" width="340" height="120" rx="10" fill="#fdf0ec" stroke="#d05030" stroke-width="2"/>
+          <text x="590" y="88" text-anchor="middle" font-weight="700" font-size="15" fill="#d05030">Termly loses on</text>
+          <text x="440" y="112" font-size="12" fill="#1a2540">EU legal depth (iubenda is deeper)</text>
+          <text x="440" y="130" font-size="12" fill="#1a2540">Multi-domain pricing scales painfully</text>
+          <text x="440" y="148" font-size="12" fill="#1a2540">Guided onboarding (iubenda offers install calls)</text>
+          <text x="440" y="166" font-size="12" fill="#1a2540">Native Shopify · SPA scanner accuracy</text>
+        </g>
+      </svg>
+      <figcaption>Termly's positioning is structural: US-first, document-heavy, self-serve. That's a feature for the right user and a bug for the wrong one.</figcaption>
+    </figure>
+
+    <p>Compared head-to-head with the tools we cover:</p>
+    <ul>
+      <li><strong>vs <a href="/iubenda-review.html">iubenda</a>:</strong> iubenda wins on EU depth, multi-language (27 languages vs banner-only Pro+), and guided onboarding. Termly wins on policy breadth, US state coverage, and phone support. For US-focused small businesses Termly is usually the better first pick; for EU publishers or multi-language sites <a href="/iubenda-review.html">iubenda</a> is more defensible. See our <a href="/iubenda-vs-termly-vs-osano.html">full comparison</a>.</li>
+      <li><strong>vs <a href="/cookieyes-review.html">CookieYes</a>:</strong> CookieYes is a banner-first tool with a more generous free tier (25,000 banner views/month vs 10,000) and a native Shopify app. Termly bundles legal documents that CookieYes doesn't offer. If you need both, you'd pair CookieYes for the banner with Termly's free policy generator — or just buy Termly Pro+.</li>
+      <li><strong>vs Complianz:</strong> If you're WordPress-only and self-host, Complianz Pro (€99/year for unlimited sites) beats Termly on price for multi-site operators. Termly wins if you have non-WordPress sites in the portfolio.</li>
+      <li><strong>vs Cookiebot:</strong> Cookiebot has deeper IAB TCF integration and stronger scanning accuracy on SPAs. For EU publishers running programmatic ads, Cookiebot is the safer pick. Termly is cheaper and broader.</li>
+    </ul>
+
+    <h2>Who should buy Termly in 2026</h2>
+
+    <h3>Good fit</h3>
+    <ul>
+      <li><strong>US-based small businesses and solopreneurs</strong> that need a full document library in one place</li>
+      <li><strong>Sites with primarily US/North American audiences</strong> where CCPA, CPRA, and other US state laws are the dominant compliance requirements</li>
+      <li><strong>Non-WordPress sites</strong> (Webflow, Squarespace, custom HTML) that need a cloud-hosted CMP</li>
+      <li><strong>Single-domain operators</strong> with under 50,000 monthly visitors and no EU programmatic ad revenue — the Free or Starter tier is genuinely adequate</li>
+      <li><strong>Agencies</strong> managing client sites that can negotiate the Agency plan</li>
+    </ul>
+
+    <h3>Bad fit</h3>
+    <ul>
+      <li><strong>EU publishers monetizing with programmatic ads</strong> — IAB TCF 2.3 only available on Pro+, and Cookiebot or Usercentrics have deeper TCF integration</li>
+      <li><strong>Multi-domain operators below the Agency tier</strong> — per-domain pricing scales painfully</li>
+      <li><strong>Sites built on React/Vue/Next.js SPAs</strong> — scanner accuracy degrades</li>
+      <li><strong>Shopify merchants</strong> — no native Shopify app</li>
+      <li><strong>Anyone requiring SOC 2 or ISO 27001 documentation</strong> — confirmed gaps as of June 2026</li>
+      <li><strong>Non-technical site owners who want the platform to teach them compliance</strong> — Termly assumes you already know. Use <a href="/iubenda-review.html">iubenda</a> instead.</li>
+    </ul>
+
+    <h2>The verdict</h2>
+    <p>Termly is a legitimate, well-funded compliance tool that does its core job — generating legally defensible policy documents and deploying a functional cookie consent banner — without requiring a lawyer. For a site like the one we run it on, the Free tier delivers real compliance value at zero cost, and the "Powered by Termly" watermark is a reasonable trade for that.</p>
+    <p>The critique that Termly offers <em>less guidance than iubenda</em> is accurate and well-supported. The platform expects users to know which regulations apply to them, what cookie categories mean, and how to interpret scanner results — assumptions that hold for tech-savvy operators but fail the average small business owner. The Free tier is genuinely useful, not just a trial teaser, but its visible watermark, 10K-view cap, and lack of regional consent rules mean it's a starting point, not a permanent solution.</p>
+    <p>The 4.0/5 rating reflects: strong policy generator breadth, a usable free tier, Google CMP Gold status, and a competent CMP — offset by structural setup friction, narrow support hours (4 hours/day), per-domain pricing that scales poorly, and confirmed gaps in EU legal depth and enterprise security documentation.</p>
+
+    <div class="cta-box">
+      <span class="cta-box__eyebrow">Final recommendation</span>
+      <p class="cta-box__title">Termly — start free, upgrade to Pro+ when it actually matters</p>
+      <p>If you're US-focused and document-hungry, the Free tier is a legitimate starting point. Plan to budget for Pro+ (~$15/month annual) before your traffic, EU ad revenue, or watermark visibility justifies the upgrade.</p>
+      <a href="https://termly.io/" rel="noopener sponsored" class="btn btn-primary">Try Termly Free</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <details>
+      <summary><strong>Is Termly really free?</strong></summary>
+      <p>Yes. The Free tier includes one legal policy, the cookie banner with up to 10,000 banner views per month, quarterly cookie scans, and basic Google Consent Mode v2. The catch is a visible "Powered by Termly" watermark link in the banner. Removing it requires Pro+ ($20/month or ~$15/month annual).</p>
+    </details>
+
+    <details>
+      <summary><strong>Does Termly support Google Consent Mode v2?</strong></summary>
+      <p>Yes — Termly is a Google CMP Partner with Gold status as of February 2026. Basic GCM v2 is available on Free and Starter; Advanced GCM v2 with full signal integration requires Pro+. The UI does not expose granular control over <code>ads_data_redaction</code> or <code>url_passthrough</code>, so advanced teams add custom GTM code on top.</p>
+    </details>
+
+    <details>
+      <summary><strong>How does Termly compare with iubenda?</strong></summary>
+      <p>Termly wins on policy breadth (10 generators vs 3), US state law coverage, and phone support. iubenda wins on EU legal depth, multi-language (27 languages), and guided onboarding (personalized installation calls on every plan). For US-focused small businesses, Termly is usually the better first pick; for EU publishers or multi-language sites, iubenda is more defensible. Full comparison <a href="/iubenda-vs-termly-vs-osano.html">here</a>.</p>
+    </details>
+
+    <details>
+      <summary><strong>Will Termly work on Shopify?</strong></summary>
+      <p>Technically yes, via custom HTML embed — but Termly has no native Shopify app and no Shopify API integration, a gap flagged by Enzuzo's 2026 comparison. For Shopify merchants, CookieYes or Pandectes are stronger choices.</p>
+    </details>
+
+    <details>
+      <summary><strong>Is Termly's free tier GDPR-compliant?</strong></summary>
+      <p>Yes — the Free tier banner, with appropriate configuration, can satisfy GDPR consent requirements for a small site. The structural caveats: regional consent rules require Pro+ (so EU visitors see the same banner as US visitors on Free), IAB TCF 2.3 requires Pro+, and consent logs require Pro+. For a low-traffic non-monetized site, Free is genuinely adequate. For an EU programmatic publisher, it isn't.</p>
+    </details>
+
+    <details>
+      <summary><strong>What happens if I downgrade from Pro+ to Free?</strong></summary>
+      <p>Multiple verified reviewers report losing banner configuration and settings when downgrading. Plan to take screenshots of your configuration before any plan change, and assume downgrades are not lossless.</p>
+    </details>
+
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/iubenda-review.html">iubenda Review 2026: Worth $20/month?</a></li>
+      <li><a href="/cookieyes-review.html">CookieYes Review 2026: Free Tier, Setup, Real Cost</a></li>
+      <li><a href="/iubenda-vs-termly-vs-osano.html">iubenda vs Termly vs Osano: Complete Comparison 2026</a></li>
+      <li><a href="/best-cookie-consent-tools-2026.html">Best Cookie Consent Tools 2026: Compared &amp; Ranked</a></li>
+      <li><a href="/what-is-gdpr.html">What is GDPR? A plain-English guide</a></li>
+      <li><a href="/methodology.html">How we score compliance tools</a></li>
+    </ul>
+
+  </article>
+</BaseLayout>
