@@ -1,0 +1,317 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Best Privacy Tools by Use Case","item":"https://privacycomply.io/best-privacy-tools-by-use-case.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Don't Overpay for Compliance: The Best Privacy & Cookie Tools Ranked by Use Case (2026)",
+  "description": "The best cookie consent and privacy compliance tools for 2026, matched to your actual business model — solopreneur, multi-site portfolio, agency, or growing SaaS — instead of one-size-fits-all picks.",
+  "datePublished": "2026-06-27",
+  "dateModified": "2026-06-27",
+  "author": {"@type":"Organization","name":"PrivacyComply"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "mainEntityOfPage": "https://privacycomply.io/best-privacy-tools-by-use-case.html"
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Termly","url":"https://privacycomply.io/termly-review.html"},
+    {"@type":"ListItem","position":2,"name":"CookieYes","url":"https://privacycomply.io/cookieyes-review.html"},
+    {"@type":"ListItem","position":3,"name":"Enzuzo","url":"https://privacycomply.io/enzuzo-review.html"},
+    {"@type":"ListItem","position":4,"name":"iubenda","url":"https://privacycomply.io/iubenda-review.html"},
+    {"@type":"ListItem","position":5,"name":"Osano"},
+    {"@type":"ListItem","position":6,"name":"Usercentrics"}
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Why don't most review sites recommend tools by business type?","acceptedAnswer":{"@type":"Answer","text":"Because one tool usually pays the highest commission, so it gets recommended to everyone regardless of fit. That's fine if you happen to match that tool's ideal customer — and expensive if you don't. A solopreneur and a 40-site portfolio operator have completely different cost structures, so the right tool is different for each."}},
+    {"@type":"Question","name":"What is the cheapest way to run cookie consent across many websites?","acceptedAnswer":{"@type":"Answer","text":"Per-domain pricing (CookieYes, Osano, Cookiebot) gets expensive fast once you pass a handful of sites, since each domain needs its own subscription. Flat multi-domain plans are cheaper at scale. Enzuzo's Pro plan covers 10 domains for $79/month, or $59/month billed annually — about $5.90 per site per month — which beats paying ten separate single-site licences."}},
+    {"@type":"Question","name":"Can I just use an AI-generated privacy policy and a hand-coded cookie banner?","acceptedAnswer":{"@type":"Answer","text":"For a hobby site with no tracking, maybe. For anything running analytics or ads, no. A static AI policy and a DIY banner don't re-scan your site as you add tools, don't perform the Google Consent Mode v2 signal handshake correctly, and don't produce an audit-ready consent log. Ad networks like Mediavine and Raptive require a certified consent management platform, so a DIY banner can quietly cost you ad revenue."}},
+    {"@type":"Question","name":"Which tool is best for a freelancer building client sites?","acceptedAnswer":{"@type":"Answer","text":"CookieYes is the most agency-friendly mainstream option — its Agency Partner Program offers up to 50% off and a dashboard to provision and manage multiple client accounts. iubenda is the stronger choice if your clients need lawyer-vetted policies and you want API-based deployment."}},
+    {"@type":"Question","name":"Do I need data mapping and DSAR automation?","acceptedAnswer":{"@type":"Answer","text":"Only once you're handling meaningful volumes of personal data or pursuing SOC 2, ISO 27001, or HIPAA. At that point manual DSAR handling and spreadsheet-based data mapping become a liability. Osano and Enzuzo's higher tiers automate the data-subject-request portal and discovery that auditors expect to see."}}
+  ]
+};
+---
+<BaseLayout
+  title="Best Privacy & Cookie Tools by Use Case 2026: Don't Overpay for Compliance | PrivacyComply"
+  description="The best cookie consent and privacy tools for 2026, ranked by business model — solopreneur, multi-site portfolio, agency, or SaaS. Termly, CookieYes, Enzuzo, iubenda and Osano compared by fit and real cost."
+  canonical="/best-privacy-tools-by-use-case.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>›</span> Best Privacy Tools by Use Case</p>
+      <h1>Don't Overpay for Compliance: The Best Privacy &amp; Cookie Tools Ranked by Use Case</h1>
+      <div class="article-meta">
+        <span>📅 Updated June 27, 2026</span>
+        <span>⏱ 12 min read</span>
+        <span>✍️ PrivacyComply editorial team</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+
+    <div class="tldr">
+      <strong>The short answer:</strong> there is no single "best" privacy tool — there's a best tool <em>for your business model</em>. Running one site? <a href="/termly-review.html">Termly</a> (or <a href="/cookieyes-review.html">CookieYes</a>) gets you compliant for free. Running 10–50 affiliate or content sites? <a href="/enzuzo-review.html">Enzuzo</a> bundles 10 domains into one flat plan instead of charging you ten times over. Building sites for clients? <a href="/cookieyes-review.html">CookieYes</a>'s Agency Partner Program is built for exactly that. Scaling a SaaS toward SOC 2 or HIPAA? Osano or Enzuzo's enterprise tier give you the data mapping and DSAR automation auditors expect.
+    </div>
+
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong> Some links in this article are affiliate links. If you sign up via these links we may earn a commission at no extra cost to you. Recommendations are organised by who each tool actually fits best, not by payout — order and emphasis are independent of commission size. See our full <a href="/about.html#disclosure">affiliate disclosure</a> and <a href="/methodology.html">methodology</a>.
+    </div>
+
+    <div class="experience-callout">
+      <strong>First-hand note:</strong> PrivacyComply itself runs on iubenda — the banner, privacy policy, cookie policy and terms on this site are all generated by it. So the iubenda commentary below reflects day-to-day use. The other tools are assessed from vendor documentation, pricing pages, and verified third-party reviews rather than full first-hand deployment.
+    </div>
+
+    <p>The data privacy space moved again in 2026. More US states switched on their own privacy laws, <a href="https://support.google.com/google-ads/answer/14310715" rel="noopener">Google Consent Mode v2</a> is now table stakes rather than a nice-to-have, and ad networks tightened the consent signals they'll accept before they pay you. The compliance bar went up for everyone.</p>
+
+    <p>Here's the problem with most "best cookie consent tool" lists: they point <strong>every</strong> reader at the same product, because one tool tends to pay the fattest affiliate commission. That's great advice if you happen to be that tool's ideal customer. If you're not, you either overpay or end up with the wrong fit. A blogger with one WordPress site and an operator running 40 affiliate domains have nothing in common except the word "compliance" — and they should not be buying the same plan.</p>
+
+    <p>This guide fixes that. Below, four real business profiles, each with a primary pick, a budget alternative, and a plain explanation of <em>why</em> it fits. Find your bucket, jump to it, and skip the rest.</p>
+
+    <h2>The cheat sheet: find your fit in 20 seconds</h2>
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Your profile</th><th>Top pick</th><th>Best feature for you</th><th>Starts at</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pick">
+            <td class="tool-name">Solopreneur / blogger / single site</td><td>Termly</td><td>Wizard-style policy generator + usable free tier</td><td>Free → ~$14/mo</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Multi-site portfolio (10–50 sites)</td><td>Enzuzo</td><td>10 domains on one flat plan, GTM-native deploy</td><td>Free → $79/mo ($59 annual)</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Freelancer / web agency</td><td>CookieYes</td><td>Agency Partner Program + auto cookie scanning</td><td>Free → Agency program (up to 50% off)</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Growing SaaS / mid-market</td><td>Osano or Enzuzo Enterprise</td><td>Data mapping + DSAR portal + SOC 2/ISO alignment</td><td>Custom enterprise quotes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h2>Profile 1 — The solopreneur, blogger, or single small business site</h2>
+    <p><strong>You manage one website</strong>, traffic is modest, and you need a couple of legal policies plus a working cookie banner without bleeding cash on a monthly SaaS bill. You are not running a privacy program — you just need to be properly covered and move on.</p>
+
+    <p><strong>Your real pain points:</strong></p>
+    <ul>
+      <li>You're not a lawyer and don't want to read regulation to write a privacy policy</li>
+      <li>Per-domain enterprise pricing is absurd for one small site</li>
+      <li>You still need <a href="https://support.google.com/google-ads/answer/14310715" rel="noopener">Google Consent Mode v2</a> so your Analytics and Ads data doesn't go dark</li>
+    </ul>
+
+    <h3>Primary pick: Termly</h3>
+    <p><a href="/termly-review.html">Termly</a>'s strength is its <strong>wizard-style generators</strong>. Answer plain-English questions about your site and it assembles a privacy policy, terms, cookie policy, and a CCPA "Do Not Sell" form — no legal vocabulary required. The free tier genuinely covers a small site (capped by page count), which is exactly what a solo operator needs to launch compliant on day one. Full breakdown in our <a href="/termly-review.html">Termly review</a>.</p>
+
+    <h3>Budget alternative: CookieYes</h3>
+    <p><a href="/cookieyes-review.html">CookieYes</a> is the better choice if the cookie banner itself is your priority. Its free tier includes <strong>Google Consent Mode v2</strong> — which many competitors lock behind paid plans — and on WordPress it installs in under five minutes. Pair its free banner with a basic policy and you're covered for $0 until you grow.</p>
+
+    <div class="experience-callout">
+      <strong>Key takeaway:</strong> for one site, don't pay for an enterprise platform. Start on Termly's or CookieYes's free tier, and only upgrade when traffic or a second site forces it.
+    </div>
+
+    <div class="cta-box">
+      <span class="cta-box__eyebrow">Best for beginners</span>
+      <p class="cta-box__title">Generate your policies with a guided wizard</p>
+      <p class="cta-box__desc">Termly's free tier covers a privacy policy, cookie policy, terms, and a Do Not Sell form for a small site — no legal jargon, no credit card to start.</p>
+      <div class="cta-box__buttons">
+        <a href="https://termly.io/" data-partner="termly" class="btn btn-affiliate" target="_blank" rel="noopener sponsored">Try Termly Free</a>
+        <a href="https://www.cookieyes.com/" data-partner="cookieyes" class="btn btn-secondary" target="_blank" rel="noopener sponsored">Or start with CookieYes</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Profile 2 — The multi-site affiliate or content portfolio operator</h2>
+    <p>This is the tier most review sites skip entirely. <strong>You run 10 to 50 sites</strong> across a mixed stack — WordPress, Webflow, Shopify, raw HTML — and standard per-domain SaaS pricing is a non-starter. At $25/site/month, ten domains is $250/month for cookie banners alone. That math breaks portfolios.</p>
+
+    <p><strong>Your real pain points:</strong></p>
+    <ul>
+      <li><strong>Linear per-domain pricing</strong> punishes you for scaling — every new site adds another full subscription</li>
+      <li>You deploy tracking through <strong>Google Tag Manager</strong>, so your consent tool has to fire inside GTM cleanly or your ad revenue takes the hit</li>
+      <li>You need one dashboard, not 30 logins, to keep banners in sync as regulations change</li>
+    </ul>
+
+    <h3>Primary pick: Enzuzo</h3>
+    <p><a href="/enzuzo-review.html">Enzuzo</a> is built for exactly this gap. Per its <a href="https://www.enzuzo.com/pricing" rel="noopener">public pricing page</a>, the <strong>Pro plan covers 10 domains on a single flat plan</strong> — $79/month, or $59/month billed annually, which works out to roughly <strong>$5.90 per site per month</strong>. Compare that to paying ten separate single-site licences. It's a <a href="https://cmppartnerprogram.withgoogle.com" rel="noopener">Google-certified CMP at Gold tier</a> (CMP ID 418 in the <a href="https://support.google.com/admanager/answer/13554116" rel="noopener">Google Ad Manager registry</a>), supports Google <em>and</em> <a href="https://www.enzuzo.com/blog/best-platforms-for-microsoft-consent-mode" rel="noopener">Microsoft Consent Mode</a>, deploys natively through GTM, and rolls policy generation and DSAR handling into the same dashboard. The pricing ladder is predictable too: Starter (1 domain) → Growth ($29/mo, 4 domains) → Pro ($79/mo, 10 domains) → Agency (20 domains, white-label) → custom Enterprise. You can see the next rung before you hit it, instead of falling off a cost cliff. Full breakdown in our <a href="/enzuzo-review.html">Enzuzo review</a>.</p>
+
+    <h3>Budget / alternative: Usercentrics</h3>
+    <p><a href="https://usercentrics.com/" rel="noopener">Usercentrics</a> (which also owns Cookiebot) is the heavier, EU-leaning alternative. Its pricing is volume/session-based rather than strictly per-domain, which can suit operators who'd rather pool across properties than count individual sites — and its IAB TCF support is among the deepest in the market for ad-driven sites, per independent technical analysis from <a href="https://joindatacops.com/resources/best-cmp-2026/" rel="noopener">DataCops' 2026 CMP review</a>. It's more platform than a lean portfolio usually needs, but it's the right call if your sites are EU-heavy and programmatic-ad-dependent.</p>
+
+    <div class="experience-callout">
+      <strong>Key takeaway:</strong> the moment you pass three or four sites, flat multi-domain pricing beats per-domain SaaS on cost <em>and</em> on sanity. For a 10-site portfolio, one Enzuzo Pro plan replaces ten subscriptions and one login replaces ten.
+    </div>
+
+    <div class="cta-box">
+      <span class="cta-box__eyebrow">Best for portfolios</span>
+      <p class="cta-box__title">Stop paying per domain for cookie consent</p>
+      <p class="cta-box__desc">Enzuzo's Pro plan covers 10 domains for $79/mo ($59/mo annual — about $5.90/site), with GTM-native deployment, DSAR handling, and policy generation in one dashboard. A free tier is available to test it first.</p>
+      <div class="cta-box__buttons">
+        <a href="https://www.enzuzo.com/" data-partner="enzuzo" class="btn btn-affiliate" target="_blank" rel="noopener sponsored">See Enzuzo Plans</a>
+        <a href="https://usercentrics.com/" class="btn btn-secondary" target="_blank" rel="noopener">Compare Usercentrics</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Profile 3 — The freelancer or digital web agency</h2>
+    <p><strong>You build sites for clients.</strong> Compliance is something you set up on their behalf, then ideally hand the billing to them and stop thinking about it. You need provisioning, sub-users, and — ideally — white-labelling, not a tool designed for a single owner managing their own site.</p>
+
+    <p><strong>Your real pain points:</strong></p>
+    <ul>
+      <li>Spinning up and configuring a new client account should take minutes, not an afternoon</li>
+      <li>You want the client to own the subscription eventually, without you eating their monthly fee</li>
+      <li>Cookie scanning has to be automatic — you can't manually re-audit every client site every quarter</li>
+    </ul>
+
+    <h3>Primary pick: CookieYes</h3>
+    <p><a href="/cookieyes-review.html">CookieYes</a> is the most agency-ready mainstream option. Per the <a href="https://www.cookieyes.com/agency-partner-program/" rel="noopener">CookieYes Agency Partner Program page</a>, partners get <strong>up to 50% off retail pricing</strong> (40% in years 1–2, 30% thereafter) plus access to a dedicated Agency Platform to provision client accounts, manage them centrally, and hand over billing. Its automated cookie scanning re-checks client sites on a schedule, so banners don't silently drift out of compliance as clients add new tools. For a freelancer juggling a roster of small-business sites, that's the workflow you actually want.</p>
+
+    <h3>Budget / alternative: iubenda</h3>
+    <p><a href="/iubenda-review.html">iubenda</a> is the stronger pick when your clients need <strong>fully-customised legal stacks and API-driven deployment</strong>. Its policy generator is the best in the category — name the third-party services a client site uses and it assembles a lawyer-vetted, auto-updating policy. The developer focus (API, embeddable widgets) makes it a clean fit if you're templating compliance into a build pipeline. The trade-off is cost per site, which is why it suits higher-value client work more than high-volume cheap builds.</p>
+
+    <div class="experience-callout">
+      <strong>Key takeaway:</strong> for agencies, the dashboard and billing hand-off matter more than the banner itself. CookieYes wins on provisioning workflow; iubenda wins when clients need premium, auto-maintained legal documents.
+    </div>
+
+    <div class="cta-box">
+      <span class="cta-box__eyebrow">Best for agencies</span>
+      <p class="cta-box__title">Provision client compliance from one dashboard</p>
+      <p class="cta-box__desc">CookieYes's Agency Partner Program gives you discounted multi-client management, automated scanning, and a clean billing hand-off. iubenda is the alternative when clients need premium auto-updating legal policies.</p>
+      <div class="cta-box__buttons">
+        <a href="https://www.cookieyes.com/" data-partner="cookieyes" class="btn btn-affiliate" target="_blank" rel="noopener sponsored">Explore CookieYes for Agencies</a>
+        <a href="https://www.iubenda.com/" data-partner="iubenda" class="btn btn-secondary" target="_blank" rel="noopener sponsored">Or try iubenda</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Profile 4 — The growing SaaS startup or mid-market brand</h2>
+    <p><strong>You've outgrown the cookie banner.</strong> Now you're handling real volumes of customer data, fielding data-subject requests, and probably chasing SOC 2, ISO 27001, HIPAA, or a serious enterprise sales cycle that demands all three. A banner is the visible 5% of what you need; the rest is process and proof.</p>
+
+    <p><strong>Your real pain points:</strong></p>
+    <ul>
+      <li><strong>Data mapping &amp; discovery</strong> — you need to know where personal data actually lives across your systems</li>
+      <li><strong>DSAR automation</strong> — manual access/deletion request handling doesn't survive an audit or scale with users</li>
+      <li>Architecture that <strong>aligns with SOC 2, ISO 27001, HIPAA and GDPR</strong> at once, with an audit trail you can hand an assessor</li>
+    </ul>
+
+    <h3>Primary picks: Osano or Enzuzo Enterprise</h3>
+    <p><a href="https://www.osano.com/" rel="noopener">Osano</a> is the privacy-program heavyweight of the two. Beyond consent, it adds vendor risk scoring, data mapping, subject-rights workflows, and assessments — the full governance suite an enterprise buyer or auditor expects. Pricing isn't listed publicly on the <a href="https://www.osano.com/pricing" rel="noopener">Osano pricing page</a> beyond a free single-site tier; the broader privacy stack is sold via custom enterprise quotes. If a dedicated privacy or security function will act on its alerts, the depth pays off.</p>
+    <p><a href="/enzuzo-review.html">Enzuzo's Enterprise tier</a> is the leaner, more budget-predictable path to the same essentials — DSAR automation, policy generation, multi-domain consent, and Consent Mode — without the full <a href="https://www.enzuzo.com/blog/onetrust-review" rel="noopener">OneTrust-class price tag</a>. For a growing SaaS that needs the automation but doesn't yet have a privacy team to feed a heavyweight governance platform, it's the more practical entry point, with a clear upgrade path as you scale.</p>
+
+    <div class="experience-callout experience-callout--amber">
+      <strong>Reality check:</strong> at this stage, the tool is the easy part. Map your decision to whether you have someone to <em>operate</em> a privacy program. If yes, Osano's depth earns its keep. If you need automation now but the team comes later, Enzuzo's enterprise tier gets you audit-ready without the overhead.
+    </div>
+
+    <div class="cta-box cta-box--amber">
+      <span class="cta-box__eyebrow">Best for scaling SaaS</span>
+      <p class="cta-box__title">Move from "banner" to "privacy program"</p>
+      <p class="cta-box__desc">For data mapping, DSAR automation, and SOC 2 / ISO / HIPAA-aligned architecture, evaluate Osano for full governance depth or Enzuzo's enterprise tier for predictable, automation-first compliance.</p>
+      <div class="cta-box__buttons">
+        <a href="https://www.enzuzo.com/" data-partner="enzuzo" class="btn btn-affiliate" target="_blank" rel="noopener sponsored">See Enzuzo Enterprise</a>
+        <a href="https://www.osano.com/" class="btn btn-secondary" target="_blank" rel="noopener">Compare Osano</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>The tech pitfall: why DIY AI compliance breaks down</h2>
+    <p>It's tempting — especially for a developer or a portfolio operator counting costs — to skip the SaaS entirely: have an LLM write a privacy policy, hand-code a banner with a couple of toggles, ship it. For a static brochure site with zero tracking, fine. For anything running analytics or ads, this quietly falls apart, and usually in ways you won't notice until the damage is done.</p>
+
+    <p><strong>Four places DIY compliance fails:</strong></p>
+    <ul>
+      <li><strong>No automated cookie scanning.</strong> A real CMP re-scans your site on a schedule and re-categorises new cookies as you add tools. A hand-coded banner is frozen at the moment you wrote it — add a chat widget or a new pixel and your banner is now lying to users and regulators, silently.</li>
+      <li><strong>The Google Consent Mode v2 handshake is strict.</strong> <a href="https://support.google.com/google-ads/answer/14310715" rel="noopener">GCM v2</a> isn't just hiding scripts; it requires specific consent signals (<em>ad_storage</em>, <em>analytics_storage</em>, <em>ad_user_data</em>, <em>ad_personalization</em>) to default to denied and then update on the user's choice, in the right order. Get the API handshake wrong and Google's tags don't recover the data — your GA4 and Ads measurement degrades even though the banner "looks" like it works.</li>
+      <li><strong>Ad networks reject non-certified consent.</strong> This is the one that hits revenue directly. Premium ad managers like <a href="https://www.mediavine.com/" rel="noopener">Mediavine</a> and <a href="https://raptive.com/" rel="noopener">Raptive</a> expect a valid, certified consent signal before serving programmatic demand. A DIY banner that doesn't pass a proper TCF/Consent Mode signal can get you throttled or dropped from the highest-paying demand — so the "free" banner costs you real RPM.</li>
+      <li><strong>No consent log = no audit defence.</strong> When an enforcement query or a data-subject request lands, you need timestamped proof of what each visitor consented to. AI-generated text and a custom toggle don't produce that record. The certified platforms do, by default.</li>
+    </ul>
+
+    <div class="experience-callout experience-callout--amber">
+      <strong>Bottom line:</strong> a static policy plus a hand-rolled banner isn't a cheaper version of a CMP — it's a different, riskier product that looks the same until an auditor, a data-subject request, or your ad network proves otherwise.
+    </div>
+
+    <hr />
+
+    <h2>The verdict: what to test first</h2>
+    <p>Match yourself to one bucket and start there. Don't over-buy, and don't under-protect.</p>
+    <ul>
+      <li><strong>One site, low traffic →</strong> <a href="/termly-review.html">Termly</a>'s free wizard, or <a href="/cookieyes-review.html">CookieYes</a> free if the banner is your main concern. Cost: $0 to start.</li>
+      <li><strong>10–50 sites across mixed stacks →</strong> <a href="/enzuzo-review.html">Enzuzo</a> Pro — one flat plan for 10 domains beats ten separate subscriptions, and it's GTM-native.</li>
+      <li><strong>Building for clients →</strong> <a href="/cookieyes-review.html">CookieYes</a> Agency Partner Program for the dashboard and billing hand-off; <a href="/iubenda-review.html">iubenda</a> when clients need premium auto-updating legal docs.</li>
+      <li><strong>Scaling SaaS / mid-market →</strong> Enzuzo Enterprise for automation-first and predictable pricing, or Osano for full governance depth if you have a privacy function to run it.</li>
+    </ul>
+
+    <p>Whatever you pick, start on a free tier or trial, deploy the banner, then confirm two things before you call it done: that <a href="https://support.google.com/google-ads/answer/14310715" rel="noopener">Google Consent Mode v2</a> is actually firing, and that your consent log is being recorded. Those two checks are the difference between "looks compliant" and "is compliant."</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <details class="faq-item" open>
+      <summary>Why don't most review sites recommend tools by business type?</summary>
+      <div>Because one tool usually pays the highest commission, so it gets recommended to everyone regardless of fit. That's fine if you happen to match that tool's ideal customer — and expensive if you don't. A solopreneur and a 40-site portfolio operator have completely different cost structures, so the right tool is genuinely different for each.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What's the cheapest way to run cookie consent across many websites?</summary>
+      <div>Per-domain pricing (CookieYes, Osano, Cookiebot) gets expensive fast once you pass a handful of sites, since each domain needs its own subscription. Flat multi-domain plans win at scale. Enzuzo's Pro plan covers 10 domains for $79/month, or $59/month billed annually — about $5.90 per site per month — which beats paying ten single-site licences.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I just use an AI-generated policy and a hand-coded banner?</summary>
+      <div>For a hobby site with no tracking, maybe. For anything running analytics or ads, no. A static AI policy and a DIY banner don't re-scan your site as you add tools, don't perform the Google Consent Mode v2 signal handshake correctly, and don't produce an audit-ready consent log. Ad networks like Mediavine and Raptive require a certified consent platform, so a DIY banner can quietly cost you ad revenue.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Which tool is best for a freelancer building client sites?</summary>
+      <div>CookieYes is the most agency-friendly mainstream option — its Agency Partner Program offers up to 50% off plus a dashboard to provision and manage multiple client accounts. iubenda is the stronger choice if your clients need lawyer-vetted, auto-updating policies and you want API-based deployment.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Do I need data mapping and DSAR automation?</summary>
+      <div>Only once you're handling meaningful volumes of personal data or pursuing SOC 2, ISO 27001, or HIPAA. At that point manual DSAR handling and spreadsheet-based data mapping become a liability. Osano and Enzuzo's higher tiers automate the data-subject-request portal and discovery auditors expect to see.</div>
+    </details>
+
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools 2026: compared &amp; ranked</a></li>
+      <li><a href="/enzuzo-review.html">Enzuzo review 2026</a></li>
+      <li><a href="/cookieyes-review.html">CookieYes review 2026</a></li>
+      <li><a href="/iubenda-review.html">iubenda review 2026</a></li>
+      <li><a href="/termly-review.html">Termly review 2026</a></li>
+      <li><a href="/iubenda-vs-termly-vs-osano.html">iubenda vs Termly vs Osano: complete comparison</a></li>
+      <li><a href="/compliance-tools-landscape.html">Full privacy &amp; compliance tools landscape (50+ tools)</a></li>
+      <li><a href="/what-is-gdpr.html">What is GDPR? A plain-English guide for website owners</a></li>
+      <li><a href="/gdpr-vs-ccpa.html">GDPR vs CCPA: what every website owner needs to know</a></li>
+    </ul>
+
+  </article>
+</BaseLayout>

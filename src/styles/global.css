@@ -303,6 +303,20 @@ p  { margin-bottom: 1em; }
 }
 .disclosure strong { color: #78350f; }
 
+/* ============ EXPERIENCE / KEY-TAKEAWAY CALLOUT ============ */
+.experience-callout {
+  border-left: 4px solid var(--accent);
+  background: var(--paper);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.experience-callout strong { color: var(--accent-deep); }
+.experience-callout--amber { border-left-color: var(--amber); }
+.experience-callout--amber strong { color: var(--amber); }
+
 .site-footer {
   background: var(--navy-deep); color: #94a3b8; padding: 64px 0 24px; margin-top: 80px;
 }

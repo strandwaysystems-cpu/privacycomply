@@ -41,6 +41,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://privacycomply.io/best-privacy-tools-by-use-case.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://privacycomply.io/reviews.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
