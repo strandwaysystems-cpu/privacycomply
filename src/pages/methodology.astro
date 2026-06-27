@@ -102,6 +102,15 @@ const methodologySchema = {
     </ul>
     <p>Every page carries a visible "Updated" date at the top. If you find a date older than 90 days, email <code>corrections@privacycomply.io</code> and we will prioritise a refresh.</p>
 
+    <h2>Performance &amp; Core Web Vitals observation</h2>
+    <p>Cookie consent scripts execute on every page load and — if poorly built — can directly degrade <a href="https://web.dev/vitals/" rel="noopener">Core Web Vitals</a>, which Google uses as a ranking signal. We do not currently weight Core Web Vitals impact into the headline score (the testing required to do this defensibly across multiple traffic profiles is significant), but we track it as a public observation on each review:</p>
+    <ul>
+      <li><strong>Largest Contentful Paint (LCP)</strong> — delayed if a heavy banner script blocks above-the-fold rendering.</li>
+      <li><strong>Cumulative Layout Shift (CLS)</strong> — triggered when a banner injects into the DOM without reserved CSS space and shifts page content downward.</li>
+      <li><strong>Interaction to Next Paint (INP)</strong> — hurt when poorly-coded consent storage queries lag the user's click on Accept / Decline.</li>
+    </ul>
+    <p>Where vendors publish CDN architecture details, gzipped script weight, and async-loading behaviour, we surface those facts in the review. Tools served from globally distributed CDNs with sub-50KB async JavaScript bundles (Usercentrics, CookieHub) tend to be effectively invisible to Core Web Vitals; tools that synchronously inject blocking scripts or render banners without reserved layout space tend not to be. When we can independently verify a Core Web Vitals impact on a live deployment, we say so.</p>
+
     <h2>Conflict-of-interest rules</h2>
     <p>We earn affiliate commissions on outbound vendor links. Rankings are kept independent of commission size by three structural rules:</p>
     <ul>

@@ -164,6 +164,43 @@ const faqSchema = {
     <h3>Primary pick: Enzuzo</h3>
     <p><a href="/enzuzo-review.html">Enzuzo</a> is built for exactly this gap. Per its <a href="https://www.enzuzo.com/pricing" rel="noopener">public pricing page</a>, the <strong>Pro plan covers 10 domains on a single flat plan</strong> — $79/month, or $59/month billed annually, which works out to roughly <strong>$5.90 per site per month</strong>. Compare that to paying ten separate single-site licences. It's a <a href="https://cmppartnerprogram.withgoogle.com" rel="noopener">Google-certified CMP at Gold tier</a> (CMP ID 418 in the <a href="https://support.google.com/admanager/answer/13554116" rel="noopener">Google Ad Manager registry</a>), supports Google <em>and</em> <a href="https://www.enzuzo.com/blog/best-platforms-for-microsoft-consent-mode" rel="noopener">Microsoft Consent Mode</a>, deploys natively through GTM, and rolls policy generation and DSAR handling into the same dashboard. The pricing ladder is predictable too: Starter (1 domain) → Growth ($29/mo, 4 domains) → Pro ($79/mo, 10 domains) → Agency (20 domains, white-label) → custom Enterprise. You can see the next rung before you hit it, instead of falling off a cost cliff. Full breakdown in our <a href="/enzuzo-review.html">Enzuzo review</a>.</p>
 
+    <h3>The 10-site math, head-to-head</h3>
+    <p>Here's what running cookie consent across exactly 10 domains — each needing geo-targeting (EU opt-in banners + US/California opt-out) and full Google Consent Mode v2 — actually costs in 2026:</p>
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Platform</th><th>10-site monthly cost</th><th>Annualized</th><th>Traffic model</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pick">
+            <td class="tool-name">Enzuzo Pro</td><td>$59 (annual) / $79 (monthly)</td><td>$708/yr</td><td>30,000 unique visitors cumulative</td><td>Flat multi-domain — one plan, one login</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Complianz Agency (WordPress only)</td><td>~$33</td><td>$399/yr (flat license)</td><td>None — self-hosted, unlimited</td><td>Covers 25 sites; WordPress sites only</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Usercentrics Business</td><td>~$56 (€50)</td><td>~$672/yr</td><td>50,000 sessions cumulative</td><td>Sessions pool across domains; auto-shifts up at overage</td>
+          </tr>
+          <tr>
+            <td class="tool-name">Termly Pro+ (bulk)</td><td>~$90–$120</td><td>~$1,080–$1,440/yr</td><td>Pay per license</td><td>Bulk Agency pricing kicks in at 10+ licenses</td>
+          </tr>
+          <tr>
+            <td class="tool-name">CookieYes Pro</td><td>$250</td><td>$2,500/yr</td><td>300,000 pageviews/site (3M total)</td><td>$25/site/mo — no multi-site bundle at checkout</td>
+          </tr>
+          <tr>
+            <td class="tool-name">iubenda Advanced</td><td>~$250</td><td>~$2,998/yr</td><td>50,000 pageviews/site (500K total)</td><td>$24.99/site/mo for geo-targeting tier</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size: 0.88rem; color: var(--text-soft); margin-top: -8px;">Sources: <a href="https://www.enzuzo.com/pricing" rel="noopener">Enzuzo</a>, <a href="https://complianz.io/pricing/" rel="noopener">Complianz</a>, <a href="https://usercentrics.com/us/pricing/" rel="noopener">Usercentrics</a>, <a href="https://termly.io/pricing/" rel="noopener">Termly</a>, <a href="https://www.cookieyes.com/pricing/" rel="noopener">CookieYes</a>, <a href="https://www.iubenda.com/app/en/pricing" rel="noopener">iubenda</a> pricing pages, verified June 2026. Pricing scenarios cross-referenced against <a href="https://www.enzuzo.com/blog/cookieyes-pricing" rel="noopener">Enzuzo's 2026 CookieYes pricing analysis</a>.</p>
+
+    <div class="experience-callout experience-callout--amber">
+      <strong>Caveat:</strong> Complianz wins on raw cost but only covers <strong>WordPress sites</strong>. If your portfolio mixes Webflow, Shopify, and raw HTML — which most affiliate portfolios do — Enzuzo's flat plan is the right pick. If you're 100% WordPress, Complianz Agency at $399/year for 25 sites is genuinely cheaper than anything else on the list.
+    </div>
+
     <h3>Budget / alternative: Usercentrics</h3>
     <p><a href="https://usercentrics.com/" rel="noopener">Usercentrics</a> (which also owns Cookiebot) is the heavier, EU-leaning alternative. Its pricing is volume/session-based rather than strictly per-domain, which can suit operators who'd rather pool across properties than count individual sites — and its IAB TCF support is among the deepest in the market for ad-driven sites, per independent technical analysis from <a href="https://joindatacops.com/resources/best-cmp-2026/" rel="noopener">DataCops' 2026 CMP review</a>. It's more platform than a lean portfolio usually needs, but it's the right call if your sites are EU-heavy and programmatic-ad-dependent.</p>
 
