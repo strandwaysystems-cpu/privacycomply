@@ -1,5 +1,5 @@
 ---
-// Shared site header — sticky nav across all pages
+// Shared site header — sticky nav with dropdowns
 ---
 <header class="site-header">
   <div class="site-header__inner">
@@ -11,14 +11,70 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="nav-links">
-      <a href="/reviews.html">Reviews</a>
-      <a href="/best-cookie-consent-tools-2026.html">Compare Tools</a>
-      <a href="/compliance-tools-landscape.html">Tool Landscape</a>
-      <a href="/what-is-gdpr.html">GDPR Guide</a>
-      <a href="/gdpr-vs-ccpa.html">GDPR vs CCPA</a>
-      <a href="/methodology.html">Methodology</a>
-      <a href="/about.html">About</a>
+
+      <div class="nav-item nav-item--has-dropdown">
+        <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Reviews &amp; Tools <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/reviews.html" role="menuitem">All reviews</a>
+          <a href="/cookieyes-review.html" role="menuitem">CookieYes review</a>
+          <a href="/iubenda-review.html" role="menuitem">iubenda review</a>
+          <a href="/termly-review.html" role="menuitem">Termly review</a>
+          <div class="nav-dropdown__sep"></div>
+          <a href="/best-cookie-consent-tools-2026.html" role="menuitem">Compare cookie tools</a>
+          <a href="/iubenda-vs-termly-vs-osano.html" role="menuitem">iubenda vs Termly vs Osano</a>
+          <a href="/compliance-tools-landscape.html" role="menuitem">Full tool landscape</a>
+        </div>
+      </div>
+
+      <div class="nav-item nav-item--has-dropdown">
+        <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Guides <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/what-is-gdpr.html" role="menuitem">What is GDPR?</a>
+          <a href="/gdpr-vs-ccpa.html" role="menuitem">GDPR vs CCPA</a>
+        </div>
+      </div>
+
+      <div class="nav-item nav-item--has-dropdown">
+        <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">About <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/about.html" role="menuitem">About PrivacyComply</a>
+          <a href="/methodology.html" role="menuitem">Our methodology</a>
+          <a href="/about.html#disclosure" role="menuitem">Affiliate disclosure</a>
+        </div>
+      </div>
+
       <a href="/best-cookie-consent-tools-2026.html" class="nav-cta">Compare Tools</a>
     </nav>
   </div>
 </header>
+
+<script>
+  // Lightweight dropdown behaviour — click to open, click outside to close, ESC to close
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.nav-trigger');
+    const closeAll = () => {
+      triggers.forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        t.parentElement?.classList.remove('is-open');
+      });
+    };
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parent = trigger.parentElement;
+        const isOpen = parent?.classList.contains('is-open');
+        closeAll();
+        if (!isOpen) {
+          parent?.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    // Mobile toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle?.addEventListener('click', () => navLinks?.classList.toggle('open'));
+  });
+</script>
