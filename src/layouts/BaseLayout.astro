@@ -32,20 +32,13 @@ const canonicalUrl = `${site}${canonical}`;
   <link rel="canonical" href={canonicalUrl} />
   <meta name="robots" content={robots} />
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#0b2545" />
-
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={canonicalUrl} />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="impact-site-verification" value="3b5dce84-220f-459c-ab9f-550083c09bec" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,26 +46,6 @@ const canonicalUrl = `${site}${canonical}`;
 
   <!-- Per-page structured data slot -->
   <slot name="schema" />
-
-  <!-- iubenda Privacy Controls and Cookie Solution (must load before GA / other tracking) -->
-  <script is:inline type="text/javascript" src="https://embeds.iubenda.com/widgets/4e43075e-5ed0-480a-8e2e-2b5b044cf3d9.js"></script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGJTYFDLF5"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KGJTYFDLF5');
-  </script>
-
-  <!-- iubenda Consent Database -->
-  <script is:inline type="text/javascript">
-    var _iub = _iub || {};
-    _iub.cons_instructions = _iub.cons_instructions || [];
-    _iub.cons_instructions.push(["init", {api_key: "yjuoKm9s9FBuhpSKogq5fCJeBkn9r9Ha"}]);
-  </script>
-  <script is:inline type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
 </head>
 <body>
   <Header />
