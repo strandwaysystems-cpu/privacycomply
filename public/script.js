@@ -97,11 +97,50 @@
   }, { capture: true, passive: true });
 })();
 
-// PrivacyComply.io — mobile nav + small UX behaviours (preserved)
+// PrivacyComply.io — mobile nav + dropdown behaviour
 document.addEventListener('DOMContentLoaded', function () {
+  // Hamburger toggle
   var toggle = document.querySelector('.nav-toggle');
   var links  = document.querySelector('.nav-links');
   if (toggle && links) {
-    toggle.addEventListener('click', function () { links.classList.toggle('open'); });
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
+    });
   }
+
+  // Desktop/mobile dropdown triggers
+  var triggers = document.querySelectorAll('.nav-trigger');
+
+  function closeAll() {
+    triggers.forEach(function (t) {
+      t.setAttribute('aria-expanded', 'false');
+      if (t.parentElement) t.parentElement.classList.remove('is-open');
+    });
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var parent = trigger.parentElement;
+      var isOpen = parent && parent.classList.contains('is-open');
+      closeAll();
+      if (!isOpen && parent) {
+        parent.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function () { closeAll(); });
+
+  // Close dropdowns and mobile nav on ESC
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeAll();
+      if (links) links.classList.remove('open');
+    }
+  });
 });

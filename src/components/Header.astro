@@ -50,33 +50,3 @@
   </div>
 </header>
 
-<script>
-  // Lightweight dropdown behaviour — click to open, click outside to close, ESC to close
-  document.addEventListener('DOMContentLoaded', () => {
-    const triggers = document.querySelectorAll('.nav-trigger');
-    const closeAll = () => {
-      triggers.forEach(t => {
-        t.setAttribute('aria-expanded', 'false');
-        t.parentElement?.classList.remove('is-open');
-      });
-    };
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const parent = trigger.parentElement;
-        const isOpen = parent?.classList.contains('is-open');
-        closeAll();
-        if (!isOpen) {
-          parent?.classList.add('is-open');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-    document.addEventListener('click', closeAll);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
-    // Mobile toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    navToggle?.addEventListener('click', () => navLinks?.classList.toggle('open'));
-  });
-</script>
