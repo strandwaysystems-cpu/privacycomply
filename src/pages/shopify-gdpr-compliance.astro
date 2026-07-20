@@ -1,0 +1,536 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Shopify GDPR Compliance 2026","item":"https://privacycomply.io/shopify-gdpr-compliance.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Shopify GDPR Compliance 2026: The Complete Store Owner's Guide",
+  "description": "Everything Shopify store owners need to do to comply with GDPR, CCPA, and other privacy laws — cookie banners, privacy policies, Meta Pixel consent, and the best apps to handle it all.",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does my Shopify store need a GDPR cookie banner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you have EU customers. Shopify stores almost always use tracking pixels (Meta, Google Ads, TikTok), analytics, and remarketing cookies — all of which require explicit consent from EU visitors before firing. Shopify's built-in cookie banner is limited and not sufficient for full GDPR compliance. Dedicated apps like Enzuzo or CookieYes provide proper consent management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Shopify GDPR compliant by default?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopify as a platform is GDPR compliant and acts as a data processor under your privacy policy. However, your store is not automatically GDPR compliant — you are the data controller and are responsible for obtaining cookie consent, publishing a privacy policy, handling customer data requests, and managing third-party marketing pixels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Shopify have a built-in cookie banner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopify has a basic cookie consent banner built into some themes, but it does not block cookies before consent, does not provide granular category controls, and does not handle the CCPA 'Do Not Sell' requirement. For GDPR compliance, you need a dedicated consent management app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my Meta Pixel under GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Meta Pixel sets cookies and sends customer behaviour data to Facebook/Meta. Under GDPR, this requires explicit consent from EU visitors before the pixel fires. You need a cookie consent banner that integrates with Meta's Conversions API or uses Meta's consent mode to block the pixel until consent is given."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best GDPR app for Shopify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enzuzo is the top-rated GDPR app for Shopify with a native integration, automatic cookie scanning, CCPA Do Not Sell support, and privacy policy generation — all in one app. CookieYes also has a strong Shopify integration and is free up to 25,000 visits/month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GDPR apply to a Shopify store based in the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GDPR applies based on where your customers are located, not where your business is based. If you ship to or accept orders from EU countries, GDPR applies to you. This is true for any Shopify store selling internationally."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Shopify GDPR Compliance 2026: Complete Store Owner's Guide | PrivacyComply"
+  description="Everything Shopify store owners need for GDPR and CCPA compliance — cookie banners, privacy policies, Meta Pixel consent, and the best Shopify apps to handle it all."
+  canonical="/shopify-gdpr-compliance.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> Shopify GDPR Compliance</p>
+      <h1>Shopify GDPR Compliance 2026</h1>
+      <p class="hero__sub">The complete guide for Shopify store owners — what GDPR actually requires from your store, what Shopify handles for you, what it doesn't, and the fastest way to get compliant.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#does-gdpr-apply">Does GDPR apply to your Shopify store?</a></li>
+          <li><a href="#what-shopify-does">What Shopify handles for you</a></li>
+          <li><a href="#what-you-must-do">What you must do yourself</a></li>
+          <li><a href="#meta-pixel">Meta Pixel, Google Ads &amp; tracking pixels</a></li>
+          <li><a href="#privacy-policy">Privacy policy requirements</a></li>
+          <li><a href="#ccpa">CCPA for Shopify stores</a></li>
+          <li><a href="#customer-rights">Handling customer data requests</a></li>
+          <li><a href="#apps">Best GDPR apps for Shopify</a></li>
+          <li><a href="#checklist">Shopify GDPR compliance checklist</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="does-gdpr-apply">Does GDPR apply to your Shopify store?</h2>
+      <p>GDPR applies to your Shopify store if you sell to, ship to, or otherwise process the personal data of EU residents — regardless of where your business is based. If your store ships to Germany, France, Italy, or any other EU country, or if EU residents can browse and purchase from your store, GDPR applies to you.</p>
+
+      <div class="callout callout--warning">
+        <strong>The common misconception:</strong> Many US-based Shopify merchants assume GDPR only applies to European businesses. It doesn't. GDPR follows your <em>customers</em>, not your business address. A store in Texas that ships to the Netherlands is subject to GDPR for those Dutch customers.
+      </div>
+
+      <p>The scope of GDPR for your Shopify store covers:</p>
+      <ul>
+        <li>Customer email addresses, names, and shipping addresses collected at checkout</li>
+        <li>Browsing behaviour tracked by analytics and marketing pixels</li>
+        <li>Purchase history and order data</li>
+        <li>Email marketing lists and abandoned cart data</li>
+        <li>Any data collected via contact forms, reviews, or loyalty programs</li>
+      </ul>
+
+      <h2 id="what-shopify-does">What Shopify handles for you</h2>
+      <p>Shopify acts as a <strong>data processor</strong> on your behalf — they process customer data according to your instructions and have signed Data Processing Agreements in place. This covers:</p>
+      <ul>
+        <li>Secure storage of customer order data and payment information</li>
+        <li>PCI DSS compliance for payment processing</li>
+        <li>Data Processing Agreement with you as the merchant (automatically in place)</li>
+        <li>Shopify's own GDPR compliance as a platform (privacy policy, data security)</li>
+        <li>Customer data deletion tools in the Shopify admin (for erasure requests)</li>
+        <li>GDPR webhooks that notify your store when a customer requests data deletion or export</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <strong>Important distinction:</strong> Shopify being GDPR compliant does not make your store GDPR compliant. You are the <strong>data controller</strong> — the party legally responsible for how customer data is collected and used. Shopify provides the tools; you are responsible for using them correctly and for everything outside Shopify's platform (pixels, analytics, email marketing).
+      </div>
+
+      <h2 id="what-you-must-do">What you must do yourself</h2>
+      <p>As the data controller, you are responsible for:</p>
+
+      <h3>1. Cookie consent banner</h3>
+      <p>Shopify stores load numerous tracking technologies by default — analytics, marketing pixels, retargeting scripts — all of which set cookies. Under GDPR, EU visitors must consent to these before they fire. Shopify's native cookie banner does not block cookies before consent, making it insufficient for GDPR compliance.</p>
+
+      <h3>2. Privacy policy that meets GDPR standards</h3>
+      <p>Shopify provides a privacy policy template, but it is a starting point, not a finished document. Your privacy policy must disclose every third party you share customer data with — including Meta, Google, Klaviyo, and any other marketing or analytics tools you use.</p>
+
+      <h3>3. Consent for email marketing</h3>
+      <p>Under GDPR, you need explicit opt-in consent before adding EU customers to marketing email lists. Pre-ticked "Subscribe to newsletter" checkboxes at checkout are not valid. The checkbox must be unticked by default and clearly labelled.</p>
+
+      <h3>4. Third-party app data processing agreements</h3>
+      <p>Every Shopify app that processes customer data (Klaviyo, Mailchimp, Gorgias, Yotpo, etc.) needs a Data Processing Agreement. Most provide these automatically — check each app's privacy documentation.</p>
+
+      <h3>5. Customer data request process</h3>
+      <p>EU customers can request a copy of their data, ask for corrections, or request deletion at any time. You need a process to handle these within 30 days. Shopify's admin provides export and deletion tools, but you need a way for customers to submit requests.</p>
+
+      <h2 id="meta-pixel">Meta Pixel, Google Ads &amp; tracking pixels</h2>
+      <p>This is where most Shopify stores are non-compliant. Marketing pixels are the biggest GDPR risk for e-commerce stores.</p>
+
+      <h3>The problem</h3>
+      <p>The Meta Pixel (and Google Ads tag, TikTok Pixel, Pinterest Tag, etc.) fires immediately when a visitor lands on your store, sending their IP address and browsing behaviour to the respective ad network. Under GDPR, this requires explicit prior consent — the pixel must not fire until the visitor has clicked "Accept" on your cookie banner.</p>
+
+      <h3>What valid pixel consent looks like</h3>
+      <ul>
+        <li>Visitor lands on your store</li>
+        <li>Cookie banner appears — pixels are blocked</li>
+        <li>Visitor clicks "Accept all" — pixels fire</li>
+        <li>Visitor clicks "Decline" or closes banner — pixels never fire for that session</li>
+      </ul>
+
+      <h3>The impact on your ad performance</h3>
+      <p>EU visitors who decline cookies (typically 30–50% of EU traffic) will not be tracked by your pixels. This reduces your retargeting audience size and affects attribution data. To partially recover this signal, use <strong>Meta's Conversions API</strong> (server-side) alongside consent mode — it sends some purchase data without relying on the browser pixel, and is GDPR-compliant for conversion events that are part of fulfilling a customer order.</p>
+
+      <div class="callout callout--warning">
+        <strong>Shopify Markets and pixels:</strong> If you use Shopify Markets or Shopify's native pixel manager, consent mode must be configured separately. Installing a GDPR consent app handles this automatically for most setups.
+      </div>
+
+      <h2 id="privacy-policy">Privacy policy requirements for Shopify stores</h2>
+      <p>Your Shopify store's privacy policy must tell customers:</p>
+      <ul>
+        <li>What personal data you collect (name, email, address, payment details, browsing behaviour)</li>
+        <li>Why you collect it (fulfilling orders, marketing, fraud prevention, analytics)</li>
+        <li>The legal basis for each processing activity (contract, consent, legitimate interest)</li>
+        <li>Who you share data with — and you must name them: Shopify, Meta, Google, Klaviyo, your shipping provider, your payment processor</li>
+        <li>Whether data is transferred outside the EU (yes, to US-based services — you need to state the transfer mechanism)</li>
+        <li>How long you retain data</li>
+        <li>Customer rights: access, correction, deletion, portability, objection</li>
+        <li>How to contact you to exercise those rights</li>
+      </ul>
+
+      <p>Shopify's default privacy policy template covers some of this but frequently misses third-party disclosures for the apps merchants add. <a href="https://www.iubenda.com" rel="noopener noreferrer">iubenda</a> automatically generates a privacy policy that updates when you add new Shopify apps — a significant advantage over static templates.</p>
+
+      <h2 id="ccpa">CCPA requirements for Shopify stores</h2>
+      <p>If you have California customers and your store meets CCPA thresholds (over $25M revenue, or processes data of 100,000+ California consumers, or derives 50%+ revenue from selling data), you also need:</p>
+      <ul>
+        <li>A <strong>"Do Not Sell or Share My Personal Information"</strong> link in your store footer</li>
+        <li>A way for California customers to opt out of data sharing with ad networks</li>
+        <li>A privacy policy that includes CCPA-specific disclosures</li>
+      </ul>
+      <p>Most growing Shopify stores will eventually hit CCPA thresholds. Adding the Do Not Sell link proactively costs nothing and protects you as you scale. Enzuzo handles CCPA opt-out alongside GDPR consent in a single app.</p>
+
+      <h2 id="customer-rights">Handling customer data requests</h2>
+      <p>EU customers have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of all data you hold about them</li>
+        <li><strong>Rectification</strong> — correct inaccurate data</li>
+        <li><strong>Erasure</strong> — request deletion of their data ("right to be forgotten")</li>
+        <li><strong>Portability</strong> — receive their data in a machine-readable format</li>
+        <li><strong>Objection</strong> — object to processing for marketing purposes</li>
+      </ul>
+      <p>You must respond within <strong>30 days</strong>. Shopify provides built-in tools to export and delete customer data from your admin. For deletion requests, you also need to delete data from every third-party app that holds customer data — your email platform, CRM, review app, and loyalty program.</p>
+      <p>Add a <strong>privacy@yourdomain.com</strong> email address or a contact form dedicated to data requests, and link it from your privacy policy.</p>
+
+      <h2 id="apps">Best GDPR apps for Shopify</h2>
+
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <span class="tool-card__rank">#1</span>
+          <div>
+            <span class="card__badge card__badge--top">Editor's Pick — Best for Shopify</span>
+            <h3 class="tool-card__name">Enzuzo</h3>
+            <p class="tool-card__tagline">Native Shopify app. Cookie consent, privacy policy, CCPA opt-out, and DSAR workflow in one place.</p>
+          </div>
+          <div class="tool-card__score">
+            <span class="score-label">Score</span>
+            <span class="score-value">4.5 / 5</span>
+            <span class="score-price">From $7/mo</span>
+          </div>
+        </div>
+        <div class="tool-card__body">
+          <div class="pros-cons">
+            <div class="pros">
+              <strong>&#10003; Why it wins for Shopify</strong>
+              <ul>
+                <li>Native Shopify app — installs in minutes with no code</li>
+                <li>Automatic cookie scanning on your store</li>
+                <li>Handles GDPR consent + CCPA Do Not Sell in one banner</li>
+                <li>Built-in privacy policy generator</li>
+                <li>DSAR (data request) workflow from $22/month</li>
+                <li>10 domains on one plan — ideal for merchants running multiple stores</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <strong>&#10007; Limitations</strong>
+              <ul>
+                <li>Free plan limited in features vs paid tiers</li>
+                <li>Less widely known than CookieYes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tool-card__cta">
+            <a href="/enzuzo-review.html" class="btn btn--outline btn--sm">Read full review</a>
+            <a href="https://www.enzuzo.com" class="btn btn--primary btn--sm" rel="noopener noreferrer" target="_blank">Visit Enzuzo &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <span class="tool-card__rank">#2</span>
+          <div>
+            <span class="card__badge">Runner-Up</span>
+            <h3 class="tool-card__name">CookieYes</h3>
+            <p class="tool-card__tagline">The most widely used cookie consent tool, with a solid Shopify integration and a generous free tier.</p>
+          </div>
+          <div class="tool-card__score">
+            <span class="score-label">Score</span>
+            <span class="score-value">4.8 / 5</span>
+            <span class="score-price">From Free</span>
+          </div>
+        </div>
+        <div class="tool-card__body">
+          <div class="pros-cons">
+            <div class="pros">
+              <strong>&#10003; Pros</strong>
+              <ul>
+                <li>Free tier up to 25,000 visits/month</li>
+                <li>Google Consent Mode v2 — keeps ad conversion data flowing</li>
+                <li>Automatic cookie scanning</li>
+                <li>Clean, customisable banner design</li>
+                <li>Very quick to install on Shopify</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <strong>&#10007; Cons</strong>
+              <ul>
+                <li>No built-in privacy policy generation</li>
+                <li>CCPA handling less seamless than Enzuzo</li>
+                <li>DSAR workflow not included</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tool-card__cta">
+            <a href="/cookieyes-review.html" class="btn btn--outline btn--sm">Read full review</a>
+            <a href="https://www.cookieyes.com" class="btn btn--primary btn--sm" rel="noopener noreferrer" target="_blank">Visit CookieYes &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <span class="tool-card__rank">#3</span>
+          <div>
+            <span class="card__badge">Best All-in-One Docs</span>
+            <h3 class="tool-card__name">iubenda</h3>
+            <p class="tool-card__tagline">Privacy policy generator, cookie banner, and terms — lawyer-vetted, automatically updated as you add apps.</p>
+          </div>
+          <div class="tool-card__score">
+            <span class="score-label">Score</span>
+            <span class="score-value">4.6 / 5</span>
+            <span class="score-price">From &euro;4.99/mo</span>
+          </div>
+        </div>
+        <div class="tool-card__body">
+          <div class="pros-cons">
+            <div class="pros">
+              <strong>&#10003; Pros</strong>
+              <ul>
+                <li>Lawyer-vetted privacy policy that auto-updates</li>
+                <li>Covers GDPR, CCPA, LGPD, and more in one doc</li>
+                <li>Cookie banner included in subscription</li>
+                <li>Good Shopify integration</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <strong>&#10007; Cons</strong>
+              <ul>
+                <li>More expensive than CookieYes for banner-only use</li>
+                <li>Interface has a learning curve</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tool-card__cta">
+            <a href="/iubenda-review.html" class="btn btn--outline btn--sm">Read full review</a>
+            <a href="https://www.iubenda.com" class="btn btn--primary btn--sm" rel="noopener noreferrer" target="_blank">Visit iubenda &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="checklist">Shopify GDPR compliance checklist</h2>
+      <div class="checklist-section">
+
+        <h3 class="check-subhead">Cookie consent</h3>
+        <label class="check-item"><input type="checkbox" /><span>Cookie consent banner installed (Enzuzo or CookieYes recommended)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Confirmed pixels and tracking scripts are blocked before consent fires</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Banner offers granular controls (analytics vs marketing vs functional)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Declining cookies is as easy as accepting — no dark patterns</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Google Consent Mode v2 configured (maintains some ad signal after consent)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Meta Pixel consent mode configured</span></label>
+
+        <h3 class="check-subhead">Legal documents</h3>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy published and linked in store footer</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy names every third-party service that receives customer data</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Cookie policy published (can be part of privacy policy)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Terms and conditions published</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Refund and returns policy visible before checkout</span></label>
+
+        <h3 class="check-subhead">Email marketing consent</h3>
+        <label class="check-item"><input type="checkbox" /><span>Newsletter checkbox at checkout is unticked by default</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Newsletter signup forms use explicit opt-in language</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Consent timestamp recorded for each subscriber</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Unsubscribe link in every marketing email</span></label>
+
+        <h3 class="check-subhead">CCPA (US stores with California customers)</h3>
+        <label class="check-item"><input type="checkbox" /><span>"Do Not Sell or Share My Personal Information" link in footer</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy includes CCPA-required disclosures</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Opt-out mechanism connected to ad platforms</span></label>
+
+        <h3 class="check-subhead">Customer data rights</h3>
+        <label class="check-item"><input type="checkbox" /><span>Privacy email address or contact form for data requests published in privacy policy</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Process in place to export customer data within 30 days of request</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Process in place to delete customer data from Shopify admin and all connected apps</span></label>
+        <label class="check-item"><input type="checkbox" /><span>GDPR webhooks configured in Shopify (mandatory erasure/export webhooks)</span></label>
+
+        <h3 class="check-subhead">Third-party apps</h3>
+        <label class="check-item"><input type="checkbox" /><span>Data Processing Agreements in place with all apps that handle customer data</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Audit of installed apps — remove any unused apps that retain customer data</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Email marketing platform (Klaviyo, Mailchimp) DPA signed</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Payment processor (Stripe, PayPal) DPA signed</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Shipping and fulfilment provider DPA signed</span></label>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-q">Does my Shopify store need a GDPR cookie banner?</summary>
+          <div class="faq-a">
+            <p>Yes, if you have EU customers. Shopify stores almost always use tracking pixels (Meta, Google Ads, TikTok), analytics, and remarketing cookies — all of which require explicit consent from EU visitors before firing. Shopify's built-in cookie banner does not block cookies before consent and is not sufficient for GDPR compliance. Dedicated apps like Enzuzo or CookieYes provide proper consent management.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Is Shopify GDPR compliant by default?</summary>
+          <div class="faq-a">
+            <p>Shopify as a platform is GDPR compliant and acts as a data processor under your privacy policy. However, your store is not automatically GDPR compliant — you are the data controller and are responsible for obtaining cookie consent, publishing a compliant privacy policy, handling customer data requests, and managing third-party marketing pixels.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Does Shopify have a built-in cookie banner?</summary>
+          <div class="faq-a">
+            <p>Shopify has a basic cookie consent banner built into some themes, but it does not block cookies before consent, does not provide granular category controls, and does not handle the CCPA Do Not Sell requirement. For GDPR compliance, you need a dedicated consent management app.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">What happens to my Meta Pixel under GDPR?</summary>
+          <div class="faq-a">
+            <p>The Meta Pixel sets cookies and sends customer behaviour data to Facebook/Meta. Under GDPR, this requires explicit consent from EU visitors before the pixel fires. You need a cookie consent banner that blocks the pixel until consent is given. To recover some conversion signal from non-consenting visitors, implement Meta's Conversions API alongside consent mode.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">What is the best GDPR app for Shopify?</summary>
+          <div class="faq-a">
+            <p>Enzuzo is our top pick for Shopify — it has a native integration, handles GDPR consent and CCPA opt-out in one banner, includes a privacy policy generator, and offers a DSAR workflow. CookieYes is the better option if you want a free tier (up to 25,000 visits/month) and prioritise Google Consent Mode v2 support.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Does GDPR apply to a Shopify store based in the US?</summary>
+          <div class="faq-a">
+            <p>Yes. GDPR applies based on where your customers are located, not where your business is based. If you ship to or accept orders from EU countries, GDPR applies to you. See our full guide: <a href="/gdpr-for-us-companies.html">Does GDPR apply to US companies?</a></p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Ready to get compliant?</span>
+      <h2 class="section__title">The fastest way to cover your Shopify store</h2>
+      <p class="section__intro">Enzuzo installs directly from the Shopify App Store and handles cookie consent, CCPA opt-out, and privacy policy generation in one app. CookieYes is free if you're under 25,000 visits/month.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/enzuzo-review.html" class="btn btn--primary">Read the Enzuzo review</a>
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn--outline">Compare all tools</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.tool-card {
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+.tool-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-2, #f8fafc);
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.tool-card__rank {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent, #2563eb);
+  min-width: 2.5rem;
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+.tool-card__name { font-size: 1.25rem; font-weight: 700; margin: 0.25rem 0 0; }
+.tool-card__tagline { color: var(--text-muted, #6b7280); font-size: 0.95rem; margin: 0.25rem 0 0; }
+.tool-card__score { margin-left: auto; text-align: right; flex-shrink: 0; }
+.score-label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted, #6b7280); }
+.score-value { display: block; font-size: 1.1rem; font-weight: 700; color: var(--accent, #2563eb); }
+.score-price { display: block; font-size: 0.85rem; color: var(--text-muted, #6b7280); margin-top: 0.15rem; }
+.tool-card__body { padding: 1.25rem 1.5rem; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
+.pros ul, .cons ul { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 0.9rem; }
+.pros ul { color: #166534; }
+.cons ul { color: #991b1b; }
+.tool-card__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.btn--sm { padding: 0.4rem 1rem; font-size: 0.9rem; }
+.checklist-section { display: flex; flex-direction: column; gap: 0.4rem; margin: 1rem 0 2rem; }
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+.check-item:hover { background: var(--surface-2, #f8fafc); }
+.check-item input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent, #2563eb);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.check-item:has(input:checked) > span { text-decoration: line-through; color: var(--text-muted, #9ca3af); }
+.check-subhead {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #6b7280);
+  margin: 1.25rem 0 0.4rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+@media (max-width: 600px) {
+  .tool-card__header { flex-wrap: wrap; }
+  .tool-card__score { margin-left: 0; text-align: left; }
+  .pros-cons { grid-template-columns: 1fr; }
+}
+@media (prefers-color-scheme: dark) {
+  .tool-card { border-color: var(--border, #374151); }
+  .tool-card__header { background: var(--surface-2, #1e293b); border-color: var(--border, #374151); }
+  .pros ul { color: #86efac; }
+  .cons ul { color: #fca5a5; }
+  .check-item:hover { background: var(--surface-2, #1e293b); }
+  .check-subhead { border-color: var(--border, #374151); }
+}
+</style>
