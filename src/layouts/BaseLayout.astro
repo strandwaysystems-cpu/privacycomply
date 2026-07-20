@@ -40,9 +40,50 @@ const canonicalUrl = `${site}${canonical}`;
 
   <meta name="impact-site-verification" value="3b5dce84-220f-459c-ab9f-550083c09bec" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/inter-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/inter-500.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/inter-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/inter-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Source Serif Pro';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/source-serif-pro-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Source Serif Pro';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/source-serif-pro-700.woff2') format('woff2');
+    }
+  </style>
 
   <!-- Per-page structured data slot -->
   <slot name="schema" />
