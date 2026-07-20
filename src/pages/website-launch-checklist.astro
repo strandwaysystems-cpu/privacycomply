@@ -1,0 +1,420 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Website Launch Checklist 2026","item":"https://privacycomply.io/website-launch-checklist.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Website Launch Checklist 2026: 47 Things to Do Before You Go Live",
+  "description": "The complete pre-launch checklist for websites in 2026 — covering technical setup, SEO, performance, security, legal compliance, and analytics. Don't go live without checking these off.",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What legal pages does a website need before launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At minimum, a website needs a Privacy Policy (required under GDPR, CCPA, and most other privacy laws), a Cookie Policy (required if you use non-essential cookies), and Terms and Conditions (recommended for any commercial site). If you have EU visitors and use analytics or advertising cookies, you also need a cookie consent banner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a cookie banner before launching my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your site uses analytics (Google Analytics, Hotjar), advertising pixels (Meta Pixel, Google Ads), or any third-party tracking scripts, and you expect EU visitors. The cookie banner must be in place before launch — running tracking scripts before consent is in place is a GDPR violation from day one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most commonly missed item on a website launch checklist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cookie consent and privacy compliance are the most commonly overlooked launch items. Most developers focus on technical performance and design QA, and legal requirements get added as an afterthought — often after traffic (and GDPR exposure) has already started."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to make a website legally compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With the right tools, under an hour. A cookie consent banner via CookieYes takes 15 minutes to install. A lawyer-vetted privacy policy via iubenda takes 10 minutes to generate. The most time-consuming part is auditing which cookies and tracking scripts your site actually uses."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Website Launch Checklist 2026: 47 Things Before You Go Live | PrivacyComply"
+  description="The complete pre-launch checklist covering technical setup, SEO, performance, security, legal compliance, and analytics. Don't go live without checking these off."
+  canonical="/website-launch-checklist.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> Website Launch Checklist</p>
+      <h1>Website Launch Checklist 2026</h1>
+      <p class="hero__sub">47 things to check before you go live — technical, SEO, performance, security, analytics, and legal. Most sites skip the last two sections. Don't.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="toc">
+        <strong>Jump to section</strong>
+        <ol>
+          <li><a href="#domain-hosting">Domain &amp; hosting</a></li>
+          <li><a href="#technical">Technical setup</a></li>
+          <li><a href="#design-ux">Design &amp; UX</a></li>
+          <li><a href="#content">Content</a></li>
+          <li><a href="#seo">SEO</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#legal">Legal &amp; compliance ← most skipped</a></li>
+          <li><a href="#post-launch">Post-launch</a></li>
+        </ol>
+      </div>
+
+      <p>This checklist covers every category a professional site needs to get right before launch. Work through each section in order — the technical foundations need to be in place before SEO and performance work pays off, and the legal section needs to be completed before any traffic arrives.</p>
+
+      <div class="callout callout--warning">
+        <strong>Don't skip the legal section.</strong> GDPR applies from your first EU visitor. Running Google Analytics or a Meta Pixel without a cookie consent banner is a violation on day one, not after you've grown. Set it up before launch — it takes less than 30 minutes.
+      </div>
+
+      <!-- SECTION 1 -->
+      <h2 id="domain-hosting">1. Domain &amp; hosting</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>Domain registered and pointing to your host (DNS propagated)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>SSL certificate installed and HTTPS working on all pages</span></label>
+        <label class="check-item"><input type="checkbox" /><span>HTTP redirects to HTTPS (301, not 302)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>www and non-www both resolve to the same canonical URL</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Hosting plan can handle your expected launch traffic</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Backups configured and tested</span></label>
+      </div>
+
+      <!-- SECTION 2 -->
+      <h2 id="technical">2. Technical setup</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>404 page exists and is helpful (links back to home/search)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>All internal links tested — no broken links</span></label>
+        <label class="check-item"><input type="checkbox" /><span>All forms tested (contact, newsletter, checkout)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Form submissions deliver to the right inbox / CRM</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Transactional emails tested (confirmation, receipt, password reset)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>robots.txt is correct — staging/dev pages not accidentally blocked</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Sitemap.xml exists and submitted to Google Search Console</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Staging environment blocked from indexing (noindex or password-protected)</span></label>
+      </div>
+
+      <!-- SECTION 3 -->
+      <h2 id="design-ux">3. Design &amp; UX</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>Site tested on mobile (iOS Safari, Android Chrome)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Site tested on desktop (Chrome, Firefox, Safari, Edge)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Favicon set (browser tab and bookmarks)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>OG image set (the image that appears when shared on social media)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>All images have descriptive alt text (accessibility + SEO)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Colour contrast passes WCAG AA minimum (text readable for all users)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Navigation is clear and works on mobile</span></label>
+        <label class="check-item"><input type="checkbox" /><span>CTA buttons are visible and working</span></label>
+      </div>
+
+      <!-- SECTION 4 -->
+      <h2 id="content">4. Content</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>No placeholder text (Lorem Ipsum) anywhere on the site</span></label>
+        <label class="check-item"><input type="checkbox" /><span>All images are final (no stock placeholders, no client-provided placeholders)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Spelling and grammar checked on all key pages</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Contact details are accurate</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Prices are correct and up to date</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Testimonials and case studies are approved for use</span></label>
+      </div>
+
+      <!-- SECTION 5 -->
+      <h2 id="seo">5. SEO</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>Every page has a unique, descriptive &lt;title&gt; tag (under 60 characters)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Every page has a unique meta description (under 160 characters)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>H1 tag exists on every page (only one per page)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Canonical tags set correctly (especially on e-commerce sites with filters)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Structured data (schema markup) added to key pages</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Google Search Console set up and verified</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Sitemap submitted to Search Console</span></label>
+        <label class="check-item"><input type="checkbox" /><span>No duplicate content issues (thin pages, pagination, tag archives)</span></label>
+      </div>
+
+      <!-- SECTION 6 -->
+      <h2 id="performance">6. Performance</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>Images compressed and served in next-gen format (WebP or AVIF)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Largest Contentful Paint (LCP) under 2.5 seconds on mobile</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Cumulative Layout Shift (CLS) below 0.1 (no content jumping)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Third-party scripts (analytics, chat, ads) loaded asynchronously</span></label>
+        <label class="check-item"><input type="checkbox" /><span>CDN in place for static assets</span></label>
+        <label class="check-item"><input type="checkbox" /><span>PageSpeed Insights score above 80 on mobile</span></label>
+      </div>
+
+      <!-- SECTION 7 -->
+      <h2 id="security">7. Security</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>HTTPS enforced sitewide (no mixed content warnings)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Admin login URL changed from default (WordPress: /wp-admin)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Strong admin passwords in use (no "admin/password")</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Two-factor authentication enabled on hosting and CMS</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Security headers set (X-Frame-Options, Content-Security-Policy)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Unnecessary plugins, themes, and user accounts removed</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Remote team access protected by business VPN or Zero Trust tool</span>
+          <span class="check-tip">Tip: <a href="/nordlayer-review.html">NordLayer</a> provides GDPR Article 32-compliant network security for remote teams from $8/user/month.</span>
+        </label>
+      </div>
+
+      <!-- SECTION 8 -->
+      <h2 id="analytics">8. Analytics</h2>
+      <div class="checklist-section">
+        <label class="check-item">
+          <input type="checkbox" />
+          <span>Analytics tool installed and tracking verified</span>
+          <span class="check-tip">Tip: <a href="/plausible-analytics-review.html">Plausible Analytics</a> ($9/mo) is cookieless — it tracks 100% of visitors without a consent banner. GA4 misses anyone who declines cookies.</span>
+        </label>
+        <label class="check-item"><input type="checkbox" /><span>Goals or conversion events set up (form submit, purchase, sign-up)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Internal IP addresses filtered from analytics data</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Analytics access shared with relevant team members</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If using GA4: Google Consent Mode v2 configured alongside your cookie banner</span></label>
+      </div>
+
+      <!-- SECTION 9 — THE MONEY SECTION -->
+      <h2 id="legal">9. Legal &amp; compliance ← most commonly skipped</h2>
+      <p>This is the section most developers leave until last and most site owners skip entirely. Don't. GDPR fines start from day one of operating without consent. Here's what you need before a single visitor lands.</p>
+
+      <div class="checklist-section">
+
+        <h3 class="check-subhead">Privacy policy</h3>
+        <label class="check-item">
+          <input type="checkbox" />
+          <span>Privacy policy published and linked in the footer</span>
+          <span class="check-tip">Must disclose: what data you collect, why, who you share it with, how long you keep it, and users' rights. <a href="https://www.iubenda.com" rel="noopener noreferrer">iubenda</a> generates a lawyer-vetted privacy policy in minutes from €4.99/month.</span>
+        </label>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy covers GDPR requirements (if you have EU visitors)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy covers CCPA (if you have California visitors and meet thresholds)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Privacy policy includes your contact details and a way to submit data requests</span></label>
+
+        <h3 class="check-subhead">Cookie compliance</h3>
+        <label class="check-item">
+          <input type="checkbox" />
+          <span>Cookie audit done — you know exactly which cookies your site sets and why</span>
+          <span class="check-tip">Most cookie consent tools (CookieYes, iubenda) do this automatically on installation.</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" />
+          <span>Cookie consent banner installed (if you use non-essential cookies and have EU visitors)</span>
+          <span class="check-tip"><a href="/cookieyes-review.html">CookieYes</a> is free up to 25,000 visits/month and takes 15 minutes to set up. <a href="/do-i-need-a-cookie-banner.html">Not sure if you need one?</a></span>
+        </label>
+        <label class="check-item"><input type="checkbox" /><span>Non-essential cookies are blocked BEFORE consent fires (not just disclosed)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Declining cookies is as easy as accepting (no dark patterns)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Cookie policy published (can be part of your privacy policy)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If using Google Ads or Meta Pixel: Google Consent Mode v2 and/or Meta Pixel consent mode configured</span></label>
+
+        <h3 class="check-subhead">Other legal pages</h3>
+        <label class="check-item"><input type="checkbox" /><span>Terms and conditions published (essential for any commercial or SaaS site)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If e-commerce: returns and refund policy visible before checkout</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If e-commerce: shipping policy, delivery times, and costs clear before checkout</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If collecting emails: unsubscribe link in every marketing email (CAN-SPAM / GDPR)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>If you have US visitors: CCPA "Do Not Sell or Share My Personal Information" link in footer (if thresholds met)</span></label>
+
+        <h3 class="check-subhead">Data &amp; security compliance</h3>
+        <label class="check-item"><input type="checkbox" /><span>Data Processing Agreements signed with all third-party processors (email, analytics, payments, CRM)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Contact form data stored securely, not in plain text in email inboxes</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Data breach response plan exists (even a simple one — who gets notified, how quickly)</span></label>
+      </div>
+
+      <!-- SECTION 10 -->
+      <h2 id="post-launch">10. Post-launch (first 48 hours)</h2>
+      <div class="checklist-section">
+        <label class="check-item"><input type="checkbox" /><span>Crawl site with Screaming Frog or Ahrefs to catch broken links and redirect issues</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Check Google Search Console for crawl errors</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Verify analytics is tracking real visitors (filter your own traffic)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Test all forms and checkout flows from a real device (not localhost)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Set up uptime monitoring (UptimeRobot free tier is fine to start)</span></label>
+        <label class="check-item"><input type="checkbox" /><span>Announce launch (social, email list, Product Hunt, relevant communities)</span></label>
+      </div>
+
+      <h2>Recommended tools for the legal &amp; compliance section</h2>
+      <p>These are the tools that cover the most commonly skipped section of this checklist. All have been independently reviewed.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="card__badge card__badge--top">Cookie Consent</span>
+          <h3 class="card__title">CookieYes</h3>
+          <p class="card__desc">The fastest cookie banner to install. Automatic cookie scanning, Google Consent Mode v2, and a free tier up to 25,000 visits/month. 15-minute setup.</p>
+          <div class="card__meta">
+            <span><strong>From:</strong> Free</span>
+            <span><strong>Score:</strong> 4.8 / 5</span>
+          </div>
+          <div class="card__cta"><a href="/cookieyes-review.html" class="card__link">Read review &#8594;</a></div>
+        </article>
+
+        <article class="card">
+          <span class="card__badge">Privacy Policy + Banner</span>
+          <h3 class="card__title">iubenda</h3>
+          <p class="card__desc">Lawyer-vetted privacy policy, cookie policy, and consent banner in one subscription. Best if you want legal docs and compliance management together.</p>
+          <div class="card__meta">
+            <span><strong>From:</strong> &euro;4.99/mo</span>
+            <span><strong>Score:</strong> 4.6 / 5</span>
+          </div>
+          <div class="card__cta"><a href="/iubenda-review.html" class="card__link">Read review &#8594;</a></div>
+        </article>
+
+        <article class="card">
+          <span class="card__badge">Analytics Without Consent</span>
+          <h3 class="card__title">Plausible Analytics</h3>
+          <p class="card__desc">Cookieless analytics — no consent banner needed for your analytics tracking. Track 100% of visitors including those who would have declined cookies.</p>
+          <div class="card__meta">
+            <span><strong>From:</strong> $9/mo</span>
+            <span><strong>Score:</strong> 4.8 / 5</span>
+          </div>
+          <div class="card__cta"><a href="/plausible-analytics-review.html" class="card__link">Read review &#8594;</a></div>
+        </article>
+
+        <article class="card">
+          <span class="card__badge">Multi-Site</span>
+          <h3 class="card__title">Enzuzo</h3>
+          <p class="card__desc">10 domains on one plan for $59/month with native Shopify and Webflow apps. Best for agencies and operators managing multiple client sites.</p>
+          <div class="card__meta">
+            <span><strong>From:</strong> Free / $7/mo</span>
+            <span><strong>Score:</strong> 4.5 / 5</span>
+          </div>
+          <div class="card__cta"><a href="/enzuzo-review.html" class="card__link">Read review &#8594;</a></div>
+        </article>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-q">What legal pages does a website need before launch?</summary>
+          <div class="faq-a">
+            <p>At minimum: a Privacy Policy (required under GDPR, CCPA, and most other privacy laws), a Cookie Policy (required if you use non-essential cookies), and Terms and Conditions (recommended for any commercial site). If you have EU visitors and use analytics or advertising cookies, you also need a cookie consent banner.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Do I need a cookie banner before launching my website?</summary>
+          <div class="faq-a">
+            <p>Yes, if your site uses analytics, advertising pixels, or any third-party tracking scripts and you expect EU visitors. The cookie banner must be in place before launch — running tracking scripts before consent is in place is a GDPR violation from day one.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">What is the most commonly missed item on a website launch checklist?</summary>
+          <div class="faq-a">
+            <p>Cookie consent and privacy compliance. Most developers focus on technical performance and design QA, and legal requirements get added as an afterthought — often after traffic (and GDPR exposure) has already started.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">How long does it take to make a website legally compliant?</summary>
+          <div class="faq-a">
+            <p>With the right tools, under an hour. A cookie consent banner via CookieYes takes 15 minutes to install. A lawyer-vetted privacy policy via iubenda takes 10 minutes to generate. The most time-consuming part is auditing which cookies and tracking scripts your site actually uses.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Launching soon?</span>
+      <h2 class="section__title">Get the compliance section done in under an hour</h2>
+      <p class="section__intro">A cookie consent banner and a GDPR-compliant privacy policy are the two items most sites launch without. Both take less than 30 minutes to set up with the right tools.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn--primary">Compare cookie consent tools</a>
+        <a href="/do-i-need-a-cookie-banner.html" class="btn btn--outline">Do I need a cookie banner?</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.checklist-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+.check-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: 1px solid transparent;
+}
+.check-item:hover { background: var(--surface-2, #f8fafc); }
+.check-item input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent, #2563eb);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.check-item > span:first-of-type {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.check-item input { order: -1; }
+.check-item:has(input:checked) > span:first-of-type {
+  text-decoration: line-through;
+  color: var(--text-muted, #9ca3af);
+}
+.check-tip {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
+  padding-left: 1.7rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+.check-subhead {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #6b7280);
+  margin: 1.5rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+@media (prefers-color-scheme: dark) {
+  .check-item:hover { background: var(--surface-2, #1e293b); }
+  .check-subhead { border-color: var(--border, #374151); }
+}
+</style>
