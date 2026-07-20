@@ -91,7 +91,8 @@ const tools = [
     ],
     bestFor: "Most websites, blogs, SaaS products, and e-commerce stores that want simple, accurate traffic data without compliance headaches.",
     reviewLink: "/plausible-analytics-review.html",
-    affiliate: "https://plausible.io"
+    affiliate: "https://plausible.io",
+    noAffiliate: true
   },
   {
     rank: 2,
@@ -320,6 +321,9 @@ const tools = [
               {tool.reviewLink && <a href={tool.reviewLink} class="btn btn--outline btn--sm">Read full review</a>}
               <a href={tool.affiliate} class="btn btn--primary btn--sm" rel="noopener noreferrer" target="_blank">Visit {tool.name} &#8594;</a>
             </div>
+            {tool.noAffiliate && (
+              <p class="no-affiliate-note">&#9432; Plausible does not run an affiliate programme — we earn no commission from this recommendation. We use Plausible on many of our own websites and recommend it based purely on the product.</p>
+            )}
           </div>
         </div>
       ))}
@@ -475,6 +479,19 @@ const tools = [
 </BaseLayout>
 
 <style>
+.no-affiliate-note {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
+  font-style: italic;
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-2, #f8fafc);
+  border-radius: 0.35rem;
+  border-left: 3px solid var(--border, #e5e7eb);
+}
+@media (prefers-color-scheme: dark) {
+  .no-affiliate-note { background: var(--surface-2, #1e293b); border-color: var(--border, #374151); }
+}
 .tool-card {
   border: 1px solid var(--border, #e5e7eb);
   border-radius: 0.75rem;
