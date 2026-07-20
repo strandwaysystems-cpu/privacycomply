@@ -379,9 +379,9 @@ p  { margin-bottom: 1em; }
   .nav-dropdown {
     position: static; box-shadow: none; border: 0; padding: 0 0 6px 14px;
     min-width: 0; opacity: 1; visibility: visible; transform: none;
-    transition: none; display: none;
+    transition: none; display: none !important;
   }
-  .nav-item.is-open .nav-dropdown { display: block; }
+  .nav-item.is-open .nav-dropdown { display: block !important; }
   .nav-cta { text-align: center; margin-top: 8px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer-col--brand { grid-column: 1 / -1; padding-right: 0; }
