@@ -46,6 +46,13 @@ const canonicalUrl = `${site}${canonical}`;
 
   <!-- Per-page structured data slot -->
   <slot name="schema" />
+
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-WyqK-AQBa33njpOneWK_8.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 </head>
 <body>
   <Header />
