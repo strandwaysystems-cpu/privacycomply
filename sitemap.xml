@@ -2,112 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://privacycomply.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/best-cookie-consent-tools-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/compliance-tools-landscape.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/cookieyes-review.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/iubenda-review.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/termly-review.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/enzuzo-review.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/iubenda-vs-termly-vs-osano.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/best-privacy-tools-by-use-case.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/reviews.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/what-is-gdpr.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://privacycomply.io/gdpr-vs-ccpa.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://privacycomply.io/methodology.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://privacycomply.io/best-cookie-consent-tools-2026.html</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
-    <loc>https://privacycomply.io/privacy-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://privacycomply.io/best-privacy-policy-generators.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/best-privacy-tools-by-use-case.html</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/ccpa-compliance-checklist.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/compliance-tools-landscape.html</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/cookie-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
-    <loc>https://privacycomply.io/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://privacycomply.io/cookieyes-review.html</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/do-i-need-a-cookie-banner.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/enzuzo-review.html</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/gdpr-fines-and-penalties.html</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/gdpr-for-us-companies.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/gdpr-vs-ccpa.html</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/google-analytics-alternatives.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
-    <loc>https://privacycomply.io/website-launch-checklist.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://privacycomply.io/google-consent-mode-v2.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/iubenda-review.html</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/iubenda-vs-termly-vs-osano.html</loc>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/methodology.html</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/nordlayer-review.html</loc>
+    <lastmod>2026-07-10</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/plausible-analytics-review.html</loc>
+    <lastmod>2026-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/privacy-policy.html</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/reviews.html</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://privacycomply.io/shopify-gdpr-compliance.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/squarespace-gdpr-compliance.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/termly-review.html</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/terms.html</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/website-launch-checklist.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/what-is-gdpr.html</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://privacycomply.io/wordpress-gdpr-compliance.html</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
 </urlset>
