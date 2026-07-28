@@ -1,0 +1,327 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"GDPR Guide","item":"https://privacycomply.io/what-is-gdpr.html"},
+    {"@type":"ListItem","position":3,"name":"GDPR Fines and Penalties","item":"https://privacycomply.io/gdpr-fines-and-penalties.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GDPR Fines and Penalties: How Much They Are and How They Are Calculated",
+  "description": "GDPR has two fine tiers — up to €10m/2% and up to €20m/4% of global turnover. Here is which violations fall into each, the eleven factors regulators weigh, and what enforcement looks like for small businesses.",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much are GDPR fines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GDPR sets two maximum tiers under Article 83. The lower tier is up to €10 million or 2% of global annual turnover, whichever is higher, and covers administrative failures such as inadequate records or failing to notify a breach. The upper tier is up to €20 million or 4% of global annual turnover, whichever is higher, and covers breaches of core principles, consent failures and violations of data subject rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the largest GDPR fine ever issued?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The largest single GDPR fine is €1.2 billion, issued by Ireland's Data Protection Commission against Meta in May 2023 over transfers of European user data to the United States without adequate safeguards. Amazon received a €746 million fine from Luxembourg's authority in 2021, and Meta has received several further fines in the hundreds of millions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a small business be fined under GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GDPR has no small-business exemption, and national authorities regularly issue four and five figure fines to small companies and even sole traders. In practice, small businesses are far more likely to receive a warning, a reprimand or an order to fix something than a large fine — but enforcement usually starts with a complaint from a customer, employee or competitor rather than a proactive audit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What triggers a GDPR investigation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most investigations begin with a complaint from an individual — often a former employee, a customer whose deletion request was ignored, or a privacy activist. Other triggers include a self-reported data breach, media coverage, referral from another regulator, and sector-wide sweeps where an authority reviews many sites for the same issue, such as cookie banners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 4% of turnover based on my company or my whole group?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is based on the total worldwide annual turnover of the entire undertaking in the preceding financial year, not just the entity that committed the violation. For companies inside a corporate group, regulators generally use the group's global revenue, which is why fines against subsidiaries of large groups can far exceed the subsidiary's own revenue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do cookie banner violations get fined?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and they are among the most commonly enforced issues because they are visible from the outside — a regulator can check a banner without an investigation. France's CNIL has issued some of the largest cookie-related fines, including €150 million against Google and €60 million against Facebook in January 2022, primarily because refusing cookies took more clicks than accepting them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do GDPR fines apply to companies outside the EU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GDPR applies extraterritorially to any organisation processing EU residents' personal data, and the largest fines on record have all been against US-headquartered companies. Enforcement against a small non-EU company with no European presence is harder in practice, but regulators can also order processing to stop, which effectively cuts off the EU market."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="GDPR Fines and Penalties: How Much and How They Are Calculated (2026) | PrivacyComply"
+  description="GDPR has two fine tiers — €10m/2% and €20m/4% of global turnover. Which violations fall where, the eleven factors regulators weigh, and what enforcement means for small businesses."
+  canonical="/gdpr-fines-and-penalties.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/what-is-gdpr.html">GDPR Guide</a><span>&#8250;</span> Fines &amp; Penalties</p>
+      <h1>GDPR Fines and Penalties</h1>
+      <p class="hero__sub">The headline numbers are real, but they are maximums applied to the largest companies on earth. Here is how the tiers work, what regulators actually weigh, and what enforcement looks like at normal scale.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>GDPR has two fine tiers, set by Article 83.</strong></p>
+        <p><strong>Lower tier:</strong> up to <strong>€10 million or 2% of global annual turnover</strong>, whichever is higher — for administrative failures such as poor records, missing DPO, or failing to notify a breach in time.</p>
+        <p><strong>Upper tier:</strong> up to <strong>€20 million or 4% of global annual turnover</strong>, whichever is higher — for breaching core principles, processing without a lawful basis, invalid consent, or denying data subject rights.</p>
+        <p>Both are <em>maximums</em>. Typical fines are a small fraction of the cap, and small businesses far more often receive a reprimand or a corrective order than a fine.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#tiers">The two fine tiers</a></li>
+          <li><a href="#which-tier">Which violations fall into which tier</a></li>
+          <li><a href="#calculated">How a fine is actually calculated</a></li>
+          <li><a href="#biggest">The biggest fines on record</a></li>
+          <li><a href="#small-business">What this means for a small business</a></li>
+          <li><a href="#cookies">Cookie banner enforcement</a></li>
+          <li><a href="#beyond-fines">Penalties that are not fines</a></li>
+          <li><a href="#reduce">How to reduce your exposure</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="tiers">The two fine tiers</h2>
+      <div class="figure-grid">
+        <div class="figure">
+          <div class="figure__value">€10m / 2%</div>
+          <div class="figure__label">Lower tier — whichever is <strong>higher</strong>. Administrative and procedural obligations.</div>
+        </div>
+        <div class="figure">
+          <div class="figure__value">€20m / 4%</div>
+          <div class="figure__label">Upper tier — whichever is <strong>higher</strong>. Core principles, lawful basis, consent, and individual rights.</div>
+        </div>
+      </div>
+      <p>Note the word <em>higher</em>. For a company with €10 million turnover, 4% is €400,000, so the €20 million figure applies as the cap. For a company with €50 billion turnover, 4% is €2 billion, and that becomes the cap. The percentage only bites for very large organisations — which is precisely why the record fines are all against multinationals.</p>
+
+      <div class="callout callout--info">
+        <strong>"Global annual turnover" means the whole undertaking.</strong> Regulators calculate against the total worldwide revenue of the corporate group in the preceding financial year, not the revenue of the specific subsidiary that broke the rules.
+      </div>
+
+      <h2 id="which-tier">Which violations fall into which tier</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Violation</th><th>Tier</th><th>Article</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Processing without a lawful basis</td><td class="tool-name">Upper</td><td>Art. 6</td></tr>
+            <tr><td>Invalid consent (pre-ticked, bundled, hard to withdraw)</td><td class="tool-name">Upper</td><td>Art. 7</td></tr>
+            <tr><td>Breaching the core principles (fairness, minimisation, purpose limitation)</td><td class="tool-name">Upper</td><td>Art. 5</td></tr>
+            <tr><td>Ignoring access, deletion or portability requests</td><td class="tool-name">Upper</td><td>Arts. 12–22</td></tr>
+            <tr><td>Unlawful international data transfers</td><td class="tool-name">Upper</td><td>Arts. 44–49</td></tr>
+            <tr><td>Failing to implement appropriate security measures</td><td>Lower</td><td>Art. 32</td></tr>
+            <tr><td>Not notifying a breach within 72 hours</td><td>Lower</td><td>Arts. 33–34</td></tr>
+            <tr><td>No records of processing activities</td><td>Lower</td><td>Art. 30</td></tr>
+            <tr><td>Failing to appoint a required DPO or EU representative</td><td>Lower</td><td>Arts. 27, 37</td></tr>
+            <tr><td>No data processing agreement with a processor</td><td>Lower</td><td>Art. 28</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The pattern: things that harm individuals directly sit in the upper tier; things that make you harder to supervise sit in the lower tier. Consent failures — the most common issue on small websites — are upper tier.</p>
+
+      <h2 id="calculated">How a fine is actually calculated</h2>
+      <p>Article 83(2) lists eleven factors a supervisory authority must weigh. In practice these decide whether a violation costs you a warning or a life-changing number:</p>
+      <ul>
+        <li><strong>Nature, gravity and duration</strong> — how many people, how long, how sensitive the data</li>
+        <li><strong>Intentional or negligent</strong> — deliberate violations are treated far more harshly</li>
+        <li><strong>Mitigation</strong> — what you did to limit damage once you knew</li>
+        <li><strong>Technical and organisational measures</strong> — whether you had reasonable safeguards in place</li>
+        <li><strong>Previous infringements</strong> — repeat offenders pay more</li>
+        <li><strong>Cooperation with the authority</strong> — this one moves the number a lot</li>
+        <li><strong>Categories of data affected</strong> — health, biometric and other special category data escalate everything</li>
+        <li><strong>How the authority found out</strong> — self-reporting is treated better than being caught</li>
+        <li><strong>Compliance with prior orders</strong> — ignoring a previous instruction is expensive</li>
+        <li><strong>Codes of conduct or certification</strong> — adherence counts in your favour</li>
+        <li><strong>Financial benefit gained</strong> — profit made from the violation can be stripped out</li>
+      </ul>
+      <p>The European Data Protection Board's fine calculation guidelines add a common methodology: authorities start from the seriousness of the violation and the size of the undertaking, set a starting amount, then adjust up or down for aggravating and mitigating factors before checking against the legal maximum.</p>
+
+      <div class="callout callout--success">
+        <strong>The practical lever:</strong> cooperation and demonstrable good faith. An organisation that self-reports, cooperates, and shows it had a genuine (if flawed) compliance programme routinely lands an order to fix rather than a fine. Documentation is what makes that argument possible.
+      </div>
+
+      <h2 id="biggest">The biggest fines on record</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Organisation</th><th>Amount</th><th>Authority &amp; year</th><th>Issue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="tool-name">Meta</td><td>€1.2bn</td><td>Ireland, 2023</td><td>EU–US data transfers without adequate safeguards</td></tr>
+            <tr><td class="tool-name">Amazon</td><td>€746m</td><td>Luxembourg, 2021</td><td>Advertising without valid consent</td></tr>
+            <tr><td class="tool-name">Meta (Instagram)</td><td>€405m</td><td>Ireland, 2022</td><td>Children's data exposed by default settings</td></tr>
+            <tr><td class="tool-name">TikTok</td><td>€345m</td><td>Ireland, 2023</td><td>Children's accounts public by default</td></tr>
+            <tr><td class="tool-name">Google</td><td>€150m</td><td>France (CNIL), 2022</td><td>Refusing cookies harder than accepting them</td></tr>
+            <tr><td class="tool-name">Facebook</td><td>€60m</td><td>France (CNIL), 2022</td><td>Same cookie refusal issue</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Two things stand out. Every one of these is a very large company, and several concern consent design rather than a data breach. The CNIL cookie fines in particular were about interface design — the number of clicks to refuse versus accept.</p>
+
+      <h2 id="small-business">What this means for a small business</h2>
+      <p>The honest picture, absent the scare marketing:</p>
+      <ul>
+        <li><strong>You are unlikely to be proactively audited.</strong> Authorities are under-resourced and prioritise cases affecting many people.</li>
+        <li><strong>You are quite likely to receive a complaint eventually.</strong> Former employees and customers whose deletion requests were ignored are the most common complainants.</li>
+        <li><strong>First contact is usually a letter, not a fine.</strong> Most authorities open with questions and a request for documentation.</li>
+        <li><strong>The response determines the outcome.</strong> Ignoring the letter converts a fixable problem into an enforcement action.</li>
+        <li><strong>Four and five figure fines against small firms are real.</strong> They are just not newsworthy, so they do not shape public perception.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <strong>The cost that is not the fine.</strong> Responding to a regulator means legal fees, staff time, and producing documentation you may not have. For most small businesses that burden exceeds the eventual penalty — and it is entirely avoidable by keeping basic records.
+      </div>
+
+      <h2 id="cookies">Cookie banner enforcement</h2>
+      <p>Cookie compliance is enforced more than almost anything else, for a structural reason: a regulator can assess it from the outside. No investigation is needed to see that your banner has an "Accept all" button and no reject option.</p>
+      <p>The recurring findings:</p>
+      <ul>
+        <li>Refusing takes more clicks than accepting</li>
+        <li>Cookies set before any choice is made</li>
+        <li>Pre-ticked category boxes</li>
+        <li>No way to withdraw consent later</li>
+        <li>"Continuing to browse means you accept" — never valid consent under GDPR</li>
+      </ul>
+      <p>If you only fix one thing, fix the banner. Our guides on <a href="/do-i-need-a-cookie-banner.html">whether you need one</a> and the <a href="/best-cookie-consent-tools-2026.html">tools that block scripts properly</a> cover the practical side.</p>
+
+      <h2 id="beyond-fines">Penalties that are not fines</h2>
+      <p>Article 58 gives authorities corrective powers that are often more disruptive than money:</p>
+      <ul>
+        <li><strong>Processing bans</strong> — an order to stop processing certain data, which can shut down a product line</li>
+        <li><strong>Suspension of data flows</strong> — the mechanism behind the Meta transfer case</li>
+        <li><strong>Mandatory compliance orders</strong> with hard deadlines</li>
+        <li><strong>Public reprimands</strong> — reputational, and permanently on the record</li>
+        <li><strong>Compensation claims</strong> — Article 82 lets individuals sue for material and non-material damage, independently of any regulatory fine</li>
+      </ul>
+      <p>For most businesses, a processing ban is the genuinely existential outcome. A fine is survivable; being ordered to stop using your customer database is not.</p>
+
+      <h2 id="reduce">How to reduce your exposure</h2>
+      <ol class="steps">
+        <li><strong>Fix consent first</strong> It is upper tier, externally visible, and the most commonly enforced. A CMP that genuinely blocks scripts pre-consent closes most of the risk.</li>
+        <li><strong>Write down what you process</strong> Article 30 records are lower tier on their own, but they are the evidence that makes every other defence credible.</li>
+        <li><strong>Have a working rights process</strong> Ignoring a deletion request is the single most common route from an annoyed individual to a regulator's desk.</li>
+        <li><strong>Publish an accurate privacy policy</strong> Not a copied one. A policy describing processing you do not do is itself a misstatement.</li>
+        <li><strong>Sign DPAs with your processors</strong> Your email platform, host, analytics and payment providers. Most publish one you accept by using the service.</li>
+        <li><strong>Know your 72-hour breach path</strong> Decide in advance who assesses a breach and who notifies. The clock starts when you become aware, not when you finish investigating.</li>
+      </ol>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Start where enforcement starts</span>
+        <p class="cta-box__title">Consent is the most-fined failure</p>
+        <p class="cta-box__desc">Cookie and consent violations are the easiest thing for a regulator to spot and the most frequently penalised. A consent platform that blocks before consent, offers equal accept and reject, and logs decisions removes the bulk of the exposure.</p>
+        <div class="cta-box__buttons">
+          <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary btn-sm">Compare consent tools</a>
+          <a href="/best-privacy-policy-generators.html" class="btn btn-secondary btn-sm">Privacy policy generators</a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">How much are GDPR fines?</summary>
+          <div class="faq-a"><p>GDPR sets two maximum tiers under Article 83. The lower tier is up to €10 million or 2% of global annual turnover, whichever is higher, and covers administrative failures such as inadequate records or failing to notify a breach. The upper tier is up to €20 million or 4% of global annual turnover, whichever is higher, and covers breaches of core principles, consent failures and violations of data subject rights.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What is the largest GDPR fine ever issued?</summary>
+          <div class="faq-a"><p>€1.2 billion, issued by Ireland's Data Protection Commission against Meta in May 2023 over transfers of European user data to the United States without adequate safeguards. Amazon received a €746 million fine from Luxembourg's authority in 2021, and Meta has received several further fines in the hundreds of millions.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can a small business be fined under GDPR?</summary>
+          <div class="faq-a"><p>Yes. GDPR has no small-business exemption, and national authorities regularly issue four and five figure fines to small companies and even sole traders. In practice, small businesses are far more likely to receive a warning, a reprimand or an order to fix something than a large fine — but enforcement usually starts with a complaint from a customer, employee or competitor rather than a proactive audit.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What triggers a GDPR investigation?</summary>
+          <div class="faq-a"><p>Most investigations begin with a complaint from an individual — often a former employee, a customer whose deletion request was ignored, or a privacy activist. Other triggers include a self-reported data breach, media coverage, referral from another regulator, and sector-wide sweeps where an authority reviews many sites for the same issue, such as cookie banners.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is 4% of turnover based on my company or my whole group?</summary>
+          <div class="faq-a"><p>It is based on the total worldwide annual turnover of the entire undertaking in the preceding financial year, not just the entity that committed the violation. For companies inside a corporate group, regulators generally use the group's global revenue, which is why fines against subsidiaries of large groups can far exceed the subsidiary's own revenue.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do cookie banner violations get fined?</summary>
+          <div class="faq-a"><p>Yes, and they are among the most commonly enforced issues because they are visible from the outside — a regulator can check a banner without an investigation. France's CNIL has issued some of the largest cookie-related fines, including €150 million against Google and €60 million against Facebook in January 2022, primarily because refusing cookies took more clicks than accepting them.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do GDPR fines apply to companies outside the EU?</summary>
+          <div class="faq-a"><p>Yes. GDPR applies extraterritorially to any organisation processing EU residents' personal data, and the largest fines on record have all been against US-headquartered companies. Enforcement against a small non-EU company with no European presence is harder in practice, but regulators can also order processing to stop, which effectively cuts off the EU market. See <a href="/gdpr-for-us-companies.html">GDPR for US companies</a>.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How do GDPR fines compare to CCPA penalties?</summary>
+          <div class="faq-a"><p>They work differently. GDPR fines are percentage-capped and can reach billions. CCPA penalties are per-violation — currently $2,663 per violation and $7,988 for intentional violations or those involving minors — but each affected consumer can count as a separate violation, so totals still escalate. See our <a href="/ccpa-compliance-checklist.html">CCPA compliance checklist</a> and <a href="/gdpr-vs-ccpa.html">GDPR vs CCPA comparison</a>.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/what-is-gdpr.html">What is GDPR?<span>The foundations, if you are starting from zero</span></a>
+        <a href="/gdpr-for-us-companies.html">Does GDPR apply to US companies?<span>Extraterritorial scope explained</span></a>
+        <a href="/ccpa-compliance-checklist.html">CCPA compliance checklist<span>The California equivalent, with current penalty figures</span></a>
+        <a href="/do-i-need-a-cookie-banner.html">Do I need a cookie banner?<span>The most-enforced requirement</span></a>
+        <a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools<span>Fix the consent layer</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Close the gap that gets enforced</h2>
+      <p class="section__intro">Consent design is upper-tier, externally visible, and the most frequently penalised category. It is also the fastest thing to fix.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/website-launch-checklist.html" class="btn btn-secondary">Run the full checklist</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
