@@ -1,0 +1,287 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"GDPR Guide","item":"https://privacycomply.io/what-is-gdpr.html"},
+    {"@type":"ListItem","position":3,"name":"Squarespace GDPR Compliance","item":"https://privacycomply.io/squarespace-gdpr-compliance.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Squarespace GDPR Compliance: What Squarespace Handles and What You Must Do",
+  "description": "Squarespace gives you a cookie banner and a DPA, but the built-in banner does not block third-party scripts. Here is the exact split of responsibility and how to close the gaps.",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Squarespace GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Squarespace is GDPR compliant as a processor — it offers a data processing addendum, hosts data securely, and provides cookie and privacy tools. Your individual site is a separate question. As the controller you are responsible for your privacy policy, your consent setup, any third-party code you add, and responding to data subject requests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the built-in Squarespace cookie banner block cookies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It controls Squarespace's own analytics and marketing cookies and can restrict them by region. It does not automatically block third-party scripts you add through code injection — Meta Pixel, custom Google Analytics, chat widgets and similar tags will still fire unless you gate them yourself or use a dedicated consent platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Squarespace provide a privacy policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Squarespace publishes its own privacy policy covering how it processes data as your service provider, but it does not generate one for your site. You need your own policy describing what your business collects, why, and who it is shared with."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a DPA with Squarespace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and Squarespace provides one. Because Squarespace processes personal data on your behalf, GDPR Article 28 requires a data processing agreement between you and them. Squarespace's DPA is incorporated into its Terms of Service, so accepting the terms puts it in place."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Google Analytics on Squarespace under GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, provided you obtain consent before it loads and configure Google Consent Mode v2 for EEA visitors. Because Squarespace's native banner does not block injected scripts, this usually means adding a consent platform. A simpler route is a cookie-free analytics tool, which removes the consent requirement for analytics entirely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Squarespace Commerce handle GDPR for my store?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly. Squarespace stores order and customer records securely and lets you export or delete customer data. You remain responsible for marketing consent being separate from checkout, for disclosing your payment and shipping processors in your privacy policy, and for setting a retention practice for order data."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Squarespace GDPR Compliance: The 2026 Guide | PrivacyComply"
+  description="Squarespace covers hosting and a DPA — but its native banner does not block third-party scripts. See the exact split of responsibility and how to close the gaps."
+  canonical="/squarespace-gdpr-compliance.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/what-is-gdpr.html">GDPR Guide</a><span>&#8250;</span> Squarespace</p>
+      <h1>Squarespace GDPR Compliance</h1>
+      <p class="hero__sub">Squarespace does more for you than WordPress does — and that creates a specific blind spot. The native banner handles Squarespace's own cookies but not the ones you inject.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Short answer:</strong> Squarespace is a compliant <em>processor</em>. It offers a data processing agreement, hosts your data securely, and gives you a built-in cookie banner with regional targeting. Your <em>site</em> is a separate matter — you are the controller.</p>
+        <p>The gap that catches most Squarespace owners: <strong>the native banner governs Squarespace's own analytics and marketing cookies, not third-party scripts you add via code injection.</strong> If you pasted in a Meta Pixel or a chat widget, the built-in banner is not controlling it.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#split">Who is responsible for what</a></li>
+          <li><a href="#native">What the native cookie banner does</a></li>
+          <li><a href="#gap">The code injection gap</a></li>
+          <li><a href="#policy">Your privacy policy</a></li>
+          <li><a href="#forms">Forms and mailing lists</a></li>
+          <li><a href="#commerce">Squarespace Commerce</a></li>
+          <li><a href="#checklist">Compliance checklist</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="split">Who is responsible for what</h2>
+      <p>GDPR splits obligations between the <strong>controller</strong> (you — you decide why and how data is processed) and the <strong>processor</strong> (Squarespace — it processes on your instructions). Almost every Squarespace compliance question resolves once you know which side of that line an item falls on.</p>
+
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Obligation</th><th>Squarespace</th><th>You</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Secure hosting and infrastructure</td><td class="check">Yes</td><td class="cross">—</td></tr>
+            <tr><td>Data processing agreement (Art. 28)</td><td class="check">Provides it</td><td>Must accept it</td></tr>
+            <tr><td>Breach notification to you</td><td class="check">Yes</td><td>Notify regulators/users if it affects you</td></tr>
+            <tr><td>Cookie banner UI</td><td class="check">Built in</td><td>Must configure it correctly</td></tr>
+            <tr><td>Blocking third-party scripts</td><td class="cross">No</td><td class="check">Yours</td></tr>
+            <tr><td>Privacy policy for your site</td><td class="cross">No</td><td class="check">Yours</td></tr>
+            <tr><td>Legal basis for each processing activity</td><td class="cross">No</td><td class="check">Yours</td></tr>
+            <tr><td>Marketing consent</td><td class="cross">No</td><td class="check">Yours</td></tr>
+            <tr><td>Responding to data subject requests</td><td>Provides export/delete tooling</td><td class="check">Yours to answer</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="native">What the native cookie banner does</h2>
+      <p>Squarespace's cookie banner lives under <strong>Settings &rarr; Cookies &amp; Visitor Data</strong> (menu labels shift between versions). It gives you:</p>
+      <ul>
+        <li>A customisable banner with accept and decline options</li>
+        <li>Region targeting, so you can show it only to EEA and UK visitors</li>
+        <li>Control over Squarespace Analytics cookies and Squarespace-managed marketing cookies</li>
+        <li>A cookie preferences link visitors can return to</li>
+      </ul>
+      <p>Configured properly, that is a legitimate consent mechanism for Squarespace's own cookies. Two settings matter:</p>
+      <ul>
+        <li><strong>Give decline equal prominence.</strong> If "Accept" is a solid button and "Decline" is grey text, you have a dark pattern. EU authorities have issued fines specifically over unequal accept and reject options.</li>
+        <li><strong>Do not restrict the banner to the EEA only if you also serve UK or California visitors.</strong> UK GDPR and PECR apply to UK visitors; CCPA gives Californians opt-out rights.</li>
+      </ul>
+
+      <h2 id="gap">The code injection gap</h2>
+      <div class="callout callout--warning">
+        <strong>This is the one thing to take away from this page.</strong> Anything you add through Code Injection, a code block, or a third-party extension sits outside the native banner's control. It loads when the page loads, consent or not.
+      </div>
+      <p>Scripts commonly added this way that set cookies before consent:</p>
+      <ul>
+        <li>Meta (Facebook) Pixel</li>
+        <li>A custom Google Analytics 4 or Google Tag Manager container</li>
+        <li>TikTok, Pinterest, LinkedIn and X conversion tags</li>
+        <li>Chat widgets — Intercom, Crisp, Tawk.to, Drift</li>
+        <li>Hotjar, Clarity and other session recorders, which are especially sensitive because they capture behaviour in detail</li>
+        <li>Embedded YouTube, Vimeo and Google Maps iframes</li>
+      </ul>
+      <p>You have three ways to close this:</p>
+      <ol class="steps">
+        <li><strong>Add a consent platform</strong> A CMP injected via Code Injection can block the other tags until consent, and gives you consent records. This is the route most Squarespace sites take once they have more than one third-party tag.</li>
+        <li><strong>Route everything through Google Tag Manager</strong> Then use GTM's consent triggers plus Google Consent Mode v2. More control, more setup, and you still need a banner to feed the signals.</li>
+        <li><strong>Remove the trackers</strong> Underrated. A cookie-free analytics tool plus no advertising pixels means nothing to block, and the native banner is then sufficient.</li>
+      </ol>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Our pick for Squarespace</span>
+        <p class="cta-box__title">iubenda or CookieYes</p>
+        <p class="cta-box__desc">Both install through Code Injection in a few minutes and block third-party tags before consent. Choose iubenda if you also want a lawyer-vetted privacy policy in the same subscription; choose CookieYes if you only need consent and want a free tier.</p>
+        <div class="cta-box__buttons">
+          <a href="https://www.iubenda.com" data-partner="iubenda" class="btn btn-affiliate btn-sm" target="_blank" rel="noopener sponsored">Try iubenda</a>
+          <a href="https://www.cookieyes.com/" data-partner="cookieyes" class="btn btn-secondary btn-sm" target="_blank" rel="noopener sponsored">Try CookieYes</a>
+        </div>
+      </div>
+
+      <h2 id="policy">Your privacy policy</h2>
+      <p>Squarespace does not write one for you. Squarespace's own privacy policy explains how <em>Squarespace</em> handles data as your provider; it says nothing about your business.</p>
+      <p>A Squarespace site's policy needs to cover, at minimum: what you collect through forms and commerce, your legal basis for each use, that Squarespace is your hosting processor, any analytics and advertising tools you run, your email platform, international transfers, retention, and how visitors exercise their rights.</p>
+      <p>Add it as a regular page and link it in the footer on every page. See <a href="/best-privacy-policy-generators.html">our comparison of privacy policy generators</a> if you would rather not draft it from scratch.</p>
+
+      <h2 id="forms">Forms and mailing lists</h2>
+      <p>Squarespace forms can store submissions, email them, or push them to Google Sheets or Mailchimp. Each destination is a disclosure you must describe in your policy.</p>
+      <ul>
+        <li><strong>Separate the consents.</strong> A contact form asking a question is one purpose. Adding that person to a newsletter is another, and needs its own unticked checkbox.</li>
+        <li><strong>No pre-ticked boxes.</strong> Invalid under GDPR, full stop.</li>
+        <li><strong>Newsletter blocks are marketing.</strong> A Squarespace newsletter block feeding Mailchimp needs consent language at the point of signup and a working unsubscribe.</li>
+        <li><strong>Storage counts as processing.</strong> Form submissions sitting in your Squarespace account indefinitely need a retention decision. Delete old ones.</li>
+      </ul>
+
+      <h2 id="commerce">Squarespace Commerce</h2>
+      <p>If you sell, add these:</p>
+      <ul>
+        <li><strong>Customer accounts and order records</strong> — you can export and delete customer data from the Contacts panel. That is your DSAR tooling.</li>
+        <li><strong>Payment processors</strong> — Stripe and PayPal are separate controllers or processors depending on the flow. Name them in your policy.</li>
+        <li><strong>Abandoned cart emails</strong> — marketing. They need a lawful basis, and under the ePrivacy rules the soft opt-in for existing customers is narrower than most people assume.</li>
+        <li><strong>Marketing at checkout</strong> — must be optional and unticked. You cannot condition the purchase on it.</li>
+      </ul>
+      <p>The same pattern applies on other hosted commerce platforms — see our <a href="/shopify-gdpr-compliance.html">Shopify GDPR guide</a>. For self-hosted stores, see <a href="/wordpress-gdpr-compliance.html">WordPress and WooCommerce</a>.</p>
+
+      <h2 id="checklist">Squarespace GDPR checklist</h2>
+      <div class="checklist">
+        <ul class="checklist-list">
+          <li><span class="box">&#9744;</span> Enable the cookie banner and give Accept and Decline equal visual weight</li>
+          <li><span class="box">&#9744;</span> Confirm the banner region covers EEA, UK and — if relevant — California</li>
+          <li><span class="box">&#9744;</span> List every script in Code Injection and every third-party embed on the site</li>
+          <li><span class="box">&#9744;</span> Gate those scripts behind consent with a CMP, or remove them</li>
+          <li><span class="box">&#9744;</span> Publish a privacy policy specific to your business and link it site-wide</li>
+          <li><span class="box">&#9744;</span> Add unticked, separate marketing consent to every form</li>
+          <li><span class="box">&#9744;</span> Set a retention practice for form submissions and order data</li>
+          <li><span class="box">&#9744;</span> Configure Google Consent Mode v2 if you run Google Ads or GA4</li>
+          <li><span class="box">&#9744;</span> Publish a contact route for data subject requests</li>
+          <li><span class="box">&#9744;</span> Re-check with devtools after adding any new integration</li>
+        </ul>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Is Squarespace GDPR compliant?</summary>
+          <div class="faq-a"><p>Squarespace is GDPR compliant as a processor — it offers a data processing addendum, hosts data securely, and provides cookie and privacy tools. Your individual site is a separate question. As the controller you are responsible for your privacy policy, your consent setup, any third-party code you add, and responding to data subject requests.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does the built-in Squarespace cookie banner block cookies?</summary>
+          <div class="faq-a"><p>It controls Squarespace's own analytics and marketing cookies and can restrict them by region. It does not automatically block third-party scripts you add through code injection — Meta Pixel, custom Google Analytics, chat widgets and similar tags will still fire unless you gate them yourself or use a dedicated consent platform.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does Squarespace provide a privacy policy?</summary>
+          <div class="faq-a"><p>No. Squarespace publishes its own privacy policy covering how it processes data as your service provider, but it does not generate one for your site. You need your own policy describing what your business collects, why, and who it is shared with.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need a DPA with Squarespace?</summary>
+          <div class="faq-a"><p>Yes, and Squarespace provides one. Because Squarespace processes personal data on your behalf, GDPR Article 28 requires a data processing agreement between you and them. Squarespace's DPA is incorporated into its Terms of Service, so accepting the terms puts it in place.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I use Google Analytics on Squarespace under GDPR?</summary>
+          <div class="faq-a"><p>Yes, provided you obtain consent before it loads and configure <a href="/google-consent-mode-v2.html">Google Consent Mode v2</a> for EEA visitors. Because Squarespace's native banner does not block injected scripts, this usually means adding a consent platform. A simpler route is a <a href="/google-analytics-alternatives.html">cookie-free analytics tool</a>, which removes the consent requirement for analytics entirely.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does Squarespace Commerce handle GDPR for my store?</summary>
+          <div class="faq-a"><p>Partly. Squarespace stores order and customer records securely and lets you export or delete customer data. You remain responsible for marketing consent being separate from checkout, for disclosing your payment and shipping processors in your privacy policy, and for setting a retention practice for order data.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/shopify-gdpr-compliance.html">Shopify GDPR compliance<span>The same split, for Shopify stores</span></a>
+        <a href="/wordpress-gdpr-compliance.html">WordPress GDPR compliance<span>Self-hosted, with far more default leaks</span></a>
+        <a href="/do-i-need-a-cookie-banner.html">Do I need a cookie banner?<span>Work out whether this applies to you at all</span></a>
+        <a href="/best-privacy-policy-generators.html">Best privacy policy generators<span>Squarespace does not give you one</span></a>
+        <a href="/google-consent-mode-v2.html">Google Consent Mode v2<span>Required if you advertise to EEA users</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Close the code injection gap</h2>
+      <p class="section__intro">If you have added any tracking script to your Squarespace site, the native banner is not covering it. A consent platform is the fastest fix.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/best-privacy-tools-by-use-case.html" class="btn btn-secondary">Find your fit</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.checklist { margin: 1.5rem 0 2rem; }
+.checklist-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+.checklist-list li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.box { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; color: var(--text-soft); }
+</style>

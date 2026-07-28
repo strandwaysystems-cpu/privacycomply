@@ -1,0 +1,316 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Guides","item":"https://privacycomply.io/gdpr-vs-ccpa.html"},
+    {"@type":"ListItem","position":3,"name":"CCPA Compliance Checklist","item":"https://privacycomply.io/ccpa-compliance-checklist.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CCPA Compliance Checklist for 2026: Who It Covers and What You Must Do",
+  "description": "Do the CCPA thresholds apply to you? A practical checklist covering the notice at collection, Do Not Sell or Share links, opt-out preference signals, consumer rights and current penalty amounts.",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who has to comply with the CCPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A for-profit business that does business in California and meets any one of three thresholds: annual gross revenue above $25 million; buying, selling or sharing the personal information of 100,000 or more California consumers or households per year; or deriving 50% or more of annual revenue from selling or sharing personal information. Meeting one threshold is enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much are CCPA fines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Civil penalties are $2,663 per violation and $7,988 per intentional violation or violation involving the personal information of a consumer under 16. Those figures took effect on 1 January 2025, replacing the original $2,500 and $7,500 caps, and the California Privacy Protection Agency adjusts them for inflation every odd-numbered year. Each affected consumer can count as a separate violation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the CCPA require a cookie banner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in the GDPR sense. The CCPA is an opt-out regime: you may set cookies by default, but you must give consumers a clear way to opt out of the sale or sharing of their personal information, and most advertising and analytics cookies count as sharing. In practice that means a Do Not Sell or Share My Personal Information link and honouring browser opt-out preference signals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an opt-out preference signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A browser-level setting, most commonly Global Privacy Control, that broadcasts a consumer's opt-out choice to every site they visit. California regulations require covered businesses to treat a Global Privacy Control signal as a valid opt-out request — you must honour it automatically, without asking the consumer to confirm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between the CCPA and the CPRA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CPRA is an amendment to the CCPA rather than a separate law. It added the right to correct and the right to limit use of sensitive personal information, created the category of sharing for cross-context behavioural advertising, removed the automatic 30-day cure period, and established the California Privacy Protection Agency as a dedicated regulator. People generally still say CCPA to mean the amended law."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to comply with the CCPA if I am not in California?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Location does not exempt you. The test is whether you do business in California and meet a threshold. A company anywhere in the world that markets to and collects data from California residents at sufficient scale is covered. There is no physical presence requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do I have to respond to a CCPA request?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You must confirm receipt within 10 business days and respond substantively within 45 calendar days. You may extend once by a further 45 days if you notify the consumer of the extension and the reason for it. Opt-out requests are different and must be honoured within 15 business days."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="CCPA Compliance Checklist 2026: Thresholds, Rights and Penalties | PrivacyComply"
+  description="Does the CCPA apply to you? A practical checklist: notice at collection, Do Not Sell or Share links, Global Privacy Control, consumer rights, and current penalty amounts."
+  canonical="/ccpa-compliance-checklist.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/gdpr-vs-ccpa.html">Guides</a><span>&#8250;</span> CCPA Checklist</p>
+      <h1>CCPA Compliance Checklist</h1>
+      <p class="hero__sub">Work out whether California's law applies to you, then work through the ten things it actually requires. Updated with the 2025 inflation-adjusted penalty figures.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>The CCPA covers for-profit businesses that do business in California and meet any one of these thresholds:</strong></p>
+        <p>&bull; Annual gross revenue over <strong>$25 million</strong>; or<br />
+        &bull; Buy, sell or share the personal information of <strong>100,000+</strong> California consumers or households a year; or<br />
+        &bull; Derive <strong>50% or more</strong> of annual revenue from selling or sharing personal information.</p>
+        <p>Meet one and you are covered — there is no requirement to be located in California. Unlike GDPR, the CCPA is an <strong>opt-out</strong> regime: you may collect by default, but consumers must be able to say stop.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#applies">Does the CCPA apply to you?</a></li>
+          <li><a href="#opt-out">Opt-out, not opt-in</a></li>
+          <li><a href="#rights">The six consumer rights</a></li>
+          <li><a href="#checklist">The ten-item checklist</a></li>
+          <li><a href="#gpc">Global Privacy Control</a></li>
+          <li><a href="#penalties">Penalties and enforcement</a></li>
+          <li><a href="#other-states">The other state laws</a></li>
+          <li><a href="#both">Complying with CCPA and GDPR together</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="applies">Does the CCPA apply to you?</h2>
+      <p>Three thresholds, any one of which brings you in scope. Two points people miss:</p>
+      <ul>
+        <li><strong>The 100,000 threshold counts households as well as consumers</strong>, and "sharing" includes disclosing data for cross-context behavioural advertising. A content site running ad tech at scale can hit this without ever selling a list.</li>
+        <li><strong>Revenue is global, not Californian.</strong> A $30 million business with a modest California customer base is covered by the revenue threshold alone.</li>
+      </ul>
+      <div class="callout callout--info">
+        <strong>Rough traffic test for the 100k threshold:</strong> if you run advertising or analytics tags that disclose data to third parties, and you get more than roughly 8,000 unique California visitors a month, you are in the zone. Check your analytics by region before assuming you are exempt.
+      </div>
+
+      <h2 id="opt-out">Opt-out, not opt-in</h2>
+      <p>This is the structural difference from GDPR and it changes everything about implementation.</p>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th></th><th>GDPR (EU/UK)</th><th>CCPA (California)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="tool-name">Default state</td><td>No processing until consent</td><td>Collection allowed by default</td></tr>
+            <tr><td class="tool-name">User action required</td><td>Opt in</td><td>Opt out</td></tr>
+            <tr><td class="tool-name">Cookie banner</td><td class="check">Required for non-essential cookies</td><td>Not required; opt-out link is</td></tr>
+            <tr><td class="tool-name">Browser signals</td><td>Not mandated</td><td class="check">Global Privacy Control must be honoured</td></tr>
+            <tr><td class="tool-name">Applies to</td><td>Any size organisation</td><td>Only businesses meeting a threshold</td></tr>
+            <tr><td class="tool-name">Individual lawsuits</td><td>Art. 82 compensation claims</td><td>Limited to certain data breaches</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A fuller side-by-side is in our <a href="/gdpr-vs-ccpa.html">GDPR vs CCPA comparison</a>.</p>
+
+      <h2 id="rights">The six consumer rights</h2>
+      <ul>
+        <li><strong>Know</strong> — what you collect, the sources, the purposes, and who you disclose it to</li>
+        <li><strong>Delete</strong> — subject to a list of exceptions including completing a transaction and legal obligations</li>
+        <li><strong>Correct</strong> — added by the CPRA amendment</li>
+        <li><strong>Opt out of sale or sharing</strong> — the right that drives the "Do Not Sell or Share" link</li>
+        <li><strong>Limit use of sensitive personal information</strong> — precise geolocation, race, religion, health, biometrics, contents of communications</li>
+        <li><strong>Non-discrimination</strong> — you cannot degrade service because someone exercised a right, though genuine loyalty programmes remain permitted</li>
+      </ul>
+
+      <h2 id="checklist">The ten-item checklist</h2>
+      <div class="checklist">
+        <ul class="checklist-list">
+          <li><span class="box">&#9744;</span> <strong>Confirm whether a threshold applies</strong> — and write down the reasoning, whichever way it comes out</li>
+          <li><span class="box">&#9744;</span> <strong>Publish a notice at collection</strong> — at or before the point of collection, listing categories collected and the purposes</li>
+          <li><span class="box">&#9744;</span> <strong>Update your privacy policy</strong> — CCPA-specific disclosures, refreshed at least every 12 months</li>
+          <li><span class="box">&#9744;</span> <strong>Add a "Do Not Sell or Share My Personal Information" link</strong> — clear and conspicuous on your homepage</li>
+          <li><span class="box">&#9744;</span> <strong>Add a "Limit the Use of My Sensitive Personal Information" link</strong> — if you use sensitive data beyond permitted purposes</li>
+          <li><span class="box">&#9744;</span> <strong>Honour Global Privacy Control automatically</strong> — treat the signal as a valid opt-out without asking for confirmation</li>
+          <li><span class="box">&#9744;</span> <strong>Provide two request methods</strong> — typically a web form plus a toll-free number, though online-only businesses may use an email address</li>
+          <li><span class="box">&#9744;</span> <strong>Meet the deadlines</strong> — acknowledge in 10 business days, respond in 45 calendar days, honour opt-outs in 15 business days</li>
+          <li><span class="box">&#9744;</span> <strong>Put service provider contracts in place</strong> — the CCPA requires specific contractual terms with vendors handling personal information</li>
+          <li><span class="box">&#9744;</span> <strong>Train whoever handles requests</strong> — the regulations require it, and it is the step that is always skipped</li>
+        </ul>
+      </div>
+
+      <h2 id="gpc">Global Privacy Control</h2>
+      <p>Global Privacy Control is a browser-level signal that broadcasts a consumer's opt-out to every site they visit. California regulations require covered businesses to honour it as a valid opt-out request — automatically, with no confirmation prompt.</p>
+      <p>This has teeth. California's first CCPA enforcement action, against Sephora in 2022, settled for $1.2 million and centred substantially on the failure to process GPC signals. The Attorney General's office has run repeated enforcement sweeps on the same issue since.</p>
+      <div class="callout callout--warning">
+        <strong>Test this specifically.</strong> Install a GPC-enabled browser extension, visit your site, and check whether your advertising and analytics tags actually stop. Many banners display a "Do Not Sell" link that logs a preference without changing what the tags do.
+      </div>
+
+      <h2 id="penalties">Penalties and enforcement</h2>
+      <div class="figure-grid">
+        <div class="figure">
+          <div class="figure__value">$2,663</div>
+          <div class="figure__label">Per violation, as adjusted from 1 January 2025</div>
+        </div>
+        <div class="figure">
+          <div class="figure__value">$7,988</div>
+          <div class="figure__label">Per intentional violation, or one involving a consumer under 16</div>
+        </div>
+        <div class="figure">
+          <div class="figure__value">$107–$799</div>
+          <div class="figure__label">Statutory damages per consumer per incident, in private breach actions</div>
+        </div>
+      </div>
+      <p>Two enforcement routes exist. The <strong>California Privacy Protection Agency</strong> and the <strong>Attorney General</strong> bring civil penalty actions; the CPPA re-adjusts both penalty figures for inflation every odd-numbered January using California's Consumer Price Index.</p>
+      <p>Separately, consumers have a <strong>private right of action</strong> — but only for data breaches caused by a failure to maintain reasonable security. You cannot be sued directly for a missing opt-out link; you can be sued as a class for a breach.</p>
+      <p>The multiplier is what makes this serious. Each affected consumer can be a separate violation, so a systematic failure across 10,000 California users does not cost $2,663 — it is $2,663 multiplied by the number of consumers, before any negotiation.</p>
+      <div class="callout callout--danger">
+        <strong>The CPRA removed the automatic 30-day cure period.</strong> Under the original CCPA you had 30 days to fix a violation after notice. That right no longer exists — regulators may allow time to cure, but they are not required to.
+      </div>
+
+      <h2 id="other-states">The other state laws</h2>
+      <p>California was first, not last. Roughly twenty states had comprehensive consumer privacy laws in force at the start of 2026, and the number has continued to climb as further states enacted laws through the year.</p>
+      <p>The good news is convergence. Most follow a Virginia-style template: opt-out of targeted advertising and sale, opt-in for sensitive data, rights to access, delete, correct and port, and a universal opt-out signal requirement. If you build for CCPA properly, you cover most of the rest.</p>
+      <ul>
+        <li><strong>California remains the strictest</strong> and has the only dedicated privacy regulator</li>
+        <li><strong>Thresholds differ by state</strong> — many use a 100,000-resident trigger with no revenue test, which can pull in companies that CCPA misses</li>
+        <li><strong>Universal opt-out signals are spreading</strong> — Colorado, Connecticut, Texas and others require honouring them</li>
+        <li><strong>Sensitive data increasingly requires opt-in</strong>, closer to the GDPR model than to California's</li>
+      </ul>
+      <p>Building one opt-out mechanism that honours universal signals and applies your strictest standard nationally is usually cheaper than maintaining fifty state-specific behaviours.</p>
+
+      <h2 id="both">Complying with CCPA and GDPR together</h2>
+      <p>Most businesses with traffic from both regions run a single consent platform in dual mode: a GDPR opt-in banner for EEA and UK visitors, CCPA opt-out mechanics for Californians, detected by IP.</p>
+      <ol class="steps">
+        <li><strong>Pick a CMP that supports both regimes</strong> Termly, iubenda and CookieYes all handle geo-detection with different rule sets per region.</li>
+        <li><strong>Set EEA and UK to opt-in</strong> Nothing non-essential fires before consent.</li>
+        <li><strong>Set California to opt-out</strong> Tags fire, with a working Do Not Sell or Share link and automatic GPC handling.</li>
+        <li><strong>Write one privacy policy with both sections</strong> A single document with a clearly labelled California section is easier to maintain than two.</li>
+        <li><strong>Use one request intake for everything</strong> The GDPR 30-day window is tighter than California's 45 days, so build to the tighter one and you satisfy both.</li>
+      </ol>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Best fit for dual compliance</span>
+        <p class="cta-box__title">Termly</p>
+        <p class="cta-box__desc">Of the tools we have tested, Termly handles the CCPA side most completely — Do Not Sell or Share mechanics, GPC signal handling, and geo-targeted rules alongside GDPR opt-in for European visitors, with policy generation in the same subscription.</p>
+        <div class="cta-box__buttons">
+          <a href="https://termly.io/" data-partner="termly" class="btn btn-affiliate btn-sm" target="_blank" rel="noopener sponsored">Try Termly</a>
+          <a href="/termly-review.html" class="btn btn-secondary btn-sm">Read our full review</a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Who has to comply with the CCPA?</summary>
+          <div class="faq-a"><p>A for-profit business that does business in California and meets any one of three thresholds: annual gross revenue above $25 million; buying, selling or sharing the personal information of 100,000 or more California consumers or households per year; or deriving 50% or more of annual revenue from selling or sharing personal information. Meeting one threshold is enough.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How much are CCPA fines?</summary>
+          <div class="faq-a"><p>Civil penalties are $2,663 per violation and $7,988 per intentional violation or violation involving the personal information of a consumer under 16. Those figures took effect on 1 January 2025, replacing the original $2,500 and $7,500 caps, and the California Privacy Protection Agency adjusts them for inflation every odd-numbered year. Each affected consumer can count as a separate violation.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does the CCPA require a cookie banner?</summary>
+          <div class="faq-a"><p>Not in the GDPR sense. The CCPA is an opt-out regime: you may set cookies by default, but you must give consumers a clear way to opt out of the sale or sharing of their personal information, and most advertising and analytics cookies count as sharing. In practice that means a Do Not Sell or Share My Personal Information link and honouring browser opt-out preference signals.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What is an opt-out preference signal?</summary>
+          <div class="faq-a"><p>A browser-level setting, most commonly Global Privacy Control, that broadcasts a consumer's opt-out choice to every site they visit. California regulations require covered businesses to treat a Global Privacy Control signal as a valid opt-out request — you must honour it automatically, without asking the consumer to confirm.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What is the difference between the CCPA and the CPRA?</summary>
+          <div class="faq-a"><p>The CPRA is an amendment to the CCPA rather than a separate law. It added the right to correct and the right to limit use of sensitive personal information, created the category of sharing for cross-context behavioural advertising, removed the automatic 30-day cure period, and established the California Privacy Protection Agency as a dedicated regulator. People generally still say CCPA to mean the amended law.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need to comply with the CCPA if I am not in California?</summary>
+          <div class="faq-a"><p>Location does not exempt you. The test is whether you do business in California and meet a threshold. A company anywhere in the world that markets to and collects data from California residents at sufficient scale is covered. There is no physical presence requirement.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How long do I have to respond to a CCPA request?</summary>
+          <div class="faq-a"><p>You must confirm receipt within 10 business days and respond substantively within 45 calendar days. You may extend once by a further 45 days if you notify the consumer of the extension and the reason for it. Opt-out requests are different and must be honoured within 15 business days.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I use the same cookie banner for CCPA and GDPR?</summary>
+          <div class="faq-a"><p>Yes, if your consent platform supports geo-targeted rules. The banner detects location and applies opt-in behaviour for EEA and UK visitors while presenting opt-out mechanics for Californians. Applying GDPR opt-in worldwide is also valid and simpler, at the cost of measurable data from US traffic.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/gdpr-vs-ccpa.html">GDPR vs CCPA<span>The full side-by-side comparison</span></a>
+        <a href="/gdpr-for-us-companies.html">Does GDPR apply to US companies?<span>The other half of the picture for US businesses</span></a>
+        <a href="/gdpr-fines-and-penalties.html">GDPR fines and penalties<span>How European enforcement compares</span></a>
+        <a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools<span>Which ones handle CCPA opt-out properly</span></a>
+        <a href="/best-privacy-policy-generators.html">Best privacy policy generators<span>For the California-specific disclosures</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Handle both regimes with one tool</h2>
+      <p class="section__intro">If you have EU and California traffic, a single geo-aware consent platform is far less work than maintaining two systems.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/gdpr-vs-ccpa.html" class="btn btn-secondary">GDPR vs CCPA</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.checklist { margin: 1.5rem 0 2rem; }
+.checklist-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+.checklist-list li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.box { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; color: var(--text-soft); }
+</style>

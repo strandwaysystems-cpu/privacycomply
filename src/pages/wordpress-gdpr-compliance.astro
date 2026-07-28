@@ -1,0 +1,328 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"GDPR Guide","item":"https://privacycomply.io/what-is-gdpr.html"},
+    {"@type":"ListItem","position":3,"name":"WordPress GDPR Compliance","item":"https://privacycomply.io/wordpress-gdpr-compliance.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "WordPress GDPR Compliance: The Complete 2026 Guide",
+  "description": "WordPress is not GDPR compliant out of the box. Here is exactly what leaks personal data on a default install — comments, Gravatar, embeds, contact forms, analytics — and how to fix each one.",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to make a WordPress site GDPR compliant",
+  "description": "A seven-step process to bring a standard WordPress installation into GDPR compliance.",
+  "step": [
+    {"@type":"HowToStep","name":"Audit what your site actually collects","text":"List every plugin, embed, form and script that touches visitor data, including comments, Gravatar, YouTube embeds and analytics."},
+    {"@type":"HowToStep","name":"Install a consent management platform","text":"Add a CMP that blocks non-essential cookies and scripts before consent rather than only displaying a notice."},
+    {"@type":"HowToStep","name":"Publish a GDPR-compliant privacy policy","text":"Replace the WordPress sample policy with a complete policy covering legal bases, retention, third parties and data subject rights."},
+    {"@type":"HowToStep","name":"Fix comments and Gravatar","text":"Disable the comment cookie opt-in by default and stop Gravatar from sending hashed visitor emails to Automattic without consent."},
+    {"@type":"HowToStep","name":"Contain third-party embeds","text":"Block YouTube, Google Maps and social embeds behind consent, or swap them for privacy-friendly equivalents."},
+    {"@type":"HowToStep","name":"Make forms compliant","text":"Add explicit unticked consent checkboxes, disable IP logging where unnecessary, and set a retention period for stored entries."},
+    {"@type":"HowToStep","name":"Wire up data subject requests","text":"Use the built-in WordPress export and erase tools and document a 30-day response process."}
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is WordPress GDPR compliant out of the box?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A default WordPress installation stores commenter IP addresses, sets comment cookies, sends hashed visitor email addresses to Gravatar, and loads third-party embeds that drop cookies before any consent is collected. WordPress provides GDPR tools — a privacy policy generator, personal data export and erase — but you must configure them and add a consent layer yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a cookie banner on WordPress?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need one if your site sets any non-essential cookie for EU or UK visitors — which includes Google Analytics, Meta Pixel, YouTube embeds, most chat widgets and many page builders. A site with no analytics, no ads, no embeds and no tracking plugins can operate without a banner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a GDPR plugin make my WordPress site compliant automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No plugin makes a site compliant on its own. A consent plugin handles the banner and, if it supports script blocking, stops tags firing before consent. It cannot write your privacy policy, choose your legal bases, sign data processing agreements with your vendors, or answer data subject requests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Gravatar a GDPR problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can be. WordPress sends an MD5 hash of each commenter's email address to Gravatar (Automattic, a US company) to fetch an avatar. That is a transfer of personal data to a third party and a third country. Disabling avatars, or only loading them after consent, removes the issue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WordPress store IP addresses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WordPress logs the commenter's IP address in the wp_comments table by default, and many security, anti-spam and form plugins log IPs too. An IP address is personal data under GDPR, so you need a lawful basis, a retention period, and disclosure in your privacy policy — or you should stop collecting it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is WooCommerce GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WooCommerce gives you the pieces but not the outcome. It integrates with the WordPress export and erase tools and lets you set retention periods for orders and personal data, but you still need a compliant privacy policy, consent for any marketing, a cookie banner covering payment and analytics scripts, and data processing agreements with your payment and shipping providers."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="WordPress GDPR Compliance: Complete 2026 Guide | PrivacyComply"
+  description="WordPress is not GDPR compliant by default. See exactly what leaks data on a stock install — comments, Gravatar, embeds, forms, analytics — and the fix for each."
+  canonical="/wordpress-gdpr-compliance.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/what-is-gdpr.html">GDPR Guide</a><span>&#8250;</span> WordPress</p>
+      <h1>WordPress GDPR Compliance</h1>
+      <p class="hero__sub">A stock WordPress install leaks personal data in at least six places before you add a single plugin. Here is each one, why it matters, and the specific fix.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Short answer:</strong> WordPress is not GDPR compliant out of the box. The core software ships with GDPR <em>tools</em> — a privacy policy page generator, personal data export and personal data erase — but the default configuration still logs commenter IP addresses, sets comment cookies, sends hashed visitor emails to Gravatar, and loads third-party embeds that drop cookies before consent.</p>
+        <p>Getting compliant means three things: <strong>block non-essential scripts until consent</strong>, <strong>publish a real privacy policy</strong>, and <strong>turn off or contain the default data leaks</strong> described below.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#not-compliant">Why WordPress isn't compliant by default</a></li>
+          <li><a href="#leaks">The six default data leaks</a></li>
+          <li><a href="#built-in">What WordPress already gives you</a></li>
+          <li><a href="#steps">The seven-step fix</a></li>
+          <li><a href="#plugins">Choosing a consent plugin</a></li>
+          <li><a href="#woocommerce">WooCommerce specifics</a></li>
+          <li><a href="#mistakes">Five mistakes we see constantly</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="not-compliant">Why WordPress isn't compliant by default</h2>
+      <p>WordPress powers a large share of the web, which means the same handful of compliance gaps repeat across millions of sites. The gaps are not bugs. They are sensible defaults chosen years before GDPR existed, and nobody turned them off for you.</p>
+      <p>GDPR does not care that a default caused the problem. If your site sets a tracking cookie on a visitor in Berlin before they clicked anything, that is processing without a lawful basis, and the site owner is the controller responsible for it.</p>
+
+      <div class="callout callout--warning">
+        <strong>The single most common failure</strong> is a cookie banner that displays a notice but does not actually block anything. Google Analytics fires on page load, the banner appears, the visitor clicks "Accept" — and the tracking already happened. Under GDPR, consent must come <em>before</em> processing, not after.
+      </div>
+
+      <h2 id="leaks">The six default data leaks</h2>
+
+      <h3>1. Commenter IP addresses</h3>
+      <p>WordPress writes the commenter's IP address to the <code>comment_author_IP</code> column of the <code>wp_comments</code> table. An IP address is personal data under GDPR — this was settled by the Court of Justice in <em>Breyer</em>. Storing it needs a lawful basis, a documented retention period, and a mention in your privacy policy. Most sites have none of the three.</p>
+      <p><strong>Fix:</strong> stop storing it. A short filter in your theme's <code>functions.php</code> or a small utility plugin can blank the value before it is written.</p>
+
+      <h3>2. The comment cookie opt-in</h3>
+      <p>Since WordPress 4.9.6 the comment form includes a checkbox offering to save the commenter's name, email and site in cookies. That checkbox is compliant only when it is <em>unticked</em> by default. Several popular themes tick it. A pre-ticked consent box is explicitly invalid under GDPR and was the exact issue in the CJEU's <em>Planet49</em> ruling.</p>
+
+      <h3>3. Gravatar</h3>
+      <p>To display an avatar, WordPress sends an MD5 hash of the commenter's email address to Gravatar, operated by Automattic in the United States. That is a disclosure of personal data to a third party and a transfer to a third country, triggered automatically for every visitor who loads a post with comments.</p>
+      <p><strong>Fix:</strong> Settings &rarr; Discussion &rarr; untick "Show Avatars", or load avatars only after consent.</p>
+
+      <h3>4. Embeds</h3>
+      <p>Paste a YouTube URL and WordPress renders an iframe that sets Google advertising cookies on page load. The same applies to Google Maps, Vimeo, X/Twitter, Instagram and SoundCloud embeds. Each one is a third-party tracker firing before any banner appears.</p>
+      <p><strong>Fix:</strong> use a CMP that blocks iframes until consent, or switch YouTube embeds to <code>youtube-nocookie.com</code> — which reduces but does not eliminate the problem.</p>
+
+      <h3>5. Contact forms</h3>
+      <p>Contact Form 7, WPForms, Gravity Forms and Ninja Forms all store submissions in your database, and most log the sender's IP by default. If a form feeds a mailing list, you need separate, explicit, unbundled consent for marketing — "by submitting this form you agree to receive our newsletter" is not valid consent.</p>
+
+      <h3>6. Fonts, CDNs and page builders</h3>
+      <p>Loading Google Fonts from Google's servers transmits every visitor's IP address to Google. A German court in Munich awarded damages over exactly this in 2022, and it triggered a wave of copycat claims. Elementor, Divi and most page builders load remote fonts by default.</p>
+      <p><strong>Fix:</strong> self-host your fonts. It is faster anyway — this site self-hosts its two typefaces for that reason.</p>
+
+      <h2 id="built-in">What WordPress already gives you</h2>
+      <p>Core ships with three genuinely useful GDPR features that most site owners never open:</p>
+      <ul>
+        <li><strong>Settings &rarr; Privacy</strong> — generates a privacy policy draft with sections contributed by your installed plugins. A starting point, not a finished policy.</li>
+        <li><strong>Tools &rarr; Export Personal Data</strong> — assembles everything core and participating plugins hold about an email address. This is your right-of-access workflow.</li>
+        <li><strong>Tools &rarr; Erase Personal Data</strong> — the right-to-erasure counterpart. Both send a confirmation email to the requester, which handles identity verification.</li>
+      </ul>
+      <p>These cover data subject requests reasonably well. They do nothing about consent, which is where nearly all enforcement risk actually sits.</p>
+
+      <h2 id="steps">The seven-step fix</h2>
+      <ol class="steps">
+        <li><strong>Audit what you actually collect</strong> Open your site in a private window with devtools on the Network tab. Every third-party domain that loads before you interact with the page is a script you need to account for. Most owners are surprised by the list.</li>
+        <li><strong>Install a consent platform that blocks scripts</strong> Not just a banner. The plugin must prevent tags from executing until consent is given, and must record what each visitor consented to and when.</li>
+        <li><strong>Publish a real privacy policy</strong> Legal bases, retention periods, third-party recipients, international transfers, and how to exercise rights. The WordPress sample text covers none of this properly.</li>
+        <li><strong>Fix comments and Gravatar</strong> Stop IP logging, confirm the consent checkbox is unticked, and disable avatars or gate them behind consent.</li>
+        <li><strong>Contain third-party embeds</strong> Block them behind consent, or replace them — a static map image instead of an interactive Google Map removes the tracker entirely.</li>
+        <li><strong>Make forms compliant</strong> Unticked, separate consent checkboxes for marketing. Disable IP logging where you do not need it. Set a retention period for stored entries and actually enforce it.</li>
+        <li><strong>Document your request process</strong> Publish a contact route for data subject requests and commit to the 30-day response window. Test it once yourself.</li>
+      </ol>
+
+      <h2 id="plugins">Choosing a consent plugin</h2>
+      <p>The decision that matters is whether the plugin performs real script blocking. Everything else is secondary.</p>
+
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Tool</th><th>Blocks scripts pre-consent</th><th>Consent Mode v2</th><th>Free tier</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick">
+              <td class="tool-name">CookieYes</td>
+              <td class="check">Yes — auto-blocking</td>
+              <td class="check">Yes</td>
+              <td>Up to 25k page views/mo</td>
+              <td>Most WordPress sites</td>
+            </tr>
+            <tr>
+              <td class="tool-name">iubenda</td>
+              <td class="check">Yes</td>
+              <td class="check">Yes</td>
+              <td>Limited</td>
+              <td>Sites that also need lawyer-vetted policies</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Termly</td>
+              <td class="check">Yes</td>
+              <td class="check">Yes</td>
+              <td>Yes, with branding</td>
+              <td>US sites juggling CCPA and GDPR</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Complianz</td>
+              <td class="check">Yes</td>
+              <td class="check">Yes</td>
+              <td>Yes</td>
+              <td>WordPress-only shops wanting a self-hosted option</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Generic "cookie notice" plugins</td>
+              <td class="cross">No — display only</td>
+              <td class="cross">No</td>
+              <td>Yes</td>
+              <td>Nothing. These create false confidence.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Our pick for WordPress</span>
+        <p class="cta-box__title">CookieYes</p>
+        <p class="cta-box__desc">Auto-blocks known trackers before consent, ships a maintained WordPress plugin, supports Google Consent Mode v2, and the free tier covers most small sites. It is the lowest-effort route from "banner that does nothing" to "banner that actually blocks".</p>
+        <div class="cta-box__buttons">
+          <a href="https://www.cookieyes.com/" data-partner="cookieyes" class="btn btn-affiliate btn-sm" target="_blank" rel="noopener sponsored">Try CookieYes</a>
+          <a href="/cookieyes-review.html" class="btn btn-secondary btn-sm">Read our full review</a>
+        </div>
+      </div>
+
+      <h2 id="woocommerce">WooCommerce specifics</h2>
+      <p>WooCommerce adds order records, customer accounts, and usually a payment processor and a marketing stack. Four things need attention:</p>
+      <ul>
+        <li><strong>Retention settings.</strong> WooCommerce &rarr; Settings &rarr; Accounts &amp; Privacy lets you automatically remove personal data from cancelled, failed and completed orders after a set period. Set it deliberately rather than leaving it blank.</li>
+        <li><strong>Marketing consent is separate from purchase.</strong> You cannot make newsletter signup a condition of checkout. That is bundled consent and it is invalid.</li>
+        <li><strong>Data processing agreements.</strong> Stripe, PayPal, your shipping provider and your email platform are all processors. You need a DPA with each; most publish one you accept by using the service.</li>
+        <li><strong>Payment and analytics scripts.</strong> Stripe's fraud detection script and any conversion pixels need to be categorised correctly — genuinely essential scripts may load pre-consent, marketing pixels may not.</li>
+      </ul>
+      <p>The same reasoning applies on hosted platforms. See our <a href="/shopify-gdpr-compliance.html">Shopify GDPR guide</a> and <a href="/squarespace-gdpr-compliance.html">Squarespace GDPR guide</a> for the platform-specific versions.</p>
+
+      <h2 id="mistakes">Five mistakes we see constantly</h2>
+      <ol>
+        <li><strong>A banner with no blocking.</strong> Covered above, and it is the majority of non-compliant WordPress sites.</li>
+        <li><strong>No reject button.</strong> Refusing must be as easy as accepting. "Accept" and a settings link buried in small print does not qualify.</li>
+        <li><strong>Copied privacy policy.</strong> A policy lifted from another site describes that site's processing, not yours. It is also copyright infringement.</li>
+        <li><strong>Ignoring the UK.</strong> Post-Brexit the UK has its own regime. If you serve UK visitors you are dealing with UK GDPR and PECR as well.</li>
+        <li><strong>Setting it and forgetting it.</strong> Every new plugin can add a tracker. Re-run the devtools audit after any significant change.</li>
+      </ol>
+
+      <div class="callout callout--success">
+        <strong>The shortcut nobody mentions:</strong> if analytics is the only reason you need a banner, switching to a cookie-free analytics tool removes the requirement entirely. See <a href="/google-analytics-alternatives.html">Google Analytics alternatives</a>.
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Is WordPress GDPR compliant out of the box?</summary>
+          <div class="faq-a"><p>No. A default installation stores commenter IP addresses, sets comment cookies, sends hashed visitor email addresses to Gravatar, and loads third-party embeds that drop cookies before any consent is collected. WordPress provides GDPR tools — a privacy policy generator, personal data export and erase — but you must configure them and add a consent layer yourself.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need a cookie banner on WordPress?</summary>
+          <div class="faq-a"><p>You need one if your site sets any non-essential cookie for EU or UK visitors — which includes Google Analytics, Meta Pixel, YouTube embeds, most chat widgets and many page builders. A site with no analytics, no ads, no embeds and no tracking plugins can operate without a banner. <a href="/do-i-need-a-cookie-banner.html">Full decision guide here</a>.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does a GDPR plugin make my WordPress site compliant automatically?</summary>
+          <div class="faq-a"><p>No plugin makes a site compliant on its own. A consent plugin handles the banner and, if it supports script blocking, stops tags firing before consent. It cannot write your privacy policy, choose your legal bases, sign data processing agreements with your vendors, or answer data subject requests.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Gravatar a GDPR problem?</summary>
+          <div class="faq-a"><p>It can be. WordPress sends an MD5 hash of each commenter's email address to Gravatar (Automattic, a US company) to fetch an avatar. That is a transfer of personal data to a third party and a third country. Disabling avatars, or only loading them after consent, removes the issue.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does WordPress store IP addresses?</summary>
+          <div class="faq-a"><p>Yes. WordPress logs the commenter's IP address in the <code>wp_comments</code> table by default, and many security, anti-spam and form plugins log IPs too. An IP address is personal data under GDPR, so you need a lawful basis, a retention period, and disclosure in your privacy policy — or you should stop collecting it.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is WooCommerce GDPR compliant?</summary>
+          <div class="faq-a"><p>WooCommerce gives you the pieces but not the outcome. It integrates with the WordPress export and erase tools and lets you set retention periods for orders and personal data, but you still need a compliant privacy policy, consent for any marketing, a cookie banner covering payment and analytics scripts, and data processing agreements with your payment and shipping providers.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What are the fines if I get this wrong?</summary>
+          <div class="faq-a"><p>GDPR's upper tier is €20 million or 4% of global annual turnover, whichever is higher. Small sites are not the usual target of headline fines, but consent violations are the most commonly enforced category and national authorities do act on complaints. See our breakdown of <a href="/gdpr-fines-and-penalties.html">GDPR fines and how they are calculated</a>.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/do-i-need-a-cookie-banner.html">Do I need a cookie banner?<span>The decision tree, before you install anything</span></a>
+        <a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools in 2026<span>Ranked, with the script-blocking test applied</span></a>
+        <a href="/google-consent-mode-v2.html">Google Consent Mode v2 explained<span>What Google requires if you run Ads or GA4 in the EEA</span></a>
+        <a href="/best-privacy-policy-generators.html">Best privacy policy generators<span>For the policy step above</span></a>
+        <a href="/gdpr-fines-and-penalties.html">GDPR fines and penalties<span>What enforcement actually looks like</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Fix the consent layer first</h2>
+      <p class="section__intro">Script blocking is the gap that creates real exposure on a WordPress site. Start there, then work through the privacy policy and forms.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/website-launch-checklist.html" class="btn btn-secondary">Full launch checklist</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

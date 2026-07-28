@@ -321,7 +321,7 @@ p  { margin-bottom: 1em; }
   background: var(--navy-deep); color: #94a3b8; padding: 64px 0 24px; margin-top: 80px;
 }
 .footer-grid {
-  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 36px;
   padding-bottom: 40px; border-bottom: 1px solid #1e3a5f;
 }
 .footer-col h4 {
@@ -365,6 +365,11 @@ p  { margin-bottom: 1em; }
 .footer-bottom__left, .footer-bottom__right { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ============ RESPONSIVE ============ */
+/* Five footer columns need more room than a laptop viewport usually gives. */
+@media (max-width: 1080px) {
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .footer-col--brand { grid-column: 1 / -1; }
+}
 @media (max-width: 860px) {
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -393,4 +398,120 @@ p  { margin-bottom: 1em; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero__ctas { flex-direction: column; }
   .hero__ctas .btn { width: 100%; }
+}
+
+/* ==========================================================================
+   Long-form guide layout
+   Used by the in-depth guide pages that render inside .article-body >
+   .container--narrow rather than the shorter .article wrapper.
+   ========================================================================== */
+
+.article-body { padding: 56px 0 72px; }
+.container--narrow { max-width: 820px; }
+
+.article-body p,
+.article-body ul,
+.article-body ol { font-size: 1.05rem; }
+.article-body ul,
+.article-body ol { margin: 0 0 1.2em 1.4em; }
+.article-body li { margin-bottom: 0.4em; }
+.article-body h2 {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5em; margin-top: 2em; scroll-margin-top: 90px;
+}
+.article-body h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 1.2em; }
+.article-body h3 { scroll-margin-top: 90px; }
+
+/* On-page table of contents */
+.toc {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 22px 26px; margin: 0 0 2.5rem;
+}
+.toc strong {
+  display: block; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--steel); margin-bottom: 10px;
+}
+.toc ol { margin: 0 0 0 1.1rem; padding: 0; }
+.toc li { margin-bottom: 0.25em; font-size: 0.97rem; }
+.toc a { color: var(--slate); font-weight: 500; }
+.toc a:hover { color: var(--accent-deep); }
+
+/* Answer box — the direct, quotable answer for AI Overviews and snippets */
+.answer-box {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  color: #e2e8f0; border-radius: var(--radius-lg);
+  padding: 26px 30px; margin: 0 0 2rem;
+}
+.answer-box strong { color: white; }
+.answer-box p { margin-bottom: 0.6em; font-size: 1.06rem; }
+.answer-box p:last-child { margin-bottom: 0; }
+.answer-box a { color: #86efac; }
+
+/* Inline callouts */
+.callout {
+  border-left: 4px solid var(--steel); background: var(--paper);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 18px 22px; margin: 1.6rem 0;
+  font-size: 1rem; color: var(--text);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--navy); }
+.callout--info { border-left-color: var(--slate); }
+.callout--warning { border-left-color: var(--amber); background: rgba(217,119,6,0.07); }
+.callout--warning strong { color: #92400e; }
+.callout--danger { border-left-color: var(--rose); background: rgba(190,18,60,0.06); }
+.callout--danger strong { color: #9f1239; }
+.callout--success { border-left-color: var(--accent); background: rgba(22,163,74,0.07); }
+.callout--success strong { color: var(--accent-deep); }
+
+/* FAQ list wrapper (individual items are styled by .faq-item) */
+.faq-list { margin: 1.5rem 0 0; }
+
+/* Key-figure grid, e.g. penalty tiers */
+.figure-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; margin: 1.8rem 0;
+}
+.figure {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px 22px; background: white;
+}
+.figure__value {
+  font-family: 'Source Serif Pro', Georgia, serif; font-weight: 700;
+  font-size: 1.7rem; color: var(--navy); line-height: 1.15; margin-bottom: 6px;
+}
+.figure__label { font-size: 0.92rem; color: var(--text-soft); }
+
+/* Step-by-step sequences */
+.steps { counter-reset: step; list-style: none; margin: 1.6rem 0 2rem; padding: 0; }
+.steps > li {
+  counter-increment: step; position: relative;
+  padding: 0 0 1.1rem 3rem; margin: 0;
+}
+.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--accent); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.95rem;
+}
+.steps > li > strong { display: block; color: var(--navy); margin-bottom: 0.2em; }
+
+/* Related-reading block that closes each guide */
+.related-links { display: grid; gap: 10px; margin: 1.5rem 0 0; }
+.related-links a {
+  display: block; padding: 14px 18px; background: var(--paper);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--navy); font-weight: 600; font-size: 0.98rem;
+}
+.related-links a:hover {
+  border-color: var(--accent); text-decoration: none;
+  background: rgba(22,163,74,0.05);
+}
+.related-links span { display: block; font-weight: 400; color: var(--text-soft); font-size: 0.9rem; margin-top: 2px; }
+
+@media (max-width: 640px) {
+  .article-body { padding: 40px 0 56px; }
+  .answer-box { padding: 20px 22px; }
+  .toc { padding: 18px 20px; }
 }

@@ -1,0 +1,295 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"Guides","item":"https://privacycomply.io/what-is-gdpr.html"},
+    {"@type":"ListItem","position":3,"name":"Google Consent Mode v2","item":"https://privacycomply.io/google-consent-mode-v2.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google Consent Mode v2 Explained: Basic vs Advanced, and What You Actually Need",
+  "description": "Consent Mode v2 has been mandatory for EEA traffic since March 2024. Here is what the four signals do, how basic and advanced modes differ, and how to set it up without breaking GDPR compliance.",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Google Consent Mode v2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google Consent Mode v2 is a signalling system that tells Google's tags whether a visitor has consented to analytics and advertising cookies. It passes four parameters — ad_storage, analytics_storage, ad_user_data and ad_personalization — and Google's tags adjust their behaviour based on those values. It is a way to communicate consent, not a way to collect it: you still need a consent banner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Google Consent Mode v2 mandatory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is mandatory in practice for anyone using Google advertising or measurement products with EEA or UK traffic. Since March 2024, Google requires Consent Mode v2 signals in order to keep using audience features, remarketing and conversion measurement for those users. It is a Google platform requirement rather than a legal one — GDPR itself does not mention Consent Mode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between basic and advanced Consent Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In basic mode, Google tags do not load at all until the visitor makes a choice, so no data is sent when consent is denied. In advanced mode, tags load immediately and send cookieless pings even when consent is denied, which feeds Google's conversion and behavioural modelling. Advanced recovers substantially more measurement data but sends data before consent, which raises a compliance question you need to be comfortable with."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Consent Mode v2 make me GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Consent Mode transmits a consent decision; it does not obtain one. You still need a compliant banner that collects genuine consent, blocks non-essential processing until it is given, offers a reject option as easy as accept, and keeps records. Consent Mode sits downstream of all of that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the four Consent Mode v2 signals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ad_storage controls advertising cookies. analytics_storage controls analytics cookies. ad_user_data governs whether user data may be sent to Google for advertising purposes. ad_personalization governs whether data may be used for personalised advertising and remarketing. The last two were added in v2 and are the reason v1 setups had to be updated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need Consent Mode v2 if I do not run Google Ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you run GA4 with EEA traffic, yes — analytics_storage and the ad_ signals still apply, and behavioural modelling in GA4 depends on them. If you use no Google products at all, Consent Mode is irrelevant to you. You still need a consent banner for whatever other trackers you run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will conversion modelling recover all my lost data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Modelling estimates the conversions you cannot observe, and it requires enough traffic and enough consented data to train on. Small sites often never reach the thresholds Google needs and see no modelling at all. Treat modelled figures as directional estimates rather than measured facts."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Google Consent Mode v2 Explained: Basic vs Advanced (2026) | PrivacyComply"
+  description="Consent Mode v2 has been required for EEA traffic since March 2024. What the four signals do, how basic and advanced differ, and how to implement it without breaking GDPR."
+  canonical="/google-consent-mode-v2.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/what-is-gdpr.html">Guides</a><span>&#8250;</span> Consent Mode v2</p>
+      <h1>Google Consent Mode v2 Explained</h1>
+      <p class="hero__sub">What the four signals actually do, the real difference between basic and advanced mode, and why implementing it does not make you GDPR compliant on its own.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Google Consent Mode v2 is a signalling layer.</strong> It tells Google's tags whether a visitor consented, using four parameters: <code>ad_storage</code>, <code>analytics_storage</code>, <code>ad_user_data</code> and <code>ad_personalization</code>. Google's tags then adjust what they do.</p>
+        <p>Since <strong>March 2024</strong>, sending these signals has been a condition of using Google's audience, remarketing and conversion measurement features for EEA and UK users. Without them, those features degrade or stop working for that traffic.</p>
+        <p><strong>It does not collect consent.</strong> You still need a banner that obtains it. Consent Mode only transmits the answer.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#what">What Consent Mode actually is</a></li>
+          <li><a href="#signals">The four signals</a></li>
+          <li><a href="#v1-v2">What changed in v2</a></li>
+          <li><a href="#basic-advanced">Basic vs advanced mode</a></li>
+          <li><a href="#which">Which mode should you use?</a></li>
+          <li><a href="#implement">How to implement it</a></li>
+          <li><a href="#modelling">What conversion modelling really does</a></li>
+          <li><a href="#mistakes">Common implementation mistakes</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="what">What Consent Mode actually is</h2>
+      <p>Before Consent Mode, consent management and Google's tags were two separate worlds. Your banner blocked a tag or it did not. If it blocked, Google saw nothing at all — no signal, no context, just a gap in the data.</p>
+      <p>Consent Mode replaces the on/off switch with a conversation. Your consent platform sets the four parameters, Google's tags read them on every event, and they modify their behaviour accordingly: full tracking when granted, restricted or cookieless behaviour when denied.</p>
+      <div class="callout callout--info">
+        <strong>The distinction that matters:</strong> Consent Mode is a <em>Google product requirement</em>, not a legal requirement. GDPR does not mention it. You can be fully GDPR compliant without it — you just cannot use Google's advertising features on EEA traffic.
+      </div>
+
+      <h2 id="signals">The four signals</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Parameter</th><th>Controls</th><th>Consent category</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="tool-name">ad_storage</td><td>Whether advertising cookies and identifiers may be stored on the device</td><td>Marketing</td></tr>
+            <tr><td class="tool-name">analytics_storage</td><td>Whether analytics cookies may be stored (GA4 client ID, session data)</td><td>Analytics</td></tr>
+            <tr><td class="tool-name">ad_user_data</td><td>Whether user data may be sent to Google for advertising purposes</td><td>Marketing</td></tr>
+            <tr><td class="tool-name">ad_personalization</td><td>Whether data may be used for personalised ads and remarketing</td><td>Marketing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each takes <code>granted</code> or <code>denied</code>. The default state must be <code>denied</code> for EEA and UK visitors — that is what makes the setup lawful. Defaulting to <code>granted</code> and downgrading later means you tracked before consent, which is the violation Consent Mode was supposed to help you avoid.</p>
+
+      <h2 id="v1-v2">What changed in v2</h2>
+      <p>Version 1 had two signals: <code>ad_storage</code> and <code>analytics_storage</code>. Version 2 added <code>ad_user_data</code> and <code>ad_personalization</code>.</p>
+      <p>The addition was driven by the EU Digital Markets Act, which requires designated gatekeepers to obtain clear consent for using personal data across services and for personalised advertising. The two new signals let Google demonstrate it has that consent for each user. That is also why the March 2024 deadline was firm: without the signals, Google could not lawfully use the data for those purposes, so it stopped.</p>
+      <p>If you set up Consent Mode before 2024 and never revisited it, you are probably still on v1 and quietly losing remarketing audiences. Check your tag configuration for the two newer parameters.</p>
+
+      <h2 id="basic-advanced">Basic vs advanced mode</h2>
+      <p>This is the decision that actually matters, and most guides get the trade-off wrong by presenting advanced as strictly better.</p>
+
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th></th><th>Basic mode</th><th>Advanced mode</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="tool-name">When Google tags load</td><td>Only after the visitor chooses</td><td>Immediately on page load</td></tr>
+            <tr><td class="tool-name">If consent is denied</td><td>Nothing is sent to Google</td><td>Cookieless pings are sent</td></tr>
+            <tr><td class="tool-name">Data sent before a choice</td><td class="check">None</td><td>Cookieless pings</td></tr>
+            <tr><td class="tool-name">Conversion modelling</td><td>Limited</td><td class="check">Full eligibility</td></tr>
+            <tr><td class="tool-name">GA4 behavioural modelling</td><td class="cross">No</td><td class="check">Yes</td></tr>
+            <tr><td class="tool-name">Implementation effort</td><td class="check">Lower</td><td>Higher</td></tr>
+            <tr><td class="tool-name">Compliance posture</td><td class="check">Conservative</td><td>Needs a documented position</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Basic mode in plain terms</h3>
+      <p>Google's tags are held back entirely until the visitor interacts with your banner. Deny, and Google receives nothing — no ping, no event, no identifier. It behaves the way a well-configured blocking banner always did, with the added benefit that the consent signal travels with the accepted traffic.</p>
+
+      <h3>Advanced mode in plain terms</h3>
+      <p>Google's tags load with the page, before the banner is answered. If consent is denied they still send <em>cookieless pings</em> — no identifiers, no cookies, but a signal that a page view or conversion occurred, along with coarse information like timestamp and page context. Google uses this aggregate stream to model the conversions it cannot observe directly.</p>
+
+      <div class="callout callout--warning">
+        <strong>Be honest about what advanced mode does.</strong> Data leaves the visitor's browser and reaches Google before consent. Google's position is that cookieless pings do not involve reading or writing information on the device and so fall outside the ePrivacy consent requirement. Several EU regulators and privacy lawyers do not fully accept that reasoning. It is a defensible position, not a settled one — and it is your decision to document, not your CMP vendor's.
+      </div>
+
+      <h2 id="which">Which mode should you use?</h2>
+      <ul>
+        <li><strong>You run meaningful Google Ads spend and need conversion data.</strong> Advanced mode recovers substantially more measurement, and the modelling only works if you feed it. Most advertisers land here — but write down why you consider it lawful for your setup.</li>
+        <li><strong>You are analytics-only, or ad spend is small.</strong> Basic mode. The measurement you lose is not worth the compliance argument, and modelling needs volume you probably do not have.</li>
+        <li><strong>You are in a regulated sector, or serve Germany, France or Austria heavily.</strong> Basic mode. Those regulators have been the most aggressive on pre-consent transmissions.</li>
+        <li><strong>You mainly want to know which pages people read.</strong> Consider dropping Google analytics altogether. A cookie-free tool needs no consent, no banner category and no Consent Mode. See <a href="/google-analytics-alternatives.html">Google Analytics alternatives</a>.</li>
+      </ul>
+
+      <h2 id="implement">How to implement it</h2>
+      <p>Almost nobody should hand-code this. Every serious consent platform ships a Consent Mode v2 integration, and using it is both faster and less error-prone.</p>
+      <ol class="steps">
+        <li><strong>Pick a CMP that is Google-certified</strong> Google maintains a list of certified consent management platforms. Certification means the CMP has been validated to emit the v2 signals correctly. CookieYes, iubenda and Termly are all on it.</li>
+        <li><strong>Set defaults to denied</strong> Before any Google tag loads, the default state for EEA and UK visitors must be <code>denied</code> on all four parameters. Certified CMPs do this for you; verify it rather than assuming.</li>
+        <li><strong>Map banner categories to signals</strong> Your "Analytics" toggle drives <code>analytics_storage</code>. Your "Marketing" toggle drives <code>ad_storage</code>, <code>ad_user_data</code> and <code>ad_personalization</code>. Getting this mapping wrong is the most common silent failure.</li>
+        <li><strong>Load the CMP before Google's tags</strong> The consent script must run first. In Google Tag Manager this means the CMP template fires on Consent Initialization, ahead of All Pages.</li>
+        <li><strong>Verify with Google's own tooling</strong> GTM preview mode shows consent state per tag. Google Ads and GA4 both surface a Consent Mode status in their diagnostics. Check that denied traffic shows denied, not granted.</li>
+        <li><strong>Re-test after any tag change</strong> Adding a new pixel or reordering GTM triggers can silently break the ordering.</li>
+      </ol>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Certified CMPs we have tested</span>
+        <p class="cta-box__title">CookieYes, iubenda and Termly</p>
+        <p class="cta-box__desc">All three are Google-certified for Consent Mode v2 and handle the default-denied state and signal mapping without custom code. CookieYes is the quickest to stand up; iubenda bundles a lawyer-vetted privacy policy; Termly is the strongest if you also need CCPA opt-out handling.</p>
+        <div class="cta-box__buttons">
+          <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary btn-sm">Compare all three</a>
+          <a href="/cookieyes-review.html" class="btn btn-secondary btn-sm">CookieYes review</a>
+        </div>
+      </div>
+
+      <h2 id="modelling">What conversion modelling really does</h2>
+      <p>Modelling is the reason advanced mode exists, and it is widely oversold.</p>
+      <p>When a visitor denies consent, Google cannot attribute their conversion to a click. Instead it uses the behaviour of consenting users, plus the cookieless pings from non-consenting ones, to estimate how many conversions the unobserved group produced. The estimate is written back into your reports as if measured.</p>
+      <ul>
+        <li><strong>It needs volume.</strong> Google applies undisclosed traffic and conversion thresholds. Small sites frequently never qualify, and see no modelled conversions at all.</li>
+        <li><strong>It needs consented data to learn from.</strong> A very low consent rate degrades the model that is meant to compensate for a low consent rate.</li>
+        <li><strong>It is an estimate.</strong> Modelled conversions are not observed events. Treat them as directional, especially when making budget decisions on small segments.</li>
+      </ul>
+      <p>The published recovery figures — often quoted around two-thirds of otherwise-lost conversions — come from Google and from vendors selling implementation services. Your own result depends on your traffic, your consent rate and your vertical.</p>
+
+      <h2 id="mistakes">Common implementation mistakes</h2>
+      <ol>
+        <li><strong>Defaults set to granted.</strong> Turns the whole setup into pre-consent tracking. Check this first.</li>
+        <li><strong>Still on v1.</strong> Two signals instead of four. Remarketing audiences quietly stop populating for EEA users.</li>
+        <li><strong>CMP loading after gtag.</strong> Ordering failure. The signals arrive too late to govern the first events.</li>
+        <li><strong>Wrong category mapping.</strong> Marketing consent wired only to <code>ad_storage</code>, leaving <code>ad_user_data</code> and <code>ad_personalization</code> at their defaults.</li>
+        <li><strong>Assuming Consent Mode replaces the banner.</strong> It does not. It is a transport for a decision you must still collect properly. See <a href="/do-i-need-a-cookie-banner.html">whether you need a banner at all</a>.</li>
+        <li><strong>Never verifying.</strong> Consent Mode fails silently. Nothing on the page looks broken when the signals are wrong.</li>
+      </ol>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">What is Google Consent Mode v2?</summary>
+          <div class="faq-a"><p>A signalling system that tells Google's tags whether a visitor has consented to analytics and advertising cookies. It passes four parameters — <code>ad_storage</code>, <code>analytics_storage</code>, <code>ad_user_data</code> and <code>ad_personalization</code> — and Google's tags adjust their behaviour based on those values. It is a way to communicate consent, not a way to collect it: you still need a consent banner.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Google Consent Mode v2 mandatory?</summary>
+          <div class="faq-a"><p>It is mandatory in practice for anyone using Google advertising or measurement products with EEA or UK traffic. Since March 2024, Google requires Consent Mode v2 signals in order to keep using audience features, remarketing and conversion measurement for those users. It is a Google platform requirement rather than a legal one — GDPR itself does not mention Consent Mode.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What is the difference between basic and advanced Consent Mode?</summary>
+          <div class="faq-a"><p>In basic mode, Google tags do not load at all until the visitor makes a choice, so no data is sent when consent is denied. In advanced mode, tags load immediately and send cookieless pings even when consent is denied, which feeds Google's conversion and behavioural modelling. Advanced recovers substantially more measurement data but sends data before consent, which raises a compliance question you need to be comfortable with.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does Consent Mode v2 make me GDPR compliant?</summary>
+          <div class="faq-a"><p>No. Consent Mode transmits a consent decision; it does not obtain one. You still need a compliant banner that collects genuine consent, blocks non-essential processing until it is given, offers a reject option as easy as accept, and keeps records. Consent Mode sits downstream of all of that.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need Consent Mode v2 if I do not run Google Ads?</summary>
+          <div class="faq-a"><p>If you run GA4 with EEA traffic, yes — <code>analytics_storage</code> and the <code>ad_</code> signals still apply, and behavioural modelling in GA4 depends on them. If you use no Google products at all, Consent Mode is irrelevant to you. You still need a consent banner for whatever other trackers you run.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Will conversion modelling recover all my lost data?</summary>
+          <div class="faq-a"><p>No. Modelling estimates the conversions you cannot observe, and it requires enough traffic and enough consented data to train on. Small sites often never reach the thresholds Google needs and see no modelling at all. Treat modelled figures as directional estimates rather than measured facts.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I avoid Consent Mode entirely?</summary>
+          <div class="faq-a"><p>Yes — by not using Google's measurement and advertising products on EEA traffic. Cookie-free analytics platforms need no consent for basic measurement and no Consent Mode signals. That is a real option for content sites and many SaaS products; it is not realistic if paid acquisition is your growth channel.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools in 2026<span>All Consent Mode v2 certified, compared</span></a>
+        <a href="/google-analytics-alternatives.html">Google Analytics alternatives<span>The route that removes Consent Mode from the equation</span></a>
+        <a href="/do-i-need-a-cookie-banner.html">Do I need a cookie banner?<span>The prerequisite question</span></a>
+        <a href="/wordpress-gdpr-compliance.html">WordPress GDPR compliance<span>Implementing all of this on WordPress</span></a>
+        <a href="/gdpr-fines-and-penalties.html">GDPR fines and penalties<span>What consent violations actually cost</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Get the signals right</h2>
+      <p class="section__intro">A Google-certified CMP handles default-denied state and signal mapping for you. That removes the two failure modes that break most implementations.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare certified CMPs</a>
+        <a href="/best-privacy-tools-by-use-case.html" class="btn btn-secondary">Find your fit</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
