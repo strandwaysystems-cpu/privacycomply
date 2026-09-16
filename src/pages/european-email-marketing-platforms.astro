@@ -1,0 +1,322 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"European Tech Alternatives","item":"https://privacycomply.io/european-tech-alternatives.html"},
+    {"@type":"ListItem","position":3,"name":"European Email Marketing Platforms","item":"https://privacycomply.io/european-email-marketing-platforms.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "European Email Marketing Platforms: GDPR-Friendly Mailchimp Alternatives (2026)",
+  "description": "Brevo, MailerLite, CleverReach, rapidmail and GetResponse compared on jurisdiction, hosting and consent features — plus how to migrate a list without wrecking deliverability.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "European email marketing platforms 2026",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Brevo"},
+    {"@type":"ListItem","position":2,"name":"MailerLite"},
+    {"@type":"ListItem","position":3,"name":"CleverReach"},
+    {"@type":"ListItem","position":4,"name":"rapidmail"},
+    {"@type":"ListItem","position":5,"name":"GetResponse"}
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best European alternative to Mailchimp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Brevo, headquartered in Paris, is the closest all-round replacement — comparable automation and CRM features with EU hosting by default. MailerLite, based in Lithuania, is the better choice if you want simplicity and low cost. CleverReach and rapidmail, both German, are the strongest picks if you need data held exclusively in Germany."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Mailchimp GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mailchimp can be used lawfully. It offers a data processing agreement and is covered by the EU-US Data Privacy Framework, so the transfer to the US has a legal basis. The objection is not that it is unlawful today — it is that your subscriber list depends on an adequacy decision currently under appeal, when equivalent European products exist at similar or lower cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need new consent when I switch email providers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Consent is given to you as the controller, not to your email platform, which is only a processor. You do not need to re-permission your list. You do need to carry the evidence across — when each subscriber signed up, from where, and what they agreed to — because the obligation to demonstrate consent moves with the data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is double opt-in required under GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GDPR does not mandate double opt-in anywhere in its text. It requires consent to be freely given, specific, informed and unambiguous, and requires you to be able to demonstrate it. Double opt-in is simply the easiest way to produce that evidence, which is why German regulators in particular treat it as the practical standard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is MailerLite based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MailerLite is headquartered in Vilnius, Lithuania, which places it inside the EU. Subscriber data is held on European infrastructure and a data processing agreement is available, so using it involves no international transfer for an EU-based business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will switching email providers hurt deliverability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Temporarily, if you do it badly. You are moving to new sending IPs and domains with no reputation history, so sending your full list on day one looks like a spam pattern. Warm up gradually over two to three weeks, starting with your most engaged subscribers, and set up SPF, DKIM and DMARC before the first send."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="European Email Marketing Platforms: GDPR Mailchimp Alternatives (2026) | PrivacyComply"
+  description="Brevo, MailerLite, CleverReach, rapidmail and GetResponse compared on jurisdiction, hosting and consent — plus how to migrate a list without wrecking deliverability."
+  canonical="/european-email-marketing-platforms.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/european-tech-alternatives.html">European Alternatives</a><span>&#8250;</span> Email Marketing</p>
+      <h1>European Email Marketing Platforms</h1>
+      <p class="hero__sub">Your mailing list is a genuine pile of personal data, the products are close substitutes, and the switch takes an afternoon. This is the best effort-to-benefit ratio in the whole sovereignty conversation.</p>
+      <p class="disclosure">We have no affiliate relationship with any platform on this page. Nothing here is a paid placement. <a href="/methodology.html">How we test →</a></p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Brevo</strong> (Paris) is the closest all-round Mailchimp replacement — automation, CRM and transactional email, EU-hosted. <strong>MailerLite</strong> (Vilnius) is the value pick and the simplest to use. <strong>CleverReach</strong> and <strong>rapidmail</strong> (both German) hold data exclusively in Germany, which matters for regulated buyers. <strong>GetResponse</strong> (Poland) has the deepest feature set including webinars.</p>
+        <p>All five are EU-headquartered, so there is no international transfer to document at all.</p>
+        <p><strong>One thing that trips people up:</strong> switching platform does <em>not</em> require re-permissioning your list. Consent was given to you, not to Mailchimp. You do have to carry the proof across.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#why">Why this is the switch to make first</a></li>
+          <li><a href="#comparison">The platforms compared</a></li>
+          <li><a href="#picks">The platforms in detail</a></li>
+          <li><a href="#consent">The consent rules that actually apply</a></li>
+          <li><a href="#migrate">Migrating without wrecking deliverability</a></li>
+          <li><a href="#mailchimp">Do you actually have to leave Mailchimp?</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="why">Why this is the switch to make first</h2>
+      <p>Three reasons it beats every other category on effort-to-benefit.</p>
+      <p><strong>The data is genuinely personal.</strong> Names, email addresses, open and click history, often purchase behaviour and tags describing interests. That is a richer profile than your analytics holds, and it is directly identifiable.</p>
+      <p><strong>The products are close substitutes.</strong> Unlike cloud infrastructure, there is no deep technical lock-in. A list is a CSV. Templates are HTML. The genuine work is rebuilding automations, and most businesses have fewer of those than they think.</p>
+      <p><strong>The European options are not compromises.</strong> Brevo and GetResponse are full-featured platforms competing on merit; MailerLite is cheaper than Mailchimp for most list sizes. You are not paying a sovereignty tax here.</p>
+      <div class="callout callout--info">
+        <strong>Contrast with infrastructure.</strong> Moving off AWS is months of engineering for a risk most small businesses will never realise. Moving off Mailchimp is an afternoon plus a warm-up period, for the same category of legal benefit. Start where the ratio is good — the priority order is in our <a href="/european-tech-alternatives.html">European alternatives overview</a>.
+      </div>
+
+      <h2 id="comparison">The platforms compared</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Platform</th><th>HQ</th><th>Data held in</th><th>Free tier</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick">
+              <td class="tool-name">Brevo</td>
+              <td>France</td>
+              <td class="check">EU</td>
+              <td>Yes, daily send limit</td>
+              <td>Closest all-round Mailchimp replacement</td>
+            </tr>
+            <tr class="pick">
+              <td class="tool-name">MailerLite</td>
+              <td>Lithuania</td>
+              <td class="check">EU</td>
+              <td>Yes, generous</td>
+              <td>Simplicity and price</td>
+            </tr>
+            <tr>
+              <td class="tool-name">CleverReach</td>
+              <td>Germany</td>
+              <td class="check">Germany</td>
+              <td>Limited</td>
+              <td>Strictest data residency story</td>
+            </tr>
+            <tr>
+              <td class="tool-name">rapidmail</td>
+              <td>Germany</td>
+              <td class="check">Germany</td>
+              <td>Trial</td>
+              <td>German SMEs wanting simplicity</td>
+            </tr>
+            <tr>
+              <td class="tool-name">GetResponse</td>
+              <td>Poland</td>
+              <td class="check">EU</td>
+              <td>Limited</td>
+              <td>Deepest features, webinars, funnels</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Mailjet</td>
+              <td>France</td>
+              <td class="check">EU</td>
+              <td>Yes</td>
+              <td>Transactional plus marketing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pricing moves constantly and depends on list size and send volume, so check current rates rather than trusting any comparison table — including this one — on the numbers.</p>
+
+      <h2 id="picks">The platforms in detail</h2>
+
+      <h3>Brevo — the default replacement</h3>
+      <p>Formerly Sendinblue, Brevo is a Paris-based platform that has grown well beyond newsletters into marketing automation, a light CRM, transactional email, SMS and chat. For a business using Mailchimp's mid-tier features, it is the most direct swap: the concepts map across, and little is missing.</p>
+      <p>It is also strong on the compliance detail that matters — EU hosting by default, a straightforward data processing agreement, and built-in double opt-in and consent tracking rather than bolted-on afterthoughts.</p>
+      <p>The interface tries to do a lot, which makes it busier than MailerLite. If you only send a monthly newsletter, it is more platform than you need.</p>
+
+      <h3>MailerLite — the value pick</h3>
+      <p>Lithuanian, cheaper than Mailchimp at most list sizes, and considerably easier to use. The editor is clean, the automations are capable without being overwhelming, and it includes landing pages and signup forms.</p>
+      <p>It is the right answer for the large middle of the market: newsletters, product announcements, a few automations, a list in the thousands to low tens of thousands. It is not the right answer if you need complex multi-branch automation or deep e-commerce personalisation.</p>
+
+      <h3>CleverReach and rapidmail — the German data residency pair</h3>
+      <p>Both hold data exclusively on German servers, which is the clearest possible answer to "where is our subscriber data". Both are built around German consent expectations, which are the strictest in Europe — double opt-in is the assumed default rather than a setting.</p>
+      <p><strong>CleverReach</strong> is the more capable of the two, with better automation and integrations. <strong>rapidmail</strong> is deliberately simpler, aimed at SMEs that want to send a good newsletter without learning a marketing platform.</p>
+      <p>Pick either if you are in a regulated sector, sell to German enterprises, or simply want the shortest possible sentence in your privacy policy.</p>
+
+      <h3>GetResponse — the feature maximalist</h3>
+      <p>Polish, and the most feature-dense option here: automation builder, landing pages, sales funnels, webinars and course hosting alongside email. If you want one tool for an entire funnel rather than email alone, it covers the most ground.</p>
+      <p>That breadth is also the drawback — more product than most newsletter senders need, and priced accordingly.</p>
+
+      <h2 id="consent">The consent rules that actually apply</h2>
+      <p>Switching to a European platform changes the transfer picture. It changes nothing about your obligations to subscribers, and those are where enforcement actually happens.</p>
+      <ul>
+        <li><strong>Consent must be unbundled.</strong> Signing up for an account, buying a product or downloading a guide is one purpose. Receiving marketing is another, and needs its own unticked checkbox. "By registering you agree to receive our newsletter" is not valid consent.</li>
+        <li><strong>Pre-ticked boxes are invalid.</strong> Settled law since the CJEU's <em>Planet49</em> ruling.</li>
+        <li><strong>You must be able to demonstrate consent.</strong> When, from which form, what wording they saw. This is why double opt-in is standard practice even though GDPR never names it.</li>
+        <li><strong>Withdrawal must be as easy as giving it.</strong> A working one-click unsubscribe in every message.</li>
+        <li><strong>The soft opt-in is narrower than people assume.</strong> Under the ePrivacy rules you may email existing customers about <em>similar</em> products without prior consent, if you offered an opt-out at the point of sale and in every message. It does not cover prospects, and national implementations differ.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <strong>Buying or scraping lists is not fixable by switching providers.</strong> There is no lawful basis for emailing people who never gave you their details, and a German server does not change that. Most reputable European platforms will suspend you for it, which is a reasonable proxy for how regulators view it.
+      </div>
+
+      <h2 id="migrate">Migrating without wrecking deliverability</h2>
+      <p>The legal move is easy. The deliverability move is where people get hurt — new platform means new sending IPs with no reputation attached to your domain.</p>
+      <ol class="steps">
+        <li><strong>Export everything before you cancel anything</strong> Subscribers with all custom fields and tags, plus your consent evidence — signup date, source, IP where recorded. That evidence is the part people forget, and it is the part you cannot recreate.</li>
+        <li><strong>Clean the list on the way through</strong> Drop anyone who has not opened in a year. Storage minimisation is a GDPR principle, and a smaller engaged list warms up far better than a large stale one.</li>
+        <li><strong>Set up authentication first</strong> SPF, DKIM and DMARC for the new sender, verified before any campaign goes out. Skip this and your first send lands in spam.</li>
+        <li><strong>Warm up gradually</strong> Start with your most engaged few hundred, then scale over two to three weeks. Sending fifty thousand messages from a cold domain is the classic self-inflicted wound.</li>
+        <li><strong>Rebuild automations deliberately</strong> Welcome sequences, abandoned cart, re-engagement. Test each with a real address before enabling. This is the genuine time cost of the migration.</li>
+        <li><strong>Update your privacy policy</strong> Your email platform is a named processor. New provider, new entry — and if you list sub-processors to customers, tell them.</li>
+        <li><strong>Run both briefly, then stop</strong> Keep the old account long enough to confirm nothing was missed, then close it. Do not leave a copy of your list sitting in a service you no longer use; that is an unnecessary retention risk.</li>
+      </ol>
+
+      <h2 id="mailchimp">Do you actually have to leave Mailchimp?</h2>
+      <p>No, and it is worth saying plainly.</p>
+      <p>Mailchimp offers a data processing agreement and is covered by the EU-US Data Privacy Framework. Using it with EU subscribers is lawful today. Anyone telling you a Mailchimp list is a GDPR violation is overstating the position.</p>
+      <p>The case for moving is narrower and more honest than that:</p>
+      <ul>
+        <li>Your subscriber data currently depends on an adequacy decision <a href="/european-tech-alternatives.html">under appeal at the Court of Justice</a>, whose two predecessors were both annulled</li>
+        <li>Equivalent European products exist at similar or lower cost, so the switching cost is close to zero</li>
+        <li>An EU processor removes a transfer from your records entirely — less to document, less to explain in a DPIA, one fewer thing to revisit if the law changes</li>
+      </ul>
+      <p>If you are happy with Mailchimp and it does something the alternatives do not, staying is a defensible decision. Just make sure the DPA is signed and the US transfer is disclosed in your privacy policy.</p>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">The compliance part people skip</span>
+        <p class="cta-box__title">Your signup form, not your platform</p>
+        <p class="cta-box__desc">Enforcement in email marketing is overwhelmingly about how consent was collected — bundled checkboxes, pre-ticked boxes, no proof of opt-in. Moving to an EU platform does not fix a signup form that never asked properly.</p>
+        <div class="cta-box__buttons">
+          <a href="/what-is-gdpr.html" class="btn btn-primary btn-sm">What GDPR requires</a>
+          <a href="/gdpr-fines-and-penalties.html" class="btn btn-secondary btn-sm">What actually gets fined</a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">What is the best European alternative to Mailchimp?</summary>
+          <div class="faq-a"><p>Brevo, headquartered in Paris, is the closest all-round replacement — comparable automation and CRM features with EU hosting by default. MailerLite, based in Lithuania, is the better choice if you want simplicity and low cost. CleverReach and rapidmail, both German, are the strongest picks if you need data held exclusively in Germany.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Mailchimp GDPR compliant?</summary>
+          <div class="faq-a"><p>Mailchimp can be used lawfully. It offers a data processing agreement and is covered by the EU-US Data Privacy Framework, so the transfer to the US has a legal basis. The objection is not that it is unlawful today — it is that your subscriber list depends on an adequacy decision currently under appeal, when equivalent European products exist at similar or lower cost.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need new consent when I switch email providers?</summary>
+          <div class="faq-a"><p>No. Consent is given to you as the controller, not to your email platform, which is only a processor. You do not need to re-permission your list. You do need to carry the evidence across — when each subscriber signed up, from where, and what they agreed to — because the obligation to demonstrate consent moves with the data.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is double opt-in required under GDPR?</summary>
+          <div class="faq-a"><p>GDPR does not mandate double opt-in anywhere in its text. It requires consent to be freely given, specific, informed and unambiguous, and requires you to be able to demonstrate it. Double opt-in is simply the easiest way to produce that evidence, which is why German regulators in particular treat it as the practical standard.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Where is MailerLite based?</summary>
+          <div class="faq-a"><p>MailerLite is headquartered in Vilnius, Lithuania, which places it inside the EU. Subscriber data is held on European infrastructure and a data processing agreement is available, so using it involves no international transfer for an EU-based business.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Will switching email providers hurt deliverability?</summary>
+          <div class="faq-a"><p>Temporarily, if you do it badly. You are moving to new sending IPs and domains with no reputation history, so sending your full list on day one looks like a spam pattern. Warm up gradually over two to three weeks, starting with your most engaged subscribers, and set up SPF, DKIM and DMARC before the first send.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does my newsletter signup need a cookie banner?</summary>
+          <div class="faq-a"><p>The form itself does not — collecting an email address with consent is not a cookie. A banner is required by what you store on the visitor's device, so it depends on your analytics and advertising tags, not your newsletter. See <a href="/do-i-need-a-cookie-banner.html">do I need a cookie banner?</a></p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/european-tech-alternatives.html">European tech alternatives: the full guide<span>Why this category ranks first on effort-to-benefit</span></a>
+        <a href="/european-alternatives-to-google.html">European alternatives to Google<span>The other quick wins on your website</span></a>
+        <a href="/what-is-gdpr.html">What is GDPR?<span>The consent rules behind everything above</span></a>
+        <a href="/ccpa-compliance-checklist.html">CCPA compliance checklist<span>If your list includes California subscribers</span></a>
+        <a href="/best-privacy-policy-generators.html">Best privacy policy generators<span>For naming your new processor correctly</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Check the signup form before the platform</h2>
+      <p class="section__intro">A European platform with a bundled consent checkbox is still non-compliant. Fix how consent is collected first — then move the list.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/european-tech-alternatives.html" class="btn btn-primary">Back to the overview</a>
+        <a href="/european-consent-management-platforms.html" class="btn btn-secondary">European consent platforms</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,326 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"European Tech Alternatives","item":"https://privacycomply.io/european-tech-alternatives.html"},
+    {"@type":"ListItem","position":3,"name":"European Workspace Alternatives","item":"https://privacycomply.io/european-workspace-alternatives.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "European Alternatives to Microsoft 365 and Google Workspace (2026)",
+  "description": "Infomaniak kSuite, Nextcloud, openDesk and Proton compared — three realistic migration paths, the feature gaps that actually break deals, and how to move email without losing mail.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best European alternative to Microsoft 365?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a small business wanting one vendor and no infrastructure work, Infomaniak kSuite is the most complete single answer, though it is Swiss rather than EU. For organisations that want EU jurisdiction and are willing to run or buy managed hosting, Nextcloud paired with Collabora or OnlyOffice is the standard choice. Germany's openDesk bundles that stack for public sector use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Nextcloud a real replacement for Microsoft 365?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For files, sharing, calendar, contacts, video calls and collaborative document editing, yes. Where it falls short is the deep spreadsheet functionality Excel power users rely on, and the tight identity and device management that Microsoft bundles. Nextcloud is a genuine replacement for most knowledge work and a poor one for finance teams living in complex workbooks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Proton a European company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proton is Swiss, based in Geneva. Switzerland is not in the EU but holds a European Commission adequacy decision, so personal data can flow there without standard contractual clauses. Swiss data protection law is separate from GDPR, so describe it accurately as an adequate third country rather than as an EU provider in your records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is openDesk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "openDesk is an open-source digital workplace suite commissioned by the German federal government and developed by ZenDiS. It bundles established European components — Nextcloud for files, OnlyOffice or Collabora for documents, Jitsi for video, Open-Xchange for mail and Matrix for chat — into one integrated product aimed primarily at public administration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How hard is it to migrate away from Google Workspace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email is the difficult part and everything else is manageable. Expect to migrate mailboxes over IMAP, move calendars and contacts by export and import, re-point MX records, and rebuild any sharing permissions on files. For a team of ten, budget a week of real work plus a settling-in period. The risk is not data loss but disruption during cutover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to leave Google Workspace to comply with GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Google offers EU data regions, a data processing agreement and Data Privacy Framework certification, which makes the arrangement lawful. Moving to a European provider reduces reliance on that adequacy decision surviving challenge, and removes CLOUD Act exposure. It is risk reduction, not a compliance obligation."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="European Alternatives to Microsoft 365 & Google Workspace (2026) | PrivacyComply"
+  description="Infomaniak kSuite, Nextcloud, openDesk and Proton compared — three realistic migration paths, the feature gaps that break deals, and how to move email safely."
+  canonical="/european-workspace-alternatives.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/european-tech-alternatives.html">European Alternatives</a><span>&#8250;</span> Workspace</p>
+      <h1>European Alternatives to Microsoft 365 and Google Workspace</h1>
+      <p class="hero__sub">Your office suite holds more personal data than anything else you run — and it is also the hardest thing to move. Three realistic paths, and the feature gaps that decide whether you can take them.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>There are three realistic paths, not a single winner.</strong></p>
+        <p><strong>1. One vendor, no ops:</strong> Infomaniak kSuite — mail, drive, calendar, video and chat from a single Swiss provider. Simplest migration, but Switzerland is an adequate third country rather than the EU.</p>
+        <p><strong>2. EU jurisdiction, managed:</strong> Nextcloud with Collabora or OnlyOffice, bought as managed hosting from an EU provider such as IONOS. Genuine EU jurisdiction, more moving parts.</p>
+        <p><strong>3. Assembled best-of-breed:</strong> Proton or Mailbox.org for mail, Nextcloud for files, Element for chat. Strongest privacy posture, most integration work.</p>
+        <p><strong>The gap that kills deals:</strong> Excel. If your finance team lives in complex workbooks with macros and pivot models, no European suite matches it yet.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#why-hard">Why this migration is genuinely hard</a></li>
+          <li><a href="#comparison">The options compared</a></li>
+          <li><a href="#paths">The three paths in detail</a></li>
+          <li><a href="#gaps">Feature gaps that actually matter</a></li>
+          <li><a href="#email">Moving email without losing mail</a></li>
+          <li><a href="#who">Who should and should not do this</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="why-hard">Why this migration is genuinely hard</h2>
+      <p>Switching analytics takes an afternoon because nobody's daily work depends on it. Your office suite is the opposite: it is email, calendars, shared drives, the documents everyone has bookmarked, the meeting links in a hundred calendar invites, and the login that ties it together.</p>
+      <p>It is also where your largest concentration of personal data sits — employee records, customer correspondence, contracts, HR files. That is what makes the sovereignty argument strongest here and the migration riskiest.</p>
+      <div class="callout callout--warning">
+        <strong>The failure mode is not data loss, it is drift.</strong> Half the team moves, half keeps using the old shared drive "just for this project", and six months later you are paying for both and complying with neither properly. Migrations that do not include a hard cutover date usually do not finish.
+      </div>
+
+      <h2 id="comparison">The options compared</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Option</th><th>Base</th><th>Jurisdiction</th><th>Covers</th><th>Ops burden</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick">
+              <td class="tool-name">Infomaniak kSuite</td>
+              <td>Switzerland</td>
+              <td>Adequate third country</td>
+              <td>Mail, drive, calendar, video, chat</td>
+              <td class="check">None</td>
+            </tr>
+            <tr class="pick">
+              <td class="tool-name">Nextcloud (managed)</td>
+              <td>Germany</td>
+              <td class="check">EU</td>
+              <td>Files, groupware, office, video</td>
+              <td>Low</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Nextcloud (self-hosted)</td>
+              <td>Germany</td>
+              <td class="check">EU (yours)</td>
+              <td>Everything, if you run it</td>
+              <td class="cross">High</td>
+            </tr>
+            <tr>
+              <td class="tool-name">openDesk</td>
+              <td>Germany</td>
+              <td class="check">EU</td>
+              <td>Full suite, public-sector oriented</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Proton Business</td>
+              <td>Switzerland</td>
+              <td>Adequate third country</td>
+              <td>Mail, calendar, drive, VPN, password manager</td>
+              <td class="check">None</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Mailfence</td>
+              <td>Belgium</td>
+              <td class="check">EU</td>
+              <td>Mail, calendar, contacts, documents</td>
+              <td class="check">None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout--info">
+        <strong>On Switzerland.</strong> Infomaniak and Proton are both excellent and both Swiss. Switzerland holds an EU adequacy decision, so sending personal data there needs no standard contractual clauses — it is legally straightforward. It is simply not the EU, and a data protection impact assessment that calls it an EU provider is wrong on a point a regulator would notice.
+      </div>
+
+      <h2 id="paths">The three paths in detail</h2>
+
+      <h3>Path 1 — Infomaniak kSuite: the simplest swap</h3>
+      <p>Infomaniak is a Geneva-based provider that has assembled a genuine Workspace equivalent: kMail for business email, kDrive for storage and sync, kMeet for video, kChat for messaging, plus calendar and collaborative document editing. Everything runs in Infomaniak's own Swiss data centres on its own hardware.</p>
+      <p>For a business of five to fifty people that wants to stop using Google without acquiring an infrastructure team, this is the shortest route. The interface is competent rather than delightful, and the document editing is good enough for ordinary work.</p>
+
+      <h3>Path 2 — Nextcloud: the EU-jurisdiction standard</h3>
+      <p>Nextcloud is the reference open-source platform for file sync, sharing and collaboration, developed in Germany. Paired with Collabora Online or OnlyOffice it becomes a full office suite; Nextcloud Talk adds video and chat; the groupware apps add calendar and contacts.</p>
+      <p>The important decision is <em>how</em> you get it. Self-hosting gives you total control and total responsibility — updates, backups, uptime and security are now your problem, and doing it badly is worse for your data than Google was. Managed Nextcloud from an EU provider gives you the same jurisdiction without the pager. Nextcloud's partnership with IONOS packages exactly this as a sovereign Microsoft 365 alternative.</p>
+      <div class="callout callout--danger">
+        <strong>Self-hosting is a commitment, not a weekend.</strong> An unpatched Nextcloud holding your company's files is a larger GDPR risk than a well-run US service ever was. Article 32 requires appropriate security — if nobody on the team owns patching, buy it managed.
+      </div>
+
+      <h3>Path 3 — openDesk: the government-backed stack</h3>
+      <p>openDesk is the German federal government's answer, developed by ZenDiS, bundling Nextcloud, OnlyOffice or Collabora, Jitsi, Open-Xchange and Matrix into one integrated suite with single sign-on. It is open source and designed for sovereignty as a hard requirement rather than a preference.</p>
+      <p>It is aimed at public administration, and that shows in both directions: strong on integration and procurement credibility, less polished for a ten-person marketing agency. If you sell to European public sector, it is worth knowing what your customers are moving to.</p>
+
+      <h3>Path 4 — assembled, for the privacy-maximalist</h3>
+      <p>Proton Business for end-to-end encrypted mail, calendar and drive; Nextcloud for team files; Element for chat. The strongest privacy posture available, and the most integration work — you are the systems integrator, and there is no single support contract when something breaks between the parts.</p>
+
+      <h2 id="gaps">Feature gaps that actually matter</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>What you use</th><th>European equivalent</th><th>Honest verdict</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Email, calendar, contacts</td><td>All options</td><td class="check">Full parity</td></tr>
+            <tr><td>File storage and sharing</td><td>Nextcloud, kDrive</td><td class="check">Full parity</td></tr>
+            <tr><td>Word processing</td><td>OnlyOffice, Collabora</td><td class="check">Good — handles .docx well</td></tr>
+            <tr><td>Simple spreadsheets</td><td>OnlyOffice, Collabora</td><td class="check">Fine</td></tr>
+            <tr><td>Complex Excel models, macros</td><td>—</td><td class="cross">Real gap. Test before committing.</td></tr>
+            <tr><td>Video meetings</td><td>kMeet, Jitsi, Nextcloud Talk</td><td>Good for internal; large webinars weaker</td></tr>
+            <tr><td>Team chat</td><td>Matrix/Element, kChat</td><td>Capable; smaller integration ecosystem than Slack or Teams</td></tr>
+            <tr><td>Identity, SSO, device management</td><td>Varies</td><td class="cross">Noticeably behind Microsoft Entra</td></tr>
+            <tr><td>Third-party app integrations</td><td>Limited</td><td class="cross">Check your critical SaaS connects</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Two of these decide most migrations. <strong>Excel</strong> — if your finance or operations team has built models with macros, complex pivots or Power Query, take a real workbook and open it in OnlyOffice before you promise anything. <strong>Identity</strong> — if you use Microsoft or Google as the single sign-on for a dozen other SaaS products, moving the suite means re-plumbing all of them.</p>
+
+      <h2 id="email">Moving email without losing mail</h2>
+      <p>Email is the part that goes wrong. A sequence that works:</p>
+      <ol class="steps">
+        <li><strong>Set up the new tenant alongside the old one</strong> Create accounts, but change nothing in DNS yet. Nothing is live, nothing can break.</li>
+        <li><strong>Run an IMAP migration for historic mail</strong> Most European providers include a migration tool. Run it early — for large mailboxes it takes days, and it can run repeatedly to catch up.</li>
+        <li><strong>Export and import calendars and contacts</strong> ICS and vCard. Recurring events and shared calendars are where surprises live; check them manually.</li>
+        <li><strong>Lower your MX TTL a day ahead</strong> Drop it to five minutes so the cutover propagates quickly and can be reversed quickly.</li>
+        <li><strong>Cut over MX, then re-run the sync</strong> Switch the records, then run one final incremental IMAP pass to collect anything delivered during propagation.</li>
+        <li><strong>Fix SPF, DKIM and DMARC immediately</strong> New provider, new sending infrastructure. Skip this and your mail lands in spam on day one — the single most common post-migration complaint.</li>
+        <li><strong>Keep the old tenant read-only for a month</strong> Cheap insurance. Cancel once nobody has needed it for a few weeks.</li>
+      </ol>
+      <div class="callout callout--success">
+        <strong>Update the paperwork too.</strong> Your office suite is a processor holding employee and customer personal data. A new provider means a new data processing agreement, an updated privacy policy, an updated Article 30 record, and — if you name your sub-processors to customers — a notification. See <a href="/best-privacy-policy-generators.html">privacy policy generators</a> for keeping that current.
+      </div>
+
+      <h2 id="who">Who should and should not do this</h2>
+      <p><strong>Strong candidates:</strong></p>
+      <ul>
+        <li>Organisations selling to European public sector, where sovereignty is increasingly a tender requirement</li>
+        <li>Teams already on Google Workspace's cheapest tier, where the switching cost is low and the feature loss minimal</li>
+        <li>New companies — starting European costs nothing</li>
+        <li>Anyone handling special category data such as health or biometric records, where the risk calculus is different</li>
+        <li>Businesses whose customers ask where employee and customer data is processed</li>
+      </ul>
+      <p><strong>Poor candidates:</strong></p>
+      <ul>
+        <li>Finance-heavy teams dependent on advanced Excel</li>
+        <li>Organisations deeply invested in Microsoft identity and device management</li>
+        <li>Teams with no IT capacity considering self-hosting — buy managed or do not go</li>
+        <li>Anyone whose website still has an unfixed consent banner; that is the <a href="/gdpr-fines-and-penalties.html">enforced</a> risk, and this is not</li>
+      </ul>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Before you migrate anything</span>
+        <p class="cta-box__title">Check the cheaper wins are done</p>
+        <p class="cta-box__desc">An office suite migration is weeks of work for risk that is real but rarely enforced. A cookie banner that fires trackers before consent is days of work for the single most-penalised failure in European privacy law. Order matters.</p>
+        <div class="cta-box__buttons">
+          <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary btn-sm">Compare consent tools</a>
+          <a href="/european-tech-alternatives.html" class="btn btn-secondary btn-sm">See the full priority order</a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">What is the best European alternative to Microsoft 365?</summary>
+          <div class="faq-a"><p>For a small business wanting one vendor and no infrastructure work, Infomaniak kSuite is the most complete single answer, though it is Swiss rather than EU. For organisations that want EU jurisdiction and are willing to run or buy managed hosting, Nextcloud paired with Collabora or OnlyOffice is the standard choice. Germany's openDesk bundles that stack for public sector use.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Nextcloud a real replacement for Microsoft 365?</summary>
+          <div class="faq-a"><p>For files, sharing, calendar, contacts, video calls and collaborative document editing, yes. Where it falls short is the deep spreadsheet functionality Excel power users rely on, and the tight identity and device management that Microsoft bundles. Nextcloud is a genuine replacement for most knowledge work and a poor one for finance teams living in complex workbooks.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Proton a European company?</summary>
+          <div class="faq-a"><p>Proton is Swiss, based in Geneva. Switzerland is not in the EU but holds a European Commission adequacy decision, so personal data can flow there without standard contractual clauses. Swiss data protection law is separate from GDPR, so describe it accurately as an adequate third country rather than as an EU provider in your records.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What is openDesk?</summary>
+          <div class="faq-a"><p>openDesk is an open-source digital workplace suite commissioned by the German federal government and developed by ZenDiS. It bundles established European components — Nextcloud for files, OnlyOffice or Collabora for documents, Jitsi for video, Open-Xchange for mail and Matrix for chat — into one integrated product aimed primarily at public administration.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How hard is it to migrate away from Google Workspace?</summary>
+          <div class="faq-a"><p>Email is the difficult part and everything else is manageable. Expect to migrate mailboxes over IMAP, move calendars and contacts by export and import, re-point MX records, and rebuild any sharing permissions on files. For a team of ten, budget a week of real work plus a settling-in period. The risk is not data loss but disruption during cutover.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need to leave Google Workspace to comply with GDPR?</summary>
+          <div class="faq-a"><p>No. Google offers EU data regions, a data processing agreement and Data Privacy Framework certification, which makes the arrangement lawful. Moving to a European provider reduces reliance on that adequacy decision surviving challenge, and removes CLOUD Act exposure. It is risk reduction, not a compliance obligation.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Should I self-host Nextcloud or buy it managed?</summary>
+          <div class="faq-a"><p>Buy it managed unless someone on the team genuinely owns server operations. GDPR Article 32 requires appropriate technical measures, and an unpatched self-hosted instance holding your company's files fails that test more clearly than any US provider would. Managed Nextcloud from an EU host gives you the same jurisdiction without the responsibility.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/european-tech-alternatives.html">European tech alternatives: the full guide<span>Where this sits in the priority order</span></a>
+        <a href="/european-cloud-alternatives.html">European cloud alternatives<span>The infrastructure layer beneath this</span></a>
+        <a href="/european-alternatives-to-google.html">European alternatives to Google<span>Service by service, including the website-facing ones</span></a>
+        <a href="/nordlayer-review.html">NordLayer review<span>Lithuanian business VPN — secure access for a distributed team</span></a>
+        <a href="/gdpr-fines-and-penalties.html">GDPR fines and penalties<span>Perspective on where the real enforcement risk is</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Test the spreadsheets first</h2>
+      <p class="section__intro">Open your most complex real workbook in OnlyOffice or Collabora before committing to anything. That single test decides more of these migrations than any comparison table.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/european-tech-alternatives.html" class="btn btn-primary">Back to the overview</a>
+        <a href="/european-email-marketing-platforms.html" class="btn btn-secondary">An easier switch to start with</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

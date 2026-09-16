@@ -76,7 +76,12 @@ p  { margin-bottom: 1em; }
   display: flex; align-items: center; justify-content: center;
   color: white; font-family: 'Source Serif Pro', serif; font-weight: 700;
 }
-.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links { display: flex; gap: 22px; align-items: center; }
+/* Five dropdowns plus a CTA need tighter spacing on narrower desktops. */
+@media (max-width: 1100px) and (min-width: 861px) {
+  .nav-links { gap: 15px; }
+  .nav-links a, .nav-trigger { font-size: 0.9rem; }
+}
 .nav-links a {
   color: var(--slate); font-weight: 500; font-size: 0.95rem;
   text-decoration: none;
