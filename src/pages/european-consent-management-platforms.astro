@@ -1,0 +1,288 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"European Tech Alternatives","item":"https://privacycomply.io/european-tech-alternatives.html"},
+    {"@type":"ListItem","position":3,"name":"European Consent Management Platforms","item":"https://privacycomply.io/european-consent-management-platforms.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "European Consent Management Platforms: Where Every Major CMP Is Actually Based (2026)",
+  "description": "The consent category is quietly the most European in software. Here is where each major CMP is headquartered, which are EU, and why it matters less than the thing everyone gets wrong.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which consent management platforms are European?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of the significant ones. iubenda is Italian, Usercentrics is German, Cookiebot is Danish and now part of Usercentrics, Didomi and Axeptio are French, Complianz is Dutch and consentmanager is German. The main US players are OneTrust, Osano and Termly. Consent management is one of the few software categories where European vendors lead rather than follow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my consent platform need to be EU-based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A CMP processes consent records and some identifiers on your behalf, and a US or UK provider with a data processing agreement and a valid transfer mechanism is lawful. An EU provider simply removes the transfer from your records. Whether the banner actually blocks scripts before consent matters far more than where the vendor is incorporated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CookieYes a European company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CookieYes Limited is registered in the United Kingdom, in Milton Keynes, with a team working across the UK and India. The UK is not in the EU but holds a European Commission adequacy decision, so transfers to it need no standard contractual clauses. It is accurate to call it UK-based rather than EU-based."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Cookiebot still a Danish company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cookiebot was founded in Denmark and was acquired by the Munich-based company Usercentrics in 2021. It is still sold as Cookiebot by Usercentrics. Either way the ownership stays within the EU, so the transfer position is unchanged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What matters more than where a CMP is based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whether it genuinely blocks non-essential scripts before consent is given. A banner that displays a notice while Google Analytics already fired is the single most commonly enforced failure in European privacy law, and it is equally broken whether the vendor is in Munich or Atlanta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is OneTrust a European company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OneTrust is headquartered in Atlanta in the United States, though it has a substantial European presence and is widely used by European enterprises. Like other US processors it relies on Data Privacy Framework certification or standard contractual clauses for transfers."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="European Consent Management Platforms: Who's Actually EU-Based (2026) | PrivacyComply"
+  description="Consent management is quietly the most European software category there is. Where each major CMP is headquartered, which are genuinely EU, and what matters more."
+  canonical="/european-consent-management-platforms.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/european-tech-alternatives.html">European Alternatives</a><span>&#8250;</span> Consent Platforms</p>
+      <h1>European Consent Management Platforms</h1>
+      <p class="hero__sub">This is the one category where Europe leads and America follows — which means most businesses have already made this switch without noticing. Here is where every major CMP actually sits.</p>
+      <p class="disclosure">We earn a commission if you buy through some links on this page. It does not change what we recommend or what we write. <a href="/methodology.html">How we test →</a></p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Consent management is the most European software category there is.</strong> iubenda is Italian. Usercentrics is German. Cookiebot is Danish, now owned by Usercentrics. Didomi and Axeptio are French. Complianz is Dutch. consentmanager is German.</p>
+        <p>The American players — OneTrust, Osano, Termly — are the exception rather than the rule. Europe wrote the law, so Europe built the tools.</p>
+        <p><strong>But here is the thing worth more than any of the above:</strong> whether your banner actually blocks scripts before consent. A German CMP that fires Google Analytics on page load is exactly as non-compliant as an American one. Jurisdiction is the tiebreaker, not the criterion.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#already">You have probably already switched</a></li>
+          <li><a href="#where">Where each major CMP is based</a></li>
+          <li><a href="#eu-picks">The EU-headquartered options</a></li>
+          <li><a href="#adequate">The adequate-third-country options</a></li>
+          <li><a href="#matters-more">What matters more than jurisdiction</a></li>
+          <li><a href="#data">What a CMP actually processes</a></li>
+          <li><a href="#choose">How to choose</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="already">You have probably already switched</h2>
+      <p>Every other page in our <a href="/european-tech-alternatives.html">European alternatives series</a> asks you to migrate away from an American incumbent. This one mostly does not, because the category never had one.</p>
+      <p>GDPR and the ePrivacy rules created the consent management market in Europe, and European companies built the products first. A business running iubenda, Cookiebot or Complianz has an entirely European consent stack and almost certainly never framed it that way.</p>
+      <div class="callout callout--success">
+        <strong>Which makes this page shorter than it might have been.</strong> If you are already on one of the EU platforms below, this category is done — go spend the effort on <a href="/european-email-marketing-platforms.html">email marketing</a> or <a href="/google-analytics-alternatives.html">analytics</a>, where there is a real transfer to remove.
+      </div>
+
+      <h2 id="where">Where each major CMP is based</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Platform</th><th>Headquarters</th><th>Status</th><th>Transfer mechanism needed</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick"><td class="tool-name">iubenda</td><td>Bologna, Italy</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr class="pick"><td class="tool-name">Usercentrics</td><td>Munich, Germany</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr class="pick"><td class="tool-name">Cookiebot</td><td>Denmark (Usercentrics-owned)</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr><td class="tool-name">Didomi</td><td>Paris, France</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr><td class="tool-name">Axeptio</td><td>France</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr><td class="tool-name">Complianz</td><td>Netherlands</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr><td class="tool-name">consentmanager</td><td>Germany</td><td class="check">EU</td><td class="check">None</td></tr>
+            <tr><td class="tool-name">CookieYes</td><td>Milton Keynes, UK</td><td>Adequate third country</td><td class="check">None — adequacy</td></tr>
+            <tr><td class="tool-name">Enzuzo</td><td>Toronto, Canada</td><td>Adequate third country</td><td class="check">None — adequacy</td></tr>
+            <tr><td class="tool-name">Termly</td><td>United States</td><td class="cross">Third country</td><td>DPF or SCCs</td></tr>
+            <tr><td class="tool-name">Osano</td><td>Austin, United States</td><td class="cross">Third country</td><td>DPF or SCCs</td></tr>
+            <tr><td class="tool-name">OneTrust</td><td>Atlanta, United States</td><td class="cross">Third country</td><td>DPF or SCCs</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout--info">
+        <strong>A note on our own recommendations.</strong> We rate <a href="/cookieyes-review.html">CookieYes</a> highly and it is UK-registered, not EU. The UK holds an adequacy decision renewed in December 2025, so this creates no transfer problem — but if your reason for reading this page is strict EU jurisdiction, <a href="/iubenda-review.html">iubenda</a> is the one of our top picks that actually satisfies it. We would rather say that plainly than quietly let the distinction slide.
+      </div>
+
+      <h2 id="eu-picks">The EU-headquartered options</h2>
+
+      <h3>iubenda — Italy</h3>
+      <p>Bologna-based, and the most complete European option for a small business: consent banner, lawyer-maintained privacy and cookie policies, and consent records in a single subscription. The policies update automatically as law changes, which is the part that ages badly when you write documents once.</p>
+      <p>If you want EU jurisdiction and one vendor for both consent and legal documents, this is the answer. Our <a href="/iubenda-review.html">full iubenda review</a> covers where it is weaker — per-site pricing adds up across a portfolio, and there is more configuration than a first-time buyer expects.</p>
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">Best EU-headquartered pick</span>
+        <p class="cta-box__title">iubenda</p>
+        <p class="cta-box__desc">Italian, EU-hosted, lawyer-maintained policies and a banner that genuinely blocks scripts before consent. The strongest option if EU jurisdiction is a hard requirement rather than a preference.</p>
+        <div class="cta-box__buttons">
+          <a href="https://www.iubenda.com" data-partner="iubenda" class="btn btn-affiliate btn-sm" target="_blank" rel="noopener sponsored">Try iubenda</a>
+          <a href="/iubenda-review.html" class="btn btn-secondary btn-sm">Read our full review</a>
+        </div>
+      </div>
+
+      <h3>Usercentrics and Cookiebot — Germany and Denmark</h3>
+      <p>Usercentrics, founded in Munich in 2017, acquired the Danish Cookiebot in 2021 and now sells both. Together they are the enterprise-leaning European choice, strong on granular consent configuration, IAB TCF support and audit-grade consent logging.</p>
+      <p>Cookiebot's automatic cookie scanning is the feature small sites notice most — it crawls your site and generates the cookie declaration rather than asking you to maintain it by hand. Pricing scales with pages and subdomains, which can surprise larger sites.</p>
+
+      <h3>Didomi and Axeptio — France</h3>
+      <p>Didomi is the French enterprise player, focused on consent and preference management across web, apps and connected TV, and common among publishers and large media groups. Axeptio takes the opposite approach — a deliberately friendly, conversational banner design aimed at smaller businesses that resent how hostile consent UI usually looks.</p>
+
+      <h3>Complianz — Netherlands</h3>
+      <p>A Dutch WordPress-native plugin with a strong following, built around a configuration wizard that maps your actual plugins and services to consent categories. If you are on WordPress and want something that lives inside the CMS rather than as an injected third-party script, it is the natural fit. See our <a href="/wordpress-gdpr-compliance.html">WordPress GDPR guide</a> for how it compares in context.</p>
+
+      <h3>consentmanager — Germany</h3>
+      <p>Berlin-based, TCF-certified, and priced for mid-market sites. Less well known internationally than Usercentrics but a solid German option with strong multi-language support.</p>
+
+      <h2 id="adequate">The adequate-third-country options</h2>
+      <p>Two of the tools we recommend elsewhere on this site sit just outside the EU, and both are unproblematic from a transfer perspective.</p>
+      <ul>
+        <li><strong>CookieYes</strong> — UK-registered, Milton Keynes, team across the UK and India. The UK's adequacy decisions were renewed in December 2025 with a sunset clause to December 2031, so no standard contractual clauses are needed. It remains our pick for fastest setup and the most usable free tier.</li>
+        <li><strong>Enzuzo</strong> — Canadian, Toronto. Canada holds an EU adequacy decision covering commercial organisations under PIPEDA, so the same applies. Our <a href="/enzuzo-review.html">Enzuzo review</a> covers why it is the strongest option for Shopify stores.</li>
+      </ul>
+      <p>Adequacy is a real legal status, not a technicality. Personal data flows to these countries on the same footing as within the EU. The one caveat is that adequacy decisions are periodically reviewed and can be withdrawn — which is the same structural risk as the US framework, at considerably lower temperature.</p>
+
+      <h2 id="matters-more">What matters more than jurisdiction</h2>
+      <p>If you take one thing from this page, take this.</p>
+      <div class="callout callout--danger">
+        <strong>A banner that does not block is non-compliant regardless of where the vendor is incorporated.</strong> The most common failure in European privacy law is a consent notice that appears while Google Analytics has already fired. An EU-headquartered CMP configured badly fails exactly as hard as a US one.
+      </div>
+      <p>The criteria that actually decide compliance, in order:</p>
+      <ol class="steps">
+        <li><strong>Does it block non-essential scripts before consent?</strong> Not "does it show a notice". Test it with devtools and a fresh browser profile.</li>
+        <li><strong>Is rejecting as easy as accepting?</strong> Equal prominence. France's CNIL fined Google €150 million and Facebook €60 million in 2022 primarily over this.</li>
+        <li><strong>Does it keep consent records?</strong> You must be able to demonstrate consent. That means logs, with timestamps and what was shown.</li>
+        <li><strong>Does it support Google Consent Mode v2?</strong> Required in practice if you run Ads or GA4 on EEA traffic — see <a href="/google-consent-mode-v2.html">our guide</a>.</li>
+        <li><strong>Can visitors withdraw consent later?</strong> A persistent link back to preferences.</li>
+        <li><strong>Then, and only then:</strong> where is the vendor based.</li>
+      </ol>
+      <p>Our <a href="/best-cookie-consent-tools-2026.html">cookie consent tool comparison</a> applies exactly this test, which is why the ranking there is not sorted by nationality.</p>
+
+      <h2 id="data">What a CMP actually processes</h2>
+      <p>Worth understanding, because it explains why jurisdiction ranks lower here than in other categories.</p>
+      <p>A consent platform typically stores a consent record — a timestamp, the choices made, the banner version shown, and usually a truncated or hashed IP address or a random identifier to tie the record to a returning visitor. That is personal data, so it needs a lawful basis and a data processing agreement. It is also a thin slice compared with what your email platform or office suite holds.</p>
+      <p>The practical implication: a US-based CMP is a smaller transfer exposure than a US-based CRM, and a smaller one again than a US-based office suite. If you are prioritising, this is not the category where the sovereignty argument pays off most — which is exactly what our <a href="/european-tech-alternatives.html">priority ordering</a> reflects.</p>
+
+      <h2 id="choose">How to choose</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Your situation</th><th>Pick</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>EU jurisdiction is a hard requirement</td><td class="tool-name">iubenda or Usercentrics</td></tr>
+            <tr><td>You want consent and legal policies from one vendor</td><td class="tool-name">iubenda</td></tr>
+            <tr><td>Fastest setup, best free tier</td><td class="tool-name">CookieYes (UK)</td></tr>
+            <tr><td>WordPress, want it inside the CMS</td><td class="tool-name">Complianz (NL)</td></tr>
+            <tr><td>Shopify store</td><td class="tool-name">Enzuzo (CA)</td></tr>
+            <tr><td>Publisher needing IAB TCF at scale</td><td class="tool-name">Didomi or Usercentrics</td></tr>
+            <tr><td>You mainly serve US traffic and CCPA</td><td class="tool-name">Termly (US)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Which consent management platforms are European?</summary>
+          <div class="faq-a"><p>Most of the significant ones. iubenda is Italian, Usercentrics is German, Cookiebot is Danish and now part of Usercentrics, Didomi and Axeptio are French, Complianz is Dutch and consentmanager is German. The main US players are OneTrust, Osano and Termly. Consent management is one of the few software categories where European vendors lead rather than follow.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does my consent platform need to be EU-based?</summary>
+          <div class="faq-a"><p>No. A CMP processes consent records and some identifiers on your behalf, and a US or UK provider with a data processing agreement and a valid transfer mechanism is lawful. An EU provider simply removes the transfer from your records. Whether the banner actually blocks scripts before consent matters far more than where the vendor is incorporated.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is CookieYes a European company?</summary>
+          <div class="faq-a"><p>CookieYes Limited is registered in the United Kingdom, in Milton Keynes, with a team working across the UK and India. The UK is not in the EU but holds a European Commission adequacy decision, so transfers to it need no standard contractual clauses. It is accurate to call it UK-based rather than EU-based.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Cookiebot still a Danish company?</summary>
+          <div class="faq-a"><p>Cookiebot was founded in Denmark and was acquired by the Munich-based company Usercentrics in 2021. It is still sold as Cookiebot by Usercentrics. Either way the ownership stays within the EU, so the transfer position is unchanged.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What matters more than where a CMP is based?</summary>
+          <div class="faq-a"><p>Whether it genuinely blocks non-essential scripts before consent is given. A banner that displays a notice while Google Analytics already fired is the single most commonly enforced failure in European privacy law, and it is equally broken whether the vendor is in Munich or Atlanta.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is OneTrust a European company?</summary>
+          <div class="faq-a"><p>No. OneTrust is headquartered in Atlanta in the United States, though it has a substantial European presence and is widely used by European enterprises. Like other US processors it relies on Data Privacy Framework certification or standard contractual clauses for transfers.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does switching CMP require new consent from visitors?</summary>
+          <div class="faq-a"><p>In practice yes, because consent records are stored by the platform and are rarely portable between vendors. Visitors will see the banner again after a switch. That is a minor annoyance rather than a compliance problem — and it is a good moment to check the new banner blocks properly before the first visitor arrives.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/best-cookie-consent-tools-2026.html">Best cookie consent tools in 2026<span>Ranked by whether they actually block, not by nationality</span></a>
+        <a href="/european-tech-alternatives.html">European tech alternatives: the full guide<span>Where this category sits in the priority order</span></a>
+        <a href="/iubenda-vs-termly-vs-osano.html">iubenda vs Termly vs Osano<span>An EU vendor against two US ones, head to head</span></a>
+        <a href="/google-consent-mode-v2.html">Google Consent Mode v2<span>What your CMP has to emit if you run Google ads</span></a>
+        <a href="/do-i-need-a-cookie-banner.html">Do I need a cookie banner?<span>The prior question, before choosing any of these</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Test blocking before you test nationality</h2>
+      <p class="section__intro">Open your site in a fresh private window with devtools on Network. If anything third-party loads before you click the banner, that is the problem to fix — whatever flag your vendor flies.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/european-tech-alternatives.html" class="btn btn-secondary">Back to the overview</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

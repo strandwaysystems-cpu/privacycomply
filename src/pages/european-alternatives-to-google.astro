@@ -1,0 +1,289 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"European Tech Alternatives","item":"https://privacycomply.io/european-tech-alternatives.html"},
+    {"@type":"ListItem","position":3,"name":"European Alternatives to Google","item":"https://privacycomply.io/european-alternatives-to-google.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "European Alternatives to Google: Service by Service (2026)",
+  "description": "Every Google service a business actually uses, the European replacement, and — the part that matters for compliance — which ones are creating a consent obligation on your website right now.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the European alternative to Google Search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Qwant (France) and Ecosia (Germany) are the best known, and Mojeek (UK) is notable for running its own independent index rather than reselling results. Most European search engines license results from Bing or Google rather than crawling the web themselves, which is a meaningful distinction if independence is the reason you are switching."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a European alternative to Google Analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and this is the strongest category. Plausible is Estonian and EU-hosted, Matomo is open source with EU-hosted cloud and a self-hosted option. Both can run without cookies, which removes the analytics consent requirement entirely rather than just relocating the data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Google Fonts violate GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Loading Google Fonts from Google's servers transmits each visitor's IP address to Google without consent. A Munich regional court awarded damages over exactly this in 2022 and it triggered a wave of copycat claims in Germany. The fix is trivial and improves performance: download the font files and self-host them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a European alternative to Google Ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at comparable scale, and pretending otherwise is unhelpful. No European advertising network offers the reach, targeting or intent data of Google Ads. Businesses that leave usually shift budget to other channels — direct, content, email, trade media — rather than to a European equivalent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can replace Google Maps on my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MapTiler (Switzerland), Geoapify (Germany) and HERE (Netherlands) all offer mapping APIs built largely on OpenStreetMap data. For a simple store locator, a static map image or a plain link to directions removes the third-party script entirely, which is usually the better answer for a small site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is DeepL better than Google Translate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For European language pairs, DeepL is widely considered more accurate and more natural, particularly for German, French and Dutch. It is headquartered in Cologne, Germany, which makes it one of the few cases where the European alternative is also the better product rather than a compromise."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="European Alternatives to Google: Service by Service (2026) | PrivacyComply"
+  description="Every Google service a business uses, its European replacement, and which ones are creating a cookie consent obligation on your site right now."
+  canonical="/european-alternatives-to-google.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/european-tech-alternatives.html">European Alternatives</a><span>&#8250;</span> Google</p>
+      <h1>European Alternatives to Google</h1>
+      <p class="hero__sub">Service by service — with the bit most lists leave out: which of these are quietly creating a consent obligation on your website, and which are harmless.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>The switches worth making, in order:</strong> <strong>Analytics</strong> → Plausible or Matomo (removes a consent category outright). <strong>Fonts</strong> → self-host (a German court awarded damages over this). <strong>Translate</strong> → DeepL (genuinely the better product). <strong>Mail and docs</strong> → Infomaniak, Nextcloud or Proton.</p>
+        <p><strong>The switches that do not exist:</strong> there is no European Google Ads and no European YouTube at comparable scale. Anyone telling you otherwise is selling something.</p>
+        <p>The compliance point is narrower than the sovereignty point: <strong>four Google services commonly embedded in websites set cookies or transmit IP addresses before consent</strong> — Analytics, Fonts, Maps and reCAPTCHA. Those are the ones costing you something today.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#consent">First: which Google services are a consent problem</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#fonts">Fonts</a></li>
+          <li><a href="#maps">Maps</a></li>
+          <li><a href="#recaptcha">reCAPTCHA</a></li>
+          <li><a href="#workspace">Gmail, Docs and Drive</a></li>
+          <li><a href="#search">Search</a></li>
+          <li><a href="#translate">Translate</a></li>
+          <li><a href="#chrome">Chrome</a></li>
+          <li><a href="#no-equivalent">Where there is no European equivalent</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="consent">First: which Google services are a consent problem</h2>
+      <p>Sovereignty and compliance are different arguments, and mixing them wastes effort. Using Google Docs internally is a sovereignty question. Embedding Google Maps on your contact page is a consent question — it fires on page load, for every visitor, before they have agreed to anything.</p>
+      <p>If your time is limited, fix the second category first. It is smaller, cheaper and it is the one regulators can see from outside.</p>
+
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Google service</th><th>On your website?</th><th>Consent needed?</th><th>Priority</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick"><td class="tool-name">Google Analytics</td><td>Yes</td><td class="cross">Yes — sets cookies</td><td>High</td></tr>
+            <tr class="pick"><td class="tool-name">Google Fonts (hosted)</td><td>Yes</td><td class="cross">Yes — sends IP to Google</td><td>High, trivial fix</td></tr>
+            <tr class="pick"><td class="tool-name">Google Maps embed</td><td>Yes</td><td class="cross">Yes — sets cookies</td><td>High</td></tr>
+            <tr><td class="tool-name">reCAPTCHA</td><td>Yes</td><td class="cross">Yes — sets cookies</td><td>Medium</td></tr>
+            <tr><td class="tool-name">YouTube embed</td><td>Yes</td><td class="cross">Yes — advertising cookies</td><td>Medium</td></tr>
+            <tr><td class="tool-name">Google Ads / Tag Manager</td><td>Yes</td><td class="cross">Yes — marketing</td><td>Medium</td></tr>
+            <tr><td class="tool-name">Gmail, Docs, Drive</td><td class="check">No</td><td class="check">No — internal tools</td><td>Low</td></tr>
+            <tr><td class="tool-name">Google Search</td><td class="check">No</td><td class="check">No</td><td>Low</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout--info">
+        <strong>A quick audit:</strong> open your site in a private window with the browser's Network tab filtered to <code>google</code>. Everything that loads before you click anything is firing without consent. Most people are surprised by fonts.
+      </div>
+
+      <h2 id="analytics">Analytics → Plausible or Matomo</h2>
+      <p>The best switch available, because it does not just move the data to Europe — it removes the obligation.</p>
+      <ul>
+        <li><strong>Plausible</strong> — Estonian, EU-hosted, cookie-free by design. Lightweight script, simple dashboard, no consent banner needed for analytics alone. <em>We use it on this site and have no affiliate relationship with them.</em></li>
+        <li><strong>Matomo</strong> — open source, with an EU-hosted cloud option and full self-hosting. More features than Plausible, including heatmaps and session recording, at the cost of more weight. Note that the company behind it, InnoCraft, is New Zealand-based — New Zealand holds an EU adequacy decision, and the cloud data itself is hosted in Germany.</li>
+      </ul>
+      <p>Both can be configured to set no cookies at all. If analytics is your only non-essential tracker, that removes your cookie banner entirely — see <a href="/do-i-need-a-cookie-banner.html">do I need a cookie banner?</a> for the decision tree, and <a href="/google-analytics-alternatives.html">our full comparison</a> for the detail.</p>
+
+      <h2 id="fonts">Fonts → self-host, and do it today</h2>
+      <p>This is the cheapest compliance win on the entire page.</p>
+      <p>When your site loads a font from <code>fonts.googleapis.com</code>, the visitor's browser makes a request to Google carrying their IP address — before any banner appears, with no consent and no legal basis. A Munich regional court awarded damages over precisely this in January 2022, and a cottage industry of copycat claims followed across Germany.</p>
+      <div class="callout callout--success">
+        <strong>The fix takes twenty minutes and makes your site faster.</strong> Download the font files, serve them from your own domain, and declare them with <code>@font-face</code>. You remove a third-party request, a legal exposure and a render-blocking dependency in one change. This site self-hosts its two typefaces for exactly that reason.
+      </div>
+      <p>Watch for page builders and themes that re-add Google Fonts silently — Elementor, Divi and many WordPress themes load them by default. Our <a href="/wordpress-gdpr-compliance.html">WordPress GDPR guide</a> covers where they hide.</p>
+
+      <h2 id="maps">Maps → MapTiler, Geoapify, or nothing at all</h2>
+      <p>A Google Maps embed sets cookies on load. For a contact page that gets a hundred views a month, that is a disproportionate amount of compliance machinery.</p>
+      <ul>
+        <li><strong>MapTiler</strong> (Switzerland) — OpenStreetMap-based tiles and APIs, generous free tier</li>
+        <li><strong>Geoapify</strong> (Germany) — maps, geocoding and routing APIs</li>
+        <li><strong>HERE</strong> (Netherlands) — the enterprise option, owned by a consortium of German carmakers</li>
+        <li><strong>OpenStreetMap directly</strong> — free, and fine for a static location</li>
+      </ul>
+      <p>For most small business sites the right answer is simpler still: a static map image and a text link to directions. No script, no cookie, no consent category, and it loads instantly.</p>
+
+      <h2 id="recaptcha">reCAPTCHA → Friendly Captcha or Altcha</h2>
+      <p>reCAPTCHA sets cookies and profiles visitor behaviour to decide whether they are human — which is exactly the kind of processing that needs consent, on a form that often appears before any consent is given.</p>
+      <ul>
+        <li><strong>Friendly Captcha</strong> (Germany) — proof-of-work based, no user interaction, GDPR-focused, EU-hosted</li>
+        <li><strong>Altcha</strong> — open source, self-hostable proof-of-work, no third-party requests at all</li>
+      </ul>
+      <p>Both work without tracking the user. For low-traffic forms, a honeypot field plus a time check stops most spam with no third party involved.</p>
+
+      <h2 id="workspace">Gmail, Docs and Drive → Infomaniak, Nextcloud, Proton</h2>
+      <p>This is an internal-tools decision rather than a website compliance one, so it is lower priority — but it is where the largest volume of your business data actually lives.</p>
+      <p>The credible European options are Infomaniak kSuite (Switzerland), Nextcloud (Germany), openDesk (the German government's open-source stack) and Proton (Switzerland) for mail and calendar. We compare them properly in <a href="/european-workspace-alternatives.html">European alternatives to Microsoft 365 and Google Workspace</a>.</p>
+
+      <h2 id="search">Search → Qwant, Ecosia, Mojeek</h2>
+      <p>Switching your own default search engine has no compliance effect on your business. It is a personal or cultural choice, and worth being clear-eyed about.</p>
+      <ul>
+        <li><strong>Qwant</strong> (France) — privacy-focused, no tracking; results partly licensed from Bing alongside its own index</li>
+        <li><strong>Ecosia</strong> (Germany) — uses profits to plant trees; results licensed from Bing and Google</li>
+        <li><strong>Mojeek</strong> (UK) — notable for crawling and running its own independent index, which almost nobody else in Europe does</li>
+        <li><strong>Startpage</strong> (Netherlands) — proxies Google results without the tracking</li>
+      </ul>
+      <p>If independence from US search infrastructure is the point, only Mojeek genuinely delivers it — at the cost of a smaller index. The others are privacy improvements layered on top of American results.</p>
+
+      <h2 id="translate">Translate → DeepL</h2>
+      <p>One of the rare cases where the European option is simply better. DeepL is headquartered in Cologne and consistently outperforms Google Translate on European language pairs, especially German, French and Dutch. It offers a business API with a data processing agreement and EU processing.</p>
+      <p>No trade-off to weigh here. If you translate content, this switch costs you nothing.</p>
+
+      <h2 id="chrome">Chrome → Vivaldi or Firefox</h2>
+      <ul>
+        <li><strong>Vivaldi</strong> (Norway) — Chromium-based, heavily customisable, no telemetry-driven business model</li>
+        <li><strong>Firefox</strong> — American non-profit rather than European, but independent of Chromium and Google's engine monopoly</li>
+        <li><strong>Mullvad Browser</strong> (Sweden) — hardened privacy browser built with the Tor Project</li>
+      </ul>
+      <div class="callout callout--warning">
+        <strong>Opera is the common mistake on these lists.</strong> It is Norwegian by origin, but the company was acquired by a Chinese-led consortium in 2016. If your reason for switching is jurisdictional, it does not do what you want.
+      </div>
+
+      <h2 id="no-equivalent">Where there is no European equivalent</h2>
+      <p>Honesty is more useful than a complete-looking table.</p>
+      <ul>
+        <li><strong>Google Ads.</strong> No European network comes close on reach or intent data. Businesses that leave redistribute budget to other channels rather than to a European equivalent. If paid search is your growth engine, this switch is not available at any price.</li>
+        <li><strong>YouTube.</strong> PeerTube (France) is a genuine federated video platform, but it has no audience. If you publish video for reach, YouTube is where the audience is. You can, however, stop <em>embedding</em> it without consent — use a click-to-load placeholder.</li>
+        <li><strong>Android.</strong> There is no European mobile OS with an app ecosystem. /e/OS (France) is a de-Googled Android, which is a different and narrower proposition.</li>
+        <li><strong>Search at Google's scale.</strong> Covered above — the index is the moat, and only Mojeek is attempting it.</li>
+      </ul>
+      <p>The honest framing: you can make your <em>website</em> substantially Google-free with a weekend's work. Making your <em>marketing</em> Google-free is a business strategy decision with real revenue consequences.</p>
+
+      <div class="cta-box">
+        <span class="cta-box__eyebrow">The two-hour version</span>
+        <p class="cta-box__title">Self-host fonts, switch analytics</p>
+        <p class="cta-box__desc">Those two changes remove the most-litigated Google dependency in Europe and can retire your cookie banner altogether. Everything else on this page can wait.</p>
+        <div class="cta-box__buttons">
+          <a href="/google-analytics-alternatives.html" class="btn btn-primary btn-sm">Compare analytics options</a>
+          <a href="/do-i-need-a-cookie-banner.html" class="btn btn-secondary btn-sm">Do I still need a banner?</a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">What is the European alternative to Google Search?</summary>
+          <div class="faq-a"><p>Qwant (France) and Ecosia (Germany) are the best known, and Mojeek (UK) is notable for running its own independent index rather than reselling results. Most European search engines license results from Bing or Google rather than crawling the web themselves, which is a meaningful distinction if independence is the reason you are switching.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is there a European alternative to Google Analytics?</summary>
+          <div class="faq-a"><p>Yes, and this is the strongest category. Plausible is Estonian and EU-hosted, Matomo is open source with EU-hosted cloud and a self-hosted option. Both can run without cookies, which removes the analytics consent requirement entirely rather than just relocating the data.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Does Google Fonts violate GDPR?</summary>
+          <div class="faq-a"><p>Loading Google Fonts from Google's servers transmits each visitor's IP address to Google without consent. A Munich regional court awarded damages over exactly this in 2022 and it triggered a wave of copycat claims in Germany. The fix is trivial and improves performance: download the font files and self-host them.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is there a European alternative to Google Ads?</summary>
+          <div class="faq-a"><p>Not at comparable scale, and pretending otherwise is unhelpful. No European advertising network offers the reach, targeting or intent data of Google Ads. Businesses that leave usually shift budget to other channels — direct, content, email, trade media — rather than to a European equivalent.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What can replace Google Maps on my website?</summary>
+          <div class="faq-a"><p>MapTiler (Switzerland), Geoapify (Germany) and HERE (Netherlands) all offer mapping APIs built largely on OpenStreetMap data. For a simple store locator, a static map image or a plain link to directions removes the third-party script entirely, which is usually the better answer for a small site.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is DeepL better than Google Translate?</summary>
+          <div class="faq-a"><p>For European language pairs, DeepL is widely considered more accurate and more natural, particularly for German, French and Dutch. It is headquartered in Cologne, Germany, which makes it one of the few cases where the European alternative is also the better product rather than a compromise.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I keep Google Analytics and stay compliant?</summary>
+          <div class="faq-a"><p>Yes. You need consent before it loads, <a href="/google-consent-mode-v2.html">Google Consent Mode v2</a> configured for EEA visitors, a data processing agreement with Google, and disclosure of the US transfer in your privacy policy. That is more moving parts than switching to a cookie-free tool, which is why we usually recommend switching.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/european-tech-alternatives.html">European tech alternatives: the full guide<span>The jurisdictional framework behind these choices</span></a>
+        <a href="/google-analytics-alternatives.html">Google Analytics alternatives<span>The deep comparison on the highest-value switch</span></a>
+        <a href="/google-consent-mode-v2.html">Google Consent Mode v2<span>What you need if you are staying with Google</span></a>
+        <a href="/european-workspace-alternatives.html">European alternatives to Microsoft 365 and Google Workspace<span>Gmail, Docs and Drive in depth</span></a>
+        <a href="/wordpress-gdpr-compliance.html">WordPress GDPR compliance<span>Where Google Fonts and embeds hide on WordPress</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Fix what visitors trigger first</h2>
+      <p class="section__intro">Fonts, analytics, maps and reCAPTCHA fire on page load for every visitor. Internal tools can wait — those four are what a regulator can see.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/best-cookie-consent-tools-2026.html" class="btn btn-primary">Compare consent tools</a>
+        <a href="/european-tech-alternatives.html" class="btn btn-secondary">Back to the overview</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

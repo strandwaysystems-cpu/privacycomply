@@ -1,0 +1,341 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://privacycomply.io/"},
+    {"@type":"ListItem","position":2,"name":"European Tech Alternatives","item":"https://privacycomply.io/european-tech-alternatives.html"},
+    {"@type":"ListItem","position":3,"name":"European Cloud Alternatives","item":"https://privacycomply.io/european-cloud-alternatives.html"}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "European Cloud Alternatives to AWS, Azure and Google Cloud (2026)",
+  "description": "Hetzner, OVHcloud, Scaleway, IONOS and UpCloud compared on jurisdiction, price and managed services — plus an honest account of the feature gap you will hit.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"},
+  "publisher": {"@type":"Organization","name":"PrivacyComply","url":"https://privacycomply.io/"}
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "European cloud providers 2026",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Hetzner"},
+    {"@type":"ListItem","position":2,"name":"OVHcloud"},
+    {"@type":"ListItem","position":3,"name":"Scaleway"},
+    {"@type":"ListItem","position":4,"name":"IONOS"},
+    {"@type":"ListItem","position":5,"name":"UpCloud"}
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best European alternative to AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single answer because the three leaders optimise for different things. Hetzner wins decisively on price and raw compute value. OVHcloud is the closest European equivalent to a full hyperscaler in scale and certifications. Scaleway has the strongest developer experience and the best AI and GPU offering. For most small businesses moving a web application, Hetzner is the default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AWS European Sovereign Cloud actually sovereign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is operationally separated and staffed by EU residents, with its first region in Brandenburg generally available in January 2026. It is not jurisdictionally separate — the operating entity remains within a US-headquartered corporate group, so US extraterritorial law such as the CLOUD Act still reaches it in principle. It is a genuine improvement in data residency and operational control rather than a change of jurisdiction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Hetzner cheaper than AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Substantially, for equivalent raw compute. Hetzner's pricing for virtual machines and dedicated servers is a fraction of comparable AWS instances, and it does not charge the egress fees that dominate many AWS bills. The saving narrows once you account for managed services you would have to run yourself, which is the real cost of the migration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you lose moving from AWS to a European provider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed service breadth, mostly. AWS offers hundreds of managed services; European providers offer dozens. If you depend on serverless functions, managed event streaming, a specific managed database engine or a mature IAM model, you will be running those yourself or redesigning around them. Global edge footprint outside Europe is also thinner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Exoscale a European provider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exoscale is headquartered in Switzerland and owned by the Austrian A1 Telekom group, so it is European-owned but not EU-headquartered. Switzerland holds an EU adequacy decision, so transfers to it need no additional mechanism. For most purposes it behaves like an EU provider, but it should be described accurately in a transfer record."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to leave AWS to be GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. AWS is certified under the EU-US Data Privacy Framework and offers EU regions and a data processing addendum, which makes the transfer lawful today. Moving to a European provider reduces your dependence on that adequacy decision surviving future legal challenge. It is a risk-management decision, not a compliance requirement."
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="European Cloud Alternatives to AWS, Azure & Google Cloud (2026) | PrivacyComply"
+  description="Hetzner, OVHcloud, Scaleway, IONOS and UpCloud compared on jurisdiction, price and managed services — with an honest account of the feature gap you will hit."
+  canonical="/european-cloud-alternatives.html"
+  ogType="article"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="article-hero">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a><span>&#8250;</span> <a href="/european-tech-alternatives.html">European Alternatives</a><span>&#8250;</span> Cloud</p>
+      <h1>European Cloud Alternatives to AWS, Azure and Google Cloud</h1>
+      <p class="hero__sub">The infrastructure switch is the one with the strongest sovereignty argument and the highest migration cost. Here is who the credible providers are, and the feature gap nobody puts in the comparison table.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="container container--narrow">
+
+      <div class="answer-box">
+        <p><strong>Three European providers are credible replacements for hyperscaler compute:</strong> <strong>Hetzner</strong> (Germany) for price-performance, <strong>OVHcloud</strong> (France) for scale and certifications, and <strong>Scaleway</strong> (France) for developer experience and GPUs. <strong>IONOS</strong> (Germany) and <strong>UpCloud</strong> (Finland) round out the field.</p>
+        <p>All are EU-headquartered and EU-owned, which puts them outside CLOUD Act reach — the actual point of the exercise.</p>
+        <p><strong>The catch is managed services.</strong> You are trading hundreds of AWS managed services for dozens. If your architecture leans on serverless, managed streaming or a specific database engine, budget for running it yourself.</p>
+      </div>
+
+      <div class="toc">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#why">Why infrastructure is the hard case</a></li>
+          <li><a href="#sovereign-clouds">What the hyperscalers' "sovereign" offerings are</a></li>
+          <li><a href="#comparison">The providers compared</a></li>
+          <li><a href="#picks">The providers in detail</a></li>
+          <li><a href="#gap">The feature gap, honestly</a></li>
+          <li><a href="#who">Who should actually move</a></li>
+          <li><a href="#migrate">How to migrate without breaking things</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="why">Why infrastructure is the hard case</h2>
+      <p>Every other category in our <a href="/european-tech-alternatives.html">European alternatives guide</a> is a swap. Infrastructure is a rebuild.</p>
+      <p>Analytics takes an afternoon because the product is one script tag and some dashboards. Cloud infrastructure is different: your deployment pipeline, your monitoring, your IAM model, your database backups and quite possibly your application code all encode assumptions about the provider. The sovereignty gain is the largest of any category, and so is the bill.</p>
+      <p>That asymmetry should drive the decision. Move infrastructure when you are already changing something — a rewrite, a cost crisis, a contract renewal — rather than as a standalone compliance project.</p>
+
+      <h2 id="sovereign-clouds">What the hyperscalers' "sovereign" offerings are</h2>
+      <p>Before comparing European providers, it is worth being precise about what the incumbents now offer, because the branding invites confusion.</p>
+      <ul>
+        <li><strong>AWS European Sovereign Cloud.</strong> A physically and operationally separate cloud, first region in Brandenburg, generally available January 2026, with a stated €7.8 billion investment. Operated by EU-resident staff under EU-controlled entities.</li>
+        <li><strong>Microsoft EU Data Boundary.</strong> Completed February 2025. Keeps customer data, including pseudonymised personal data and support data, within EU and EFTA regions.</li>
+        <li><strong>Google Cloud sovereign offerings.</strong> A range from data residency controls through to partner-operated sovereign clouds run by local companies.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <strong>These solve residency and operational control. They do not change jurisdiction.</strong> The operating entities sit within US-headquartered corporate groups, so the CLOUD Act question survives the engineering. Whether that residual risk matters depends entirely on what data you hold — for most businesses it is theoretical, for a health record or a legal case file it may not be.
+      </div>
+      <p>If your concern is "EU citizens' data should stay in the EU", the hyperscaler offerings genuinely answer it. If your concern is "no US authority should be able to compel access", only a European-owned provider does.</p>
+
+      <h2 id="comparison">The providers compared</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Provider</th><th>HQ</th><th>Strongest at</th><th>Managed services</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            <tr class="pick">
+              <td class="tool-name">Hetzner</td>
+              <td>Germany</td>
+              <td class="check">Price-performance</td>
+              <td>Basic</td>
+              <td>Web apps, SMBs, anyone cost-driven</td>
+            </tr>
+            <tr>
+              <td class="tool-name">OVHcloud</td>
+              <td>France</td>
+              <td class="check">Scale &amp; certifications</td>
+              <td>Broad</td>
+              <td>Regulated sectors, enterprise</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Scaleway</td>
+              <td>France</td>
+              <td class="check">Developer experience, GPUs</td>
+              <td>Good</td>
+              <td>Startups, AI workloads</td>
+            </tr>
+            <tr>
+              <td class="tool-name">IONOS</td>
+              <td>Germany</td>
+              <td>SME packaging</td>
+              <td>Moderate</td>
+              <td>Businesses wanting hosting and workplace together</td>
+            </tr>
+            <tr>
+              <td class="tool-name">UpCloud</td>
+              <td>Finland</td>
+              <td>Storage performance</td>
+              <td>Basic</td>
+              <td>Database-heavy, latency-sensitive apps</td>
+            </tr>
+            <tr>
+              <td class="tool-name">Exoscale</td>
+              <td>Switzerland<sup>*</sup></td>
+              <td>Compliance tooling</td>
+              <td>Moderate</td>
+              <td>Swiss and DACH regulated workloads</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><sup>*</sup> Swiss-headquartered and Austrian-owned, so European but not EU. Switzerland holds an adequacy decision, so transfers need no extra mechanism — just describe it accurately in your records.</p>
+
+      <h2 id="picks">The providers in detail</h2>
+
+      <h3>Hetzner — the default for most small businesses</h3>
+      <p>Hetzner is the price-performance leader by a wide margin, and it is not close. Cloud instances and dedicated servers cost a fraction of equivalent hyperscaler capacity, and there is no punitive egress billing — which for many workloads is the line item that actually hurts on an AWS invoice.</p>
+      <p>What you get is solid, unglamorous infrastructure: VMs, dedicated servers, block and object storage, load balancers, managed Kubernetes, private networking. What you do not get is a managed service catalogue. You will run your own database, your own queue, your own everything.</p>
+      <p>For a web application, an API backend or a container workload, that is a perfectly reasonable trade and the savings are dramatic. For a serverless-first architecture it is a rewrite.</p>
+
+      <h3>OVHcloud — the closest thing to a European hyperscaler</h3>
+      <p>OVHcloud is the largest European provider by scale, with its own data centres, its own hardware and a genuinely broad catalogue: compute, managed databases, Kubernetes, object storage, bare metal, private cloud and hosted VMware.</p>
+      <p>It is also the one with the certification portfolio that regulated buyers ask for, and it participates in the sovereign cloud initiatives European public sector procurement now runs. If you need to answer a security questionnaire from a large customer, OVHcloud gives you the most material to work with.</p>
+      <p>The trade-off is that it is more expensive than Hetzner and the console and documentation are widely considered rougher than Scaleway's.</p>
+
+      <h3>Scaleway — the developer-experience pick</h3>
+      <p>Scaleway, owned by the French Iliad group, has invested heavily in the things engineers notice: a clean console, a coherent API, good Terraform support, serverless containers and functions, and a managed database line-up.</p>
+      <p>It is also the strongest European option for AI and GPU workloads, with dedicated GPU instances and inference offerings — the gap that used to send European AI teams straight to a US provider. Scaleway won part of a €180 million EU sovereign cloud tender in April 2026, which says something about how public buyers rate it.</p>
+
+      <h3>IONOS — bundled with the rest of your stack</h3>
+      <p>IONOS, part of Germany's United Internet, sells cloud infrastructure alongside domains, hosting and workplace tooling. It has also partnered with Nextcloud to offer a sovereign Microsoft 365 alternative, which makes it interesting if you want infrastructure and office suite from one European vendor.</p>
+      <p>As pure infrastructure it is competent rather than exciting. As a single-vendor European stack for a mid-sized business it is one of the few coherent answers.</p>
+
+      <h3>UpCloud — performance in a small package</h3>
+      <p>Finland's UpCloud has built its reputation on storage I/O performance, which matters more than people expect for database-bound applications. The catalogue is narrow and the company is small, but for a latency-sensitive workload that needs fast disks and EU jurisdiction it is a strong fit.</p>
+
+      <h2 id="gap">The feature gap, honestly</h2>
+      <p>Comparison posts tend to skip this. It is the part that determines whether your migration succeeds.</p>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>What you rely on</th><th>European equivalent</th><th>Reality</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Virtual machines, block storage</td><td>All providers</td><td class="check">Full parity, often cheaper</td></tr>
+            <tr><td>Object storage (S3 API)</td><td>All providers</td><td class="check">S3-compatible, works with existing tooling</td></tr>
+            <tr><td>Managed Kubernetes</td><td>Hetzner, OVHcloud, Scaleway, IONOS</td><td class="check">Solid</td></tr>
+            <tr><td>Managed relational database</td><td>OVHcloud, Scaleway, IONOS</td><td>Fewer engines and versions</td></tr>
+            <tr><td>Serverless functions</td><td>Scaleway</td><td>Workable, smaller ecosystem</td></tr>
+            <tr><td>Managed event streaming</td><td>Limited</td><td class="cross">Usually self-hosted</td></tr>
+            <tr><td>Fine-grained IAM</td><td>Varies</td><td class="cross">Noticeably less mature than AWS</td></tr>
+            <tr><td>Global edge outside Europe</td><td>Thin</td><td class="cross">Pair with a CDN such as Bunny (Slovenia)</td></tr>
+            <tr><td>Proprietary managed services</td><td>None</td><td class="cross">Redesign required</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout--info">
+        <strong>The practical test:</strong> list every AWS service in your account that is not EC2, S3, RDS or EKS. That list is your migration project. If it is short, the move is a weekend. If it includes Lambda, Kinesis, DynamoDB or Cognito, it is a quarter.
+      </div>
+
+      <h2 id="who">Who should actually move</h2>
+      <p><strong>Good candidates:</strong></p>
+      <ul>
+        <li>Standard web applications on VMs or containers — the migration is mostly mechanical and the savings are immediate</li>
+        <li>Businesses whose customers ask sovereignty questions in procurement, where it becomes a sales asset rather than a cost</li>
+        <li>Anyone whose hyperscaler bill is dominated by compute and egress rather than managed services</li>
+        <li>Public sector suppliers and regulated sectors, where the requirement may not be optional</li>
+        <li>New projects — building European from day one costs nothing extra</li>
+      </ul>
+      <p><strong>Poor candidates:</strong></p>
+      <ul>
+        <li>Serverless-native architectures, where the rewrite dwarfs any benefit</li>
+        <li>Teams with no platform engineering capacity to run what was previously managed</li>
+        <li>Businesses with genuinely global users needing low latency outside Europe</li>
+        <li>Anyone whose remaining compliance gaps are in consent and documentation rather than infrastructure — fix those first, they are what gets <a href="/gdpr-fines-and-penalties.html">enforced</a></li>
+      </ul>
+
+      <h2 id="migrate">How to migrate without breaking things</h2>
+      <ol class="steps">
+        <li><strong>Inventory your service dependencies</strong> Not just servers — every managed service, every IAM role, every proprietary API. This list is the actual scope, and it is always longer than expected.</li>
+        <li><strong>Move stateless workloads first</strong> Web servers, workers, API nodes. They are easy to run in parallel and easy to roll back.</li>
+        <li><strong>Move object storage next</strong> The S3-compatible APIs mean tooling mostly works unchanged. Sync, verify, then cut over reads.</li>
+        <li><strong>Plan databases carefully</strong> This is where downtime comes from. Replicate, verify, and rehearse the cutover before you do it for real.</li>
+        <li><strong>Replace managed services deliberately</strong> One at a time, with monitoring in place. Self-hosting a queue is fine; self-hosting a queue you have never operated during a migration weekend is not.</li>
+        <li><strong>Update your records</strong> New sub-processor, new location, new DPA. Your privacy policy and Article 30 record both need to reflect the change — and this is the step everyone forgets.</li>
+      </ol>
+      <div class="callout callout--success">
+        <strong>Do not forget the paperwork.</strong> Changing infrastructure provider changes your processor. That means a new data processing agreement, an updated privacy policy naming the new provider, and an updated record of processing. If you are using a <a href="/best-privacy-policy-generators.html">policy generator</a>, update the declared services there too.
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">What is the best European alternative to AWS?</summary>
+          <div class="faq-a"><p>There is no single answer because the three leaders optimise for different things. Hetzner wins decisively on price and raw compute value. OVHcloud is the closest European equivalent to a full hyperscaler in scale and certifications. Scaleway has the strongest developer experience and the best AI and GPU offering. For most small businesses moving a web application, Hetzner is the default.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is AWS European Sovereign Cloud actually sovereign?</summary>
+          <div class="faq-a"><p>It is operationally separated and staffed by EU residents, with its first region in Brandenburg generally available in January 2026. It is not jurisdictionally separate — the operating entity remains within a US-headquartered corporate group, so US extraterritorial law such as the CLOUD Act still reaches it in principle. It is a genuine improvement in data residency and operational control rather than a change of jurisdiction.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Hetzner cheaper than AWS?</summary>
+          <div class="faq-a"><p>Substantially, for equivalent raw compute. Hetzner's pricing for virtual machines and dedicated servers is a fraction of comparable AWS instances, and it does not charge the egress fees that dominate many AWS bills. The saving narrows once you account for managed services you would have to run yourself, which is the real cost of the migration.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What do you lose moving from AWS to a European provider?</summary>
+          <div class="faq-a"><p>Managed service breadth, mostly. AWS offers hundreds of managed services; European providers offer dozens. If you depend on serverless functions, managed event streaming, a specific managed database engine or a mature IAM model, you will be running those yourself or redesigning around them. Global edge footprint outside Europe is also thinner.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is Exoscale a European provider?</summary>
+          <div class="faq-a"><p>Exoscale is headquartered in Switzerland and owned by the Austrian A1 Telekom group, so it is European-owned but not EU-headquartered. Switzerland holds an EU adequacy decision, so transfers to it need no additional mechanism. For most purposes it behaves like an EU provider, but it should be described accurately in a transfer record.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need to leave AWS to be GDPR compliant?</summary>
+          <div class="faq-a"><p>No. AWS is certified under the EU-US Data Privacy Framework and offers EU regions and a data processing addendum, which makes the transfer lawful today. Moving to a European provider reduces your dependence on that adequacy decision surviving future legal challenge. It is a risk-management decision, not a compliance requirement.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What about a European CDN?</summary>
+          <div class="faq-a"><p>Bunny.net is Slovenian and the most commonly used European CDN, with a global edge network and pricing well below the incumbents. It is a straightforward swap for Cloudflare or CloudFront in front of a European origin, and it pairs well with providers whose own edge presence outside Europe is thin.</p></div>
+        </details>
+      </div>
+
+      <h2>Related reading</h2>
+      <div class="related-links">
+        <a href="/european-tech-alternatives.html">European tech alternatives: the full guide<span>The framework this page sits inside</span></a>
+        <a href="/european-workspace-alternatives.html">European alternatives to Microsoft 365 and Google Workspace<span>The other half of a sovereign stack</span></a>
+        <a href="/european-alternatives-to-google.html">European alternatives to Google, service by service<span>Including Google Cloud</span></a>
+        <a href="/gdpr-for-us-companies.html">Does GDPR apply to US companies?<span>The transfer question from the American side</span></a>
+        <a href="/website-launch-checklist.html">Website launch checklist<span>Getting the compliance basics right first</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="section__eyebrow">Next step</span>
+      <h2 class="section__title">Infrastructure is rarely the first move</h2>
+      <p class="section__intro">If you have not yet switched analytics or consent tooling, those are days of work against months for a cloud migration — and they remove more enforcement risk.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/european-tech-alternatives.html" class="btn btn-primary">Start with the overview</a>
+        <a href="/google-analytics-alternatives.html" class="btn btn-secondary">Google Analytics alternatives</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
