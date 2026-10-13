@@ -214,21 +214,26 @@ p  { margin-bottom: 1em; }
 .card a.card__link { color: var(--accent-deep); font-weight: 600; }
 
 /* ============ COMPARISON TABLE ============ */
-.comparison-wrap { overflow-x: auto; margin: 24px 0 32px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-.comparison-table {
+.comparison-wrap, .table-wrap { overflow-x: auto; margin: 24px 0 32px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.comparison-table,
+.table-wrap > table {
   width: 100%; border-collapse: collapse; background: white;
   min-width: 640px;
 }
-.comparison-table th, .comparison-table td {
+.comparison-table th, .comparison-table td,
+.table-wrap > table th, .table-wrap > table td {
   padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border);
   font-size: 0.95rem;
 }
-.comparison-table th {
+.comparison-table th,
+.table-wrap > table th {
   background: var(--navy); color: white; font-weight: 600;
   position: sticky; top: 0;
 }
-.comparison-table tr:hover { background: var(--paper); }
-.comparison-table .tool-name { font-weight: 700; color: var(--navy); }
+.comparison-table tr:hover,
+.table-wrap > table tr:hover { background: var(--paper); }
+.comparison-table .tool-name,
+.table-wrap > table strong { font-weight: 700; color: var(--navy); }
 .comparison-table .check { color: var(--accent-deep); font-weight: 700; }
 .comparison-table .cross { color: var(--rose); }
 .comparison-table .pick { background: rgba(22,163,74,0.06); }
