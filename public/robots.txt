@@ -1,4 +1,48 @@
+# PrivacyComply.io — robots.txt
+# Default: everything is crawlable.
+
 User-agent: *
+Allow: /
+
+# AI crawlers and answer engines are explicitly welcome.
+# Named groups rather than relying on the wildcard above: some of these
+# crawlers look for their own user-agent group first, and Bing's index
+# feeds ChatGPT and Copilot answers.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://privacycomply.io/sitemap.xml
